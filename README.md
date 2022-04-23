@@ -2,7 +2,7 @@
   <img src="assets/images/Comma.png" width="350" align="center"/>
 </p><br>
 
-Sistema di autenticazione PHP di facile integrazione e sicurezza elevata con login, registrazione, profili utente, modifica profilo, verifica dell'account via e-mail, sistema di reimpostazione della password, disconnessione automatica in caso di inattività, variabile di stato e di errore globali, controlli di autenticazione.
+Sistema di qualquadrachenoncosa PHP di facile integrazione e sicurezza elevata con login, registrazione, profili utente, modifica profilo, verifica dell'account via e-mail, sistema di reimpostazione della password, disconnessione automatica in caso di inattività, variabile di stato e di errore globali, controlli di autenticazione.
 
 
 

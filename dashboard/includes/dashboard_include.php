@@ -18,7 +18,7 @@ function fill_NC_table()
         die("Connection failed: " . $conn->connect_error);
     }
 
-    try {
+    try {/*
         if (isset($_POST['search_button']) && !empty($_POST['search_field'])) {
             //filtro sulla ricerca applicato
             $sql = '
@@ -31,7 +31,6 @@ function fill_NC_table()
                 on nci.Numero = ri.NC
             ';
         }
-
         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
         if ($result) {
@@ -45,8 +44,8 @@ function fill_NC_table()
                 echo "</tr>";
             }
             die;
-        }
+        }*/
     } catch (mysqli_sql_exception $e) {
-        throw $e;
+        throw '<span class="text-light"> . $e .</span>';
     }
 }

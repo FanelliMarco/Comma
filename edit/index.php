@@ -15,7 +15,7 @@ include "./includes/edit_include.php";
         <form class="h4 text-light text-align-start text-uppercase" action="./includes/edit_include.php" method="post">
             <!-- Per ogni riga -->
             <!-- Riga Numero -->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
@@ -30,7 +30,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga data -->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">data:</span></div>
                 <!-- Colonna di destra -->
@@ -40,7 +40,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga stato-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">stato:</span></div>
                 <!-- Colonna di destra -->
@@ -63,17 +63,23 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga priorità-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">priorità:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
+                    <div class="input-group">
+                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="" required>
+                            <option selected valuie="bassa" class="text-dark">bassa</option>
+                            <option value="media" class="text-dark">media</option>
+                            <option value="alta" class="text-dark">alta</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
             <!-- Riga origine-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">origine:</span></div>
                 <!-- Colonna di destra -->
@@ -83,7 +89,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga descrizione-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">descrizione:</span></div>
                 <!-- Colonna di destra -->
@@ -93,7 +99,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga semilavorato-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">semilavorato:</span></div>
                 <!-- Colonna di destra -->
@@ -103,7 +109,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga segnalatore-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">segnalatore:</span></div>
                 <!-- Colonna di destra -->
@@ -113,7 +119,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga risolutore-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">risolutore:</span></div>
                 <!-- Colonna di destra -->
@@ -123,7 +129,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga verificatore-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">verificatore:</span></div>
                 <!-- Colonna di destra -->
@@ -133,7 +139,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga verificatore-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">verificatore:</span></div>
                 <!-- Colonna di destra -->
@@ -143,7 +149,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga azioni correttive-->
-            <div class="row align-items-center justify-content-center pb-3">
+            <div class="row align-items-center justify-content-center pb-4">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->

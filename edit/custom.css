@@ -1,21 +1,3 @@
-body {
-    background-color: #041F4F;
-}
-
-input {
-    height: 50px;
-}
-
-button {
-    height: 50px;
-}
-
-.page_subtitle {
-    font-size: 60px;
-}
-
-@media only screen and (max-width: 992px) {
-    .page_subtitle {
-        font-size: 30px;
-    }
+.navbar{
+    background-color: #041F4F !important;
 }

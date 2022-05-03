@@ -46,6 +46,15 @@ a:active {
     text-decoration: none;
 }
 
+.page_subtitle {
+    font-size: 60px;
+}
+
+@media only screen and (max-width: 992px) {
+    .page_subtitle {
+        font-size: 30px;
+    }
+}
 
 /* --------------Dashboard---------------------- */
 /* --------------Edit---------------------- */

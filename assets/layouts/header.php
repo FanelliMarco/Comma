@@ -34,7 +34,7 @@ require '../assets/includes/security_functions.php';
     <script src="./script.js"></script>
 </head>
 
-<body>
+<body style="background-color:#041F4F;">
 
     <!-- require navbar -->
 

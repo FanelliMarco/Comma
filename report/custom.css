@@ -1,0 +1,15 @@
+body {
+    background-color: #041F4F;
+}
+
+i {
+    color: white;
+}
+
+.page_subtitle {
+    font-size: 60px;
+}
+
+.form_control_descrizione{
+    height: 240px;
+}

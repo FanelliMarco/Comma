@@ -36,7 +36,7 @@ Si occupa della gestione e della risoluzione delle non conformità.
 La presa in carico di un problema e quindi la decisione di azioni correttive.
 ## Requisiti
 ### Documentazione
- - [Storyboard](https://www.figma.com/file/9bqYqbln5STAhcT0qkxyXz/storyboard-(Copy)?node-id=0%3A1)
+ - [Storyboard](https://www.figma.com/file/yWIW5gWp5eheBposYQcpyd/storyboard?node-id=0%3A1)
  - [Schema ER](https://github.com/pcto5ID/Comma/blob/main/assets/documentation/schema_E-R_NC_ristrutturato.png)
  - [Gantt](https://github.com/pcto5ID/Comma/blob/main/assets/documentation/GANTT_PCTO.pdf)
  - [WBS](https://github.com/pcto5ID/Comma/blob/main/assets/documentation/WBS.png)
@@ -74,10 +74,7 @@ In ciascuna cartella di pagina, il file `index.php` è la pagina principale, la 
 | `assets/css`                  | Cartelle per i file CSS personalizzati globali o specifici per il layout. |
 | `assets/images`               | Le immagini utilizzate nell'interfaccia utente dell'applicazione o nel file README di git. |
 | `assets/includes`             | Funzioni o classi. |
-| `assets/js`                   | Custom javascript files. |
 | `assets/setup`                | File di configurazione e di setup del progetto. |
-| `assets/uploads`              | Cartella per tutti i contenuti caricati dagli utenti dell'applicazione. |
-| `assets/uploads/users`        | Immagini caricate dagli utenti. |
 | `assets/vendor`               | Cartella per tutti i plugin / risorse. |
 | `assets/documentation`               | Cartella per tutta la documentazione inerente al progetto |
 
@@ -98,10 +95,11 @@ Il sistema è già stato realizzato con la struttura di file di applicazione PHP
 - HTML5
 - CSS3
 ### Ambiente di Sviluppo
+- Apache
+- Ubuntu
 ### Risorse Esterne/Plugins
 - Bootstrap-4.3.1
 ## Sicurezza
-da finire
 ### SQL Injection Protection
 da finire
 ### Login

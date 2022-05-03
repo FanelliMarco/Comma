@@ -1,26 +1,49 @@
-html,
-body {
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
+#left_col {
+    background-color: #0C4B8E;
 }
 
-.centered-axis-x {
-    position: absolute;
-    left: 25%;
+#right_col {
+    background-color: #041F4F;
+}
+
+button {    
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+.form_login {
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo_image {
+    left: 50%;
     top: 3%;
     transform: translate(-50%, 0);
 }
 
-@media only screen and (max-width: 992px) {
+.login_welcome {
+    font-size: 60px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login_title {
+    font-size: 60px;
+    left: 50%;
+    top: 3%;
+    transform: translate(-50%, 0%);
+}
+
+.form_control_font {
+    font-size: 2rem;
+}
+
+/*@media only screen and (max-width: 992px) {
     .centered-axis-x {
         transform: translate(25%, 0);
     }
-}
-
-#left_col{
-    background-color: #0C4B8E;
-}
-#right_col{
-    background-color: #041F4F;
-}
+}*/

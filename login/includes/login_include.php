@@ -1,8 +1,8 @@
 <?php
     if(isset($_POST['sub'])){
         require_once "../../assets/setup/connessionedb.php";
-        include "../../assets/includes/security_functions.php";
-        include "../../assets/includes/query_include.php";
+        require "../../assets/includes/security_functions.php";
+        require "../../assets/includes/query_include.php";
 
         //Controla se i campi sono vuoti
         if(empty($_POST['user']) || empty($_POST['pw'])){

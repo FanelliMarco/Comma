@@ -29,5 +29,5 @@
     <!-- require navbar -->
 
 <?php
-    require"../assets/layouts/navbar.php";
+    require "../assets/layouts/navbar.php";
 ?>

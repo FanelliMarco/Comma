@@ -25,13 +25,30 @@
 
             $stmt->execute();
             
-            $res=$stmt->get_result();
+            //Variabile contente il possibile impiegato
+            $res_e=$stmt->get_result();
 
-            //Controlla se l'utente è presente nel database
+            //Controlla se l'impiegato è presente nel database, se non è presente controlla che potrebbe essere un cliente
             if(!$res){
-                $_SESSION['error']='Utente o password errati';
-                header("Location: ../");
-                exit();
+                $stmt=$conn->prepare($search_user_client);
+                $stmt->bind_param("ss", $user, $pw);
+                $stmt->execute();
+                $res_c=$stmt->get_result();
+
+                //Controlla il caso in cui ci sia un cliente che deve accedere
+                if(!$res_C){
+                    $_SESSION['error']='Utente o password errati';
+                    header("Location: ../");
+                    exit();
+                }
+                else{
+                    $row=$res->fetch_assoc();
+                    session_start();
+                    $_SESSION['logged']=true;
+                    $_SESSION['user']=$user;
+                    header("Location: ../../management");
+                    exit();
+                }
             }
             else{
                 $row=$res->fetch_assoc();
@@ -43,5 +60,5 @@
             }
         }
     }
-    ?>
+?>
 

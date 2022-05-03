@@ -1,6 +1,7 @@
 <?php
 define("TITLE", "Comma - Login");
 include "../assets/layouts/header.php";
+include "../assets/includes/nc_table.php";
 include "./includes/dashboard_include.php";
 ?>
 

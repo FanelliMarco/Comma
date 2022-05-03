@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../assets/vendor/fontawesome-5.12.0/css/all.min.css">
  
     <!-- Custom styles -->
-    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="custom.css" >
 </head>
 <body>

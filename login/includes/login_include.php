@@ -30,7 +30,7 @@
     if(!$res){
         //echo $conn->error;
         //echo "Login fallito";
-        $_SESSION['error']='Utente non presente';
+        $_SESSION['error']='Utente o password errati';
         header("Location: ../");
         exit();
     }

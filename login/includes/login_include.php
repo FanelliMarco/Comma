@@ -1,5 +1,5 @@
 <?php
-    include "../../assets/setup/connessionedb.php";
+    require "../../assets/setup/connessionedb.php";
     include "../../assets/includes/security_functions.php";
     include "../../assets/includes/query_include.php";
 

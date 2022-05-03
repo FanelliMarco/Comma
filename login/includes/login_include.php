@@ -37,6 +37,8 @@
     else{
         //echo $conn->error;
         //echo "Login fallito";
+        $_SESSION['error']='Utente non presente';
         header("Location: ../");
+        exit();
     }
 ?>

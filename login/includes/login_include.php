@@ -30,9 +30,9 @@
                 //Variabile contente il possibile impiegato
                 $res_e=$stmt->get_result();
 
-                //Controlla se l'impiegato è presente nel database, se non è presente controlla che potrebbe essere un cliente
+                /*//Controlla se l'impiegato è presente nel database, se non è presente controlla che potrebbe essere un Addetto al controllo qualita'
                 if(!$res_e){
-                    $stmt=$conn->prepare($search_user_client);
+                    $stmt=$conn->prepare($search_user_qc_officer);
                     $stmt->bind_param("ss", $user, $pw);
                     $stmt->execute();
                     $res_c=$stmt->get_result();
@@ -59,7 +59,7 @@
                     $_SESSION['user']=$user;
                     header("Location: ../../management");
                     exit();
-                }
+                }*/
             }
         }
     }

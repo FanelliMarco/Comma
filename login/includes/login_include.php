@@ -35,6 +35,6 @@
     }
     else{
         //echo "Qualcosa fallito";
-        header("Location: ../");
+        //header("Location: ../");
     }
 ?>

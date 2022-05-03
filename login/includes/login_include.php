@@ -44,7 +44,7 @@
                         exit();
                     }
                     else{
-                        $row=$res->fetch_assoc();
+                        $row=$res_c->fetch_assoc();
                         session_start();
                         $_SESSION['logged']=true;
                         $_SESSION['user']=$user;
@@ -53,7 +53,7 @@
                     }
                 }
                 else{
-                    $row=$res->fetch_assoc();
+                    $row=$res_e->fetch_assoc();
                     session_start();
                     $_SESSION['logged']=true;
                     $_SESSION['user']=$user;

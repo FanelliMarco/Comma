@@ -17,7 +17,7 @@
             if(strpos($vietate[$i], $test)!==false) $wordOk=false;
         }
 
-        return $charOk && $wordOk;
+        return !($charOk && $wordOk);
     }
     function generate_csrf_token() {}
     function insert_csrf_token() {}

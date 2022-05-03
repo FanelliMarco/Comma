@@ -4,7 +4,7 @@
     include "../../assets/includes/query_include.php";
 
     if(isset($_POST['sub']) && !empty($_POST['user']) && !empty($_POST['pw'])){
-        if(controllaCaratteriAmmessi($_POST['user']) && controllaParoleVietate($_POST['user']) && controllaParoleVietate($_POST['pw']) && controllaCaratteriAmmessi($_POST['pw'])){
+        if(_cleaninjections($_POST['user']) && _cleaninjections($_POST['pw'])){
             $user=htmlspecialchars($_POST['user']);
             $pw=hash("sha256", htmlspecialchars($_POST['pw']));
 
@@ -35,6 +35,6 @@
     }
     else{
         //echo "Qualcosa fallito";
-        //header("Location: ../");
+        header("Location: ../");
     }
 ?>

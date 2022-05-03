@@ -27,18 +27,18 @@
     
     $res=$stmt->get_result();
 
-    if($res){
-        $row=$res->fetch_assoc();
-        session_start();
-        $_SESSION['logged']=true;
-        $_SESSION['user']=$user;
-        header("Location: ../../management");
-    }
-    else{
+    if(!$res){
         //echo $conn->error;
         //echo "Login fallito";
         $_SESSION['error']='Utente non presente';
         header("Location: ../");
         exit();
     }
+    
+    $row=$res->fetch_assoc();
+    session_start();
+    $_SESSION['logged']=true;
+    $_SESSION['user']=$user;
+    header("Location: ../../management");
+    exit();
 ?>

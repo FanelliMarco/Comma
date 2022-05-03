@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if(isset($_POST['sub'])){
         require_once "../../assets/setup/connessionedb.php";
         require "../../assets/includes/security_functions.php";

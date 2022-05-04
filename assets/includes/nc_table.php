@@ -31,7 +31,6 @@ function fill_NC_table()
         }
     } catch (mysqli_sql_exception $e) {
         throw '<span class="text-light"> . $e .</span>';
+    }
 }
-
-class NC_table
 ?>

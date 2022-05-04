@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 02, 2022 alle 22:10
--- Versione del server: 10.4.24-MariaDB
--- Versione PHP: 7.4.29
+-- Creato il: Mag 04, 2022 alle 17:59
+-- Versione del server: 10.4.21-MariaDB
+-- Versione PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,9 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `pcto`
 --
-
-create schema pcto;
-use pcto;
 
 -- --------------------------------------------------------
 
@@ -475,6 +472,42 @@ CREATE TABLE `verifica_output` (
   `Data_inizio` date DEFAULT NULL,
   `Data_fine` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura stand-in per le viste `vi_riepilogo`
+-- (Vedi sotto per la vista effettiva)
+--
+CREATE TABLE `vi_riepilogo` (
+`numero` int(11)
+,`stato` varchar(50)
+,`priorita` varchar(50)
+,`origine` varchar(50)
+,`descrizione` varchar(255)
+,`decisioni` varchar(255)
+,`az_corr` varchar(255)
+,`gestore` char(16)
+,`tipo` varchar(7)
+,`data` date
+,`oggetto` varchar(16)
+,`segnalatore` varchar(40)
+,`risolutore` varchar(20)
+,`data_inizio_risoluzione` date
+,`data_fine_risoluzione` date
+,`verificatore` varchar(20)
+,`data_inizio_verifica` date
+,`data_fine_verifica` date
+);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura per vista `vi_riepilogo`
+--
+DROP TABLE IF EXISTS `vi_riepilogo`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vi_riepilogo`  AS SELECT `nci`.`Numero` AS `numero`, `nci`.`Stato` AS `stato`, `nci`.`Priorita` AS `priorita`, `nci`.`Origine` AS `origine`, `nci`.`Descrizione` AS `descrizione`, `nci`.`Decisioni` AS `decisioni`, `nci`.`Azioni_correttive` AS `az_corr`, `nci`.`Addetto_gestione` AS `gestore`, 'input' AS `tipo`, `rili`.`Data` AS `data`, `rili`.`Materia_prima` AS `oggetto`, `rili`.`Impiegato` AS `segnalatore`, `risi`.`Fornitore` AS `risolutore`, `risi`.`Data_inizio` AS `data_inizio_risoluzione`, `risi`.`Data_fine` AS `data_fine_risoluzione`, `veri`.`Impiegato` AS `verificatore`, `veri`.`Data_inizio` AS `data_inizio_verifica`, `veri`.`Data_fine` AS `data_fine_verifica` FROM (((`nc_input` `nci` left join `rilevamento_input` `rili` on(`nci`.`Numero` = `rili`.`NC`)) left join `risoluzione_input` `risi` on(`nci`.`Numero` = `risi`.`NC`)) left join `verifica_input` `veri` on(`nci`.`Numero` = `veri`.`NC`)) ;
 
 --
 -- Indici per le tabelle scaricate

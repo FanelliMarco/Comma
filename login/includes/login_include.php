@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if(!isset($_SESSION["logged"])) {
+        header("Location: ../");
+        exit();
+    }
+
     if(isset($_POST['sub'])){
         require_once "../../assets/setup/connessionedb.php";
         require "../../assets/includes/security_functions.php";
@@ -21,27 +26,25 @@
             else{
                 $user=htmlspecialchars($_POST['user']);
                 $pw=hash("sha256", htmlspecialchars($_POST['pw']));
-
-                $stmt=$conn->prepare($search_user_employee);
-                $stmt->bind_param("ss", $user, $pw);
-
-                $stmt->execute();
                 
                 //Variabile contente il possibile impiegato
-                $res_e=$stmt->get_result();
+                $result = db_get_impiegato($user, $pw);
 
-                if(!$res_e){ 
+                if(!$result) { 
+
                     $_SESSION['error']='Utente o password errati';
                     header("Location: ../");
                     exit();
-                }
 
-                $row=$res_e->fetch_assoc();
-                $_SESSION['logged']=true;
-                $_SESSION['user']=$user;
-                $_SESSION['matricola']=$row['Matricola'];
-                header("Location: ../../dashboard");
-                exit();
+                } else {
+
+                    $_SESSION['logged'] = true;
+                    $_SESSION['user'] = $user;
+                    $_SESSION['matricola'] = $result[0]['Matricola'];
+                    header("Location: ../../management");
+                    exit();
+
+                }
             }
         }
     }

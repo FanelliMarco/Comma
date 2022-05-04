@@ -1,7 +1,7 @@
 <?php
 define("TITLE", "Comma - Login");
 include "../assets/layouts/header.php";
-include "../assets/includes/nc_table.php";
+require "../assets/includes/nc_table.php";
 include "./includes/dashboard_include.php";
 ?>
 
@@ -18,6 +18,7 @@ include "./includes/dashboard_include.php";
                 <!-- BACKEND: barra di ricerca per filtro sulle non conformità -->
                 <input type="text" class="form-control" name="search_field" placeholder="Cerca una non conformità" />
                 <button class="btn btn-primary" type="button" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
+                <div><?php if(isset($_SESSION['error'])) echo $_SESSION['error'];?></div>
             </div>
             <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
                 <!-- BACKEND: tasto filtra -->

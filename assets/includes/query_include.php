@@ -5,7 +5,7 @@
     $search_user_client = "SELECT * FROM cliente WHERE Username=? AND Password=?"; // dati di un cliente che si vuole autenticare
     
     // DASHBOARD
-    $search_nc_all = "SELECT * FROM VI_RIEPILOGO WHERE gestore=? or segnalatore=? or risolutore=? or verificatore=?"; // non conformità relative ad un utente !FARE LA VISTA!
+    $search_nc_all = "SELECT * FROM vi_riepilogo WHERE gestore=? or segnalatore=? or risolutore=? or verificatore=?"; // non conformità relative ad un utente !FARE LA VISTA!
     
     // SEGNALAZIONE
     $search_processi_nome = "SELECT Nome FROM processi"; // nomi di tutti i processi
@@ -24,33 +24,14 @@
     $insert_rilevamento_inetrna = "INSERT INTO rilevamento_interno (NC, Impiegato, semilavorato, Data) VALUES (?/* output della $search_nc_interna_number */, ?, ?, now())"; // nuovo rilevamento interno
     
     // MODIFICA
-
-    /*
-
-        numero - non modificabile
-        
-
-    */
+    // usare $search_nc_all
+    $update_nc_all = "UPDATE vi_riepilogo SET stato=?, priorita=?, risolutore=?, verificatore=?, decisioni=?, azz_corr=? WHERE numero=? AND tipo=?";
 
     // REGISTRAZIONE
-    $insert_user_employee = "";
+    $insert_user_employee = "INSERT INTO impiegato (Matricola, Nome, Cognome, Username, Password, Tipo, Processo, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, now(), now())";
+
+    // MODIFICA IMPIEGATI
+    $search_user_employee_all = "SELECT Nome, Cognome, Username, Password, Tipo, Processo FROM impiegato WHERE Matricola=?";
+    $update_user_employee = "UPDATE impiegato SET Nome=?, Cognome=?, Username=?, Password=?, Tipo=?, Processo=?, updated_at=now() WHERE Matricola=?";
 
 ?>
- <!--
-
-    QUERY NECESSARIE:
-
-    login:              - ricerca presenza username e password dell'impiegato
-    
-    dashboard:          - ricerca tutti i dati delle nc
-
-    segnalazione nc:    - ricerca delle possibili origini di una nc (processi, fornitori)
-                        - inserimento delle diverse tipologie di nc (input, output, interna), nelle realtive tabelle
-                        - inserimento dei nuovi rilevamenti (in inout, aoutput, interni), nelle relative tablle
-    
-    modifica nc:        - ricerca per la costruzione dei menù a tendina
-                        - aggiornamento dei dati nelle relative tabelle
-    
-    registrazione:      - inserimento dei dati di un nuovo impiegato
-
--->

@@ -10,7 +10,7 @@
         require "../../assets/includes/security_functions.php";
         require "../../assets/includes/query_include.php";
 
-        //Controla se i campi sono vuoti
+        //Controla se i campi sono vuoti cioa
         if(empty($_POST['user']) || empty($_POST['pw'])){
             $_SESSION['error']='I campi non possono essere vuoti';
             header("Location: ../");

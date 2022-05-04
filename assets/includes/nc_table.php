@@ -1,5 +1,9 @@
 <?php
 
+require_once '../setup/connessionedb.php';
+
+//BACKEND controllare connessione database valida (controllare anche sessione credo)
+//far funzionare i require e cancellare il codice sostitutivo
 function fill_NC_table()
 {
     try {
@@ -31,6 +35,17 @@ function fill_NC_table()
         }
     } catch (mysqli_sql_exception $e) {
         throw '<span class="text-light"> . $e .</span>';
+    }
+
+    if(isset($_POST['search_button'])){
+        if(!empty($_POST['search_field'])){
+            
+        }   
+        else{
+            $_SESSION['error']='Inserire qualcosa da cercare';
+            header("Location: ../");
+            exit();
+        }
     }
 }
 ?>

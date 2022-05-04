@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../assets/setup/connessionedb.php';
+    require '../setup/connessionedb.php';
     require 'query_include.php';
 
     // trasforma il risultato di una query in array (record numerati e campi individuati dal nome)
@@ -35,7 +35,7 @@
         return $result;
 
     }
-
+/*
 	// restituisce tutti i dati delle non conformità relative ad un utente
 	function db_get_riepilogo($user) {
 
@@ -214,7 +214,7 @@
         } catch (mysqli_sql_exception $e) {
             throw '<span class="text-light"> . $e .</span>';
         }*/
-
+/*
 
         if(isset($_POST['search_button'])){
             if(!empty($_POST['search_field'])){
@@ -260,5 +260,5 @@
                 exit();
             }
         }
-    }
+    }*/
 ?>

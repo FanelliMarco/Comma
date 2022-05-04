@@ -36,57 +36,76 @@
         return $result;
 
     }
-/*
+
 	// restituisce tutti i dati delle non conformità relative ad un utente
 	function db_get_riepilogo($user) {
 
-		$conn = dbConnect();
-		$ris = $conn->query("SELECT * FROM VI_RIEPILOGO WHERE gestore='$user' or segnalatore='$user' or risolutore='$user' or verificatore='$user'");
-		$riepilogo_nc = db_result_to_array($ris);
-		return $riepilogo_nc;
+		global $conn;
+		$stmt = $conn->prepare(search_nc_all);
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+		$result = db_result_to_array($result);
+		return $result;
 
 	}
 
 	// restituisce i nomi di tutti i processi
 	function db_get_processi() {
 
-		$conn = dbConnect();
-		$ris = $conn->query("SELECT Nome FROM processi")
-    	$processi = db_result_to_array($ris);
-		return $processi;
+        global $conn;
+		$stmt = $conn->prepare(search_processi_nome);
+        $stmt->execute();
+        $result = $stmt->get_result();
+		$result = db_result_to_array($result);
+		return $result;
 
 	}
 
 	// restituisce i nomi di tutti i fornitori
 	function db_get_fornitori() {
 
-		$conn = dbConnect();
-		$ris = $conn->query("SELECT Nome FROM fornitore");
-   		$fornitori = array_result($ris);
-		return $fornitori;
+		global $conn;
+		$stmt = $conn->prepare(search_fornitori_nome);
+        $stmt->execute();
+        $result = $stmt->get_result();
+		$result = db_result_to_array($result);
+		return $result;
 
 	}
 
 	// inserisce una nuova non confromità in input
 	function db_inserisci_nc_input($fornitore, $materia_prima, $descrizione, $user) {
 
-		$conn = dbConnect();
+		global $conn;
+		$stmt1 = $conn->prepare(insert_nc_input);
+        $stmt2 = $conn->prepare(search_nc_input_number);
+        $stmt3 = $conn->prepare(insert_rilevamento_input);
 
 		try {
 			
 			$conn->begin_transaction();
 
-			if(!$conn->query("INSERT INTO nc_input (Descrizione, Stato, Priorita, Origine) VALUES ('$descrizione', 'rilevata', 'bassa', '$fornitore')"))
-				throw new Exception("errore inserimento nella tabella nc_input");
+            $stmt1->bind_param("ss", $descrizione, $fornitore);
+            $stmt1->execute();
 
-			$ris = $conn->query("SELECT max(Numero) as n FROM nc_input");
-			if(!$ris)
-				throw new Exception("Errore selezione nella tabella nc_input");
-			$row = $ris->fetch_assoc();
-			$n = $row["n"];
+            if(!$stmt1->get_result());
+                throw new Exception("errore inserimento nella tabella nc_input");
 
-			if(!$conn->query("INSERT INTO rilevamento_input (NC, Impiegato, Materia_prima, Data) VALUES ($n, '$user', '$materia_prima', now())"))
-				throw new Exception("Errore inserimento nella tablella rilevamento_input");
+            $stmt2->execute();
+            $res = $stmt2->get_result();
+
+            if(!$res)
+                throw new Exception("Errore selezione nella tabella nc_input");
+
+			$res = db_result_to_array($res);
+			$n = $res[0]["n"];
+
+            $stmt3->bind_param("ss", $n, $user, $materia_prima);
+            $stmt3->execute();
+
+            if(!$stmt1->get_result());
+                throw new Exception("Errore inserimento nella tablella rilevamento_input");
 			
 			$conn->commit();
 
@@ -101,23 +120,35 @@
 	// inserisce una nuova non confromità in output
 	function db_inserisci_nc_output($processo, $prodotto, $descrizione, $user) {
 
-		$conn = dbConnect();
+        global $conn;
+		$stmt1 = $conn->prepare(insert_nc_output);
+        $stmt2 = $conn->prepare(search_nc_output_number);
+        $stmt3 = $conn->prepare(insert_rilevamento_output);
 
 		try {
 			
 			$conn->begin_transaction();
 
-			if(!$conn->query("INSERT INTO nc_output (Descrizione, Stato, Priorita, Origine) VALUES ('$descrizione', 'rilevata', 'bassa', '$processo')"))
-				throw new Exception("errore inserimento nella tabella nc_output");
+            $stmt1->bind_param("ss", $descrizione, $processo);
+            $stmt1->execute();
 
-			$ris = $conn->query("SELECT max(Numero) as n FROM nc_output");
-			if(!$ris)
-				throw new Exception("Errore selezione nella tabella nc_output");
-			$row = $ris->fetch_assoc();
-			$n = $row["n"];
+            if(!$stmt1->get_result());
+                throw new Exception("errore inserimento nella tabella nc_output");
 
-			if(!$conn->query("INSERT INTO rilevamento_output (NC, Impiegato, prodotto, Data) VALUES ($n, '$user', '$prodotto', now())"))
-				throw new Exception("Errore inserimento nella tablella rilevamento_output");
+            $stmt2->execute();
+            $res = $stmt2->get_result();
+
+            if(!$res)
+                throw new Exception("Errore selezione nella tabella nc_output");
+
+			$res = db_result_to_array($res);
+			$n = $res[0]["n"];
+
+            $stmt3->bind_param("ss", $n, $user, $mprodotto);
+            $stmt3->execute();
+
+            if(!$stmt1->get_result());
+                throw new Exception("Errore inserimento nella tablella rilevamento_output");
 			
 			$conn->commit();
 
@@ -127,28 +158,41 @@
 			return $ex;
 
 		}
+
 	}
 
 	// inserisce una nuova non confromità interna
 	function db_inserisci_nc_interna($processo, $semilavorato, $descrizione, $user) {
 
-		$conn = dbConnect();
+        global $conn;
+		$stmt1 = $conn->prepare(insert_nc_interna);
+        $stmt2 = $conn->prepare(search_nc_interna_number);
+        $stmt3 = $conn->prepare(insert_rilevamento_interno);
 
 		try {
 			
 			$conn->begin_transaction();
 
-			if(!$conn->query("INSERT INTO nc_interna (Descrizione, Stato, Priorita, Origine) VALUES ('$descrizione', 'rilevata', 'bassa', '$processo')"))
-				throw new Exception("errore inserimento nella tabella nc_interna");
+            $stmt1->bind_param("ss", $descrizione, $processo);
+            $stmt1->execute();
 
-			$ris = $conn->query("SELECT max(Numero) as n FROM nc_interna");
-			if(!$ris)
-				throw new Exception("Errore selezione nella tabella nc_interna");
-			$row = $ris->fetch_assoc();
-			$n = $row["n"];
+            if(!$stmt1->get_result());
+                throw new Exception("errore inserimento nella tabella nc_interna");
 
-			if(!$conn->query("INSERT INTO rilevamento_interno (NC, Impiegato, semilavorato, Data) VALUES ($n, '$user', '$semilavorato', now())"))
-				throw new Exception("Errore inserimento nella tablella rilevamento_interno");
+            $stmt2->execute();
+            $res = $stmt2->get_result();
+
+            if(!$res)
+                throw new Exception("Errore selezione nella tabella nc_interna");
+
+			$res = db_result_to_array($res);
+			$n = $res[0]["n"];
+
+            $stmt3->bind_param("ss", $n, $user, $semilavorato);
+            $stmt3->execute();
+
+            if(!$stmt1->get_result());
+                throw new Exception("Errore inserimento nella tablella rilevamento_interno");
 			
 			$conn->commit();
 
@@ -158,18 +202,50 @@
 			return $ex;
 
 		}
+
 	}
+
+    function db_modifica_nc($stato, $priorita, $risolutore, $verificatore, $decisioni, $az_corr) {
+
+        global $conn;
+        $stmt = $conn->prepare(update_nc_all);
+
+        $conn->begin_transaction();
+
+        try {
+
+            $stmt->bind_param("ssssss", $stato, $priorita, $risolutore, $verificatore, $decisoni, $az_corr);
+            $stmt->execute();
+
+            if(!$stmt->get_result())
+                throw new Exception("Errore aggiornamento nella vista vi_riepilogo");
+            
+            $conn->commit();
+
+        } catch(Exception $ex) {
+
+            $conn->rollback();
+            return $ex;
+
+        }
+
+    }
 
 	// inserisce un nuovo impiegato
-	function db_inserisci_impiegato($user, $email, $password, $password2, $nome, $cognome, $tipo) {
+	function db_inserisci_impiegato($nome, $cognome, $user, $pw, $tipo, $proceso) {
 
-		$conn = dbConnect();
+        global $conn;
+		$stmt = $conn->prepare(insert_user_employee);
 
 		try {
 			
 			$conn->begin_transaction();
 
-			if(!$conn->query("INSERT INTO impiegato (matricola, )"))
+            $stmt->bind_param("ssssss", $nome, $cognome, $user, $pw, $tipo, $processo);
+			$stmt->execute();
+
+            if(!$stmt->get_result())
+                throw new Exception("Errore inserimento nella tabella impiegato");
 			
 			$conn->commit();
 
@@ -180,6 +256,59 @@
 
 		}
 	}
+
+    function db_get_impiegati() {
+
+        global $conn;
+		$stmt = $conn->prepare(search_users_employees);
+        $stmt->execute();
+        $result = $stmt->get_result();
+		$result = db_result_to_array($result);
+		return $result;
+
+    }
+
+    function db_modifica_impiegato($matricola, $nome, $cognome, $user, $pw, $tipo, $processo) {
+
+        global $conn;
+        $stmt1 = $conn->prepare(search_user_employee_all);
+        $stmt2 = $conn->prepare(update_user_employee);
+
+        try {
+
+            $conn->begin_transaction();
+
+            $stmt1->bind_param("s", $matricola);
+            $stmt1->execute();
+            $result = $stmt1->get_result();
+
+            if(!$result)
+                throw new Exception("Errore selezione tabella impiegato");
+            
+            $result = db_result_to_array($result);
+
+            if(!isset($nome)) $nome = $result[0]["Nome"];
+            if(!isset($cognome)) $cognome = $result[0]["Cognome"];
+            if(!isset($user)) $user = $result[0]["Username"];
+            if(!isset($pw)) $pw = $result[0]["Password"];
+            if(!isset($tipo)) $tipo = $result[0]["Tipo"];
+            if(!isset($processo)) $processo = $result[0]["Processo"];
+
+            $stmt2->bind_param("sssssss", $nome, $cognome, $user, $pw, $tipo, $processo);
+            $stmt2->execute();
+
+            if(!$stmt2->get_result())
+                throw new Exception("Errore aggiornamento tabella impiegato");
+
+            $conn->commit();
+
+        } catch(Exception $ex) {
+
+            $conn->rollback();
+            return $ex;
+
+        }
+    }
 
     //BACKEND controllare connessione database valida (controllare anche sessione credo)
     //far funzionare i require e cancellare il codice sostitutivo
@@ -215,7 +344,7 @@
         } catch (mysqli_sql_exception $e) {
             throw '<span class="text-light"> . $e .</span>';
         }*/
-/*
+
 
         if(isset($_POST['search_button'])){
             if(!empty($_POST['search_field'])){
@@ -261,5 +390,5 @@
                 exit();
             }
         }
-    }*/
+    }
 ?>

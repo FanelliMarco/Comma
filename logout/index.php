@@ -1,4 +1,5 @@
-<? 
+<?php 
+
     session_start();
 
     require "../assets/includes/auth_functions.php";

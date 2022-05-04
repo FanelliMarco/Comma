@@ -5,7 +5,7 @@
     $search_user_client = "SELECT * FROM cliente WHERE Username=? AND Password=?"; // dati di un cliente che si vuole autenticare
     
     // DASHBOARD
-    $search_nc_all = "SELECT * FROM vi_riepilogo WHERE gestore=? or segnalatore=? or risolutore=? or verificatore=?"; // non conformità relative ad un utente !FARE LA VISTA!
+    $search_nc_all = "SELECT * FROM vi_riepilogo WHERE gestore=? or segnalatore=? or risolutore=? or verificatore=?"; // non conformità relative ad un utente
     
     // SEGNALAZIONE
     $search_processi_nome = "SELECT Nome FROM processi"; // nomi di tutti i processi

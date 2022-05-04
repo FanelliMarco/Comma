@@ -225,6 +225,33 @@
                 }
                 else{
                     //crare ricerca per le nc
+                    $search=htmlspecialchars($_POST['search_field']);
+                    
+                    $pos=strpos($search, '=');
+                    if(!$pos){
+                        $_SESSION['error']='Input non valido';
+                        header("Location: ../");
+                        exit();
+                    }
+                    $search_t=substr($search, 0, $pos);
+                    switch($search_t){
+                        case 'data':
+                            //cose da fare
+                            break;
+                        case 'stato':
+                            //cose da fare
+                            break;
+                        case 'priorita':
+                            //cose da fare
+                            break;
+                        case 'origine':
+                            //cose da fare
+                            break;
+                        default:
+                            $_SESSION['error']='Input non valido';
+                            header("Location: ../");
+                            exit();
+                    }
                 }
             }   
             else{

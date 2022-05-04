@@ -28,15 +28,15 @@
                 $stmt->execute();
                 
                 //Variabile contente il possibile impiegato
-                $res_e=$stmt->get_result();
+                $result=$stmt->get_result();
 
-                if(!$res_e){ 
+                if(!$result){ 
                     $_SESSION['error']='Utente o password errati';
                     header("Location: ../");
                     exit();
                 }
 
-                $row=$res_e->fetch_assoc();
+                $row=$result->fetch_assoc();
                 $_SESSION['logged']=true;
                 $_SESSION['user']=$user;
                 $_SESSION['matricola']=$row['Matricola'];

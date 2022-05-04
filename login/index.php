@@ -1,6 +1,6 @@
 <?php
-define("TITLE", "Comma - Login");
-include "../assets/layouts/header.php";
+    define("TITLE", "Comma - Login");
+    include "../assets/layouts/header.php";
 ?>
 
 <div class="row h-100">
@@ -51,5 +51,5 @@ include "../assets/layouts/header.php";
 </div>
 
 <?php
-include "../assets/layouts/footer.php";
+    include "../assets/layouts/footer.php";
 ?>

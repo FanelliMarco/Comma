@@ -37,7 +37,6 @@
                 }
                 else{
                     $row=$res_e->fetch_assoc();
-                    session_start();
                     $_SESSION['logged']=true;
                     $_SESSION['user']=$user;
                     header("Location: ../../management");

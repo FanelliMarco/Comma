@@ -1,11 +1,16 @@
 <?php
     session_start();
+    if(!isset($_SESSION["logged"])) {
+        header("Location: ../");
+        exit();
+    }
+
     if(isset($_POST['sub'])){
         require_once "../../assets/setup/connessionedb.php";
         require "../../assets/includes/security_functions.php";
         require "../../assets/includes/query_include.php";
 
-        //Controla se i campi sono vuoti
+        //Controla se i campi sono vuoti cioa
         if(empty($_POST['user']) || empty($_POST['pw'])){
             $_SESSION['error']='I campi non possono essere vuoti';
             header("Location: ../");
@@ -35,13 +40,13 @@
                     header("Location: ../");
                     exit();
                 }
-
-                $row=$result->fetch_assoc();
-                $_SESSION['logged']=true;
-                $_SESSION['user']=$user;
-                $_SESSION['matricola']=$row['Matricola'];
-                header("Location: ../../dashboard");
-                exit();
+                else{
+                    $row=$res_e->fetch_assoc();
+                    $_SESSION['logged']=true;
+                    $_SESSION['user']=$user;
+                    header("Location: ../../management");
+                    exit();
+                }
             }
         }
     }

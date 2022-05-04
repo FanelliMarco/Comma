@@ -29,9 +29,6 @@ require '../assets/includes/security_functions.php';
     <!-- Custom styles -->
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="custom.css">
-
-    <!-- Custom js -->
-    <script src="./script.js"></script>
 </head>
 
 <body style="background-color:#041F4F;">

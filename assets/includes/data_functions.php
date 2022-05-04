@@ -1,19 +1,19 @@
 <?php
 
-    require '../setup/connessionedb.php';
+    require '../../assets/setup/connessionedb.php';
     require 'query_include.php';
 
     // trasforma il risultato di una query in array (record numerati e campi individuati dal nome)
-	function db_result_to_array($result) {
+	function db_result_to_array($mysqli_result) {
 
-        if(!$result)
+        if(!$mysqli_result)
             return false;
         
 		$i = 0;
 
 		$result = array();
 
-		while($row = $ris->fetch_assoc()) {
+		while($row = $mysqli_result->fetch_assoc()) {
 
 			$result[$i] = $row;
 			$i++;
@@ -27,7 +27,8 @@
     // restituisce user e password dell'utente richiesto se esiste
     function db_get_impiegato($user, $pw) {
 
-        $stmt = $conn->prepare($search_user_employee);
+        global $conn;
+        $stmt = $conn->prepare(search_user_employee);
         $stmt->bind_param("ss", $user, $pw);
         $stmt->execute();
         $result = $stmt->get_result();

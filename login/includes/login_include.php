@@ -1,9 +1,7 @@
 <?php
+    require '../../assets/includes/data_functions.php';
+    
     session_start();
-    if(!isset($_SESSION["logged"])) {
-        header("Location: ../");
-        exit();
-    }
 
     if(isset($_POST['sub'])){
         require_once "../../assets/setup/connessionedb.php";

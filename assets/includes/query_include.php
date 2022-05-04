@@ -25,13 +25,13 @@
     
     // MODIFICA
     // usare $search_nc_all
-    $update_nc_all = "UPDATE vi_riepilogo SET stato=?, priorita=?, risolutore=?, verificatore=?, decisioni=?, azz_corr=? WHERE numero=? AND tipo=?";
+    $update_nc_all = "UPDATE vi_riepilogo SET stato=?, priorita=?, risolutore=?, verificatore=?, decisioni=?, azz_corr=? WHERE numero=? AND tipo=?"; // aggiornamento delle tablelle attraverso la vista
 
     // REGISTRAZIONE
-    $insert_user_employee = "INSERT INTO impiegato (Matricola, Nome, Cognome, Username, Password, Tipo, Processo, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, now(), now())";
+    $insert_user_employee = "INSERT INTO impiegato (Matricola, Nome, Cognome, Username, Password, Tipo, Processo, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, now(), now())"; // registrazione nuovo impiegato
 
     // MODIFICA IMPIEGATI
-    $search_user_employee_all = "SELECT Nome, Cognome, Username, Password, Tipo, Processo FROM impiegato WHERE Matricola=?";
-    $update_user_employee = "UPDATE impiegato SET Nome=?, Cognome=?, Username=?, Password=?, Tipo=?, Processo=?, updated_at=now() WHERE Matricola=?";
+    $search_user_employee_all = "SELECT Nome, Cognome, Username, Password, Tipo, Processo FROM impiegato WHERE Matricola=?"; // dati deell'impiegato prima dell'aggiornamento
+    $update_user_employee = "UPDATE impiegato SET Nome=?, Cognome=?, Username=?, Password=?, Tipo=?, Processo=?, updated_at=now() WHERE Matricola=?"; // aggiornamento dati dell'impiegato
 
 ?>

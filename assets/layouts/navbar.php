@@ -3,6 +3,7 @@ if (isset($_SESSION['logged'])) { ?>
     <!-- inizio navbar -->
     <nav class="navbar navbar-expand-lg bg-transparent navbar-dark py-3 fixed-top">
         <div class="container-fluid">
+
             <div class="col-1 h-100 d-flex align-items-center justify-content-center">
                 <a href="../Logout/index.php">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
@@ -11,27 +12,32 @@ if (isset($_SESSION['logged'])) { ?>
                     </svg>
                 </a>
             </div>
+
             <div class="col-10 h-100">
                 <div class="logo_image h-100 d-flex align-items-center justify-content-center">
                     <img class="d-none d-md-block" src="../assets/images/logo_intero_w.png" alt="" height="100px">
                 </div>
             </div>
+
             <div class="col-1 h-100 d-flex align-items-center justify-content-center">
-                <div class="btn-group dropleft">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown dropleft">
+                    <a class="btn btn-transparent dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-list" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                         </svg>
-                    </button>
-                    <div class="dropdown-menu">
-                        <!-- Dropdown menu links -->
-                        <li><a href="../../report/"><span class="text-light-text-uppercase">report</span></a></li>
-                        <li><a href="../../report/"><span class="text-light-text-uppercase">report</span></a></li>
-                        <li><a href="../../report/"><span class="text-light-text-uppercase">report</span></a></li>
-                        <li><a href="../../report/"><span class="text-light-text-uppercase">report</span></a></li>
-                    </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- BACKEND : togliere il link alla pagina corrente -->
+                        <li><a class="dropdown-item text-uppercase" href="../dashboard/index.php"><span>Dashboard</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../edit/index.php"><span>edit</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../management/index.php"><span>management</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../recover/index.php"><span>recover</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../register/index.php"><span>register</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../report/index.php"><span>report</span></a></li>
+                    </ul>
                 </div>
             </div>
+
         </div>
     </nav>
     <!-- fine navbar -->

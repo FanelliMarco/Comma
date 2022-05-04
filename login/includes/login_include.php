@@ -36,9 +36,10 @@
                     exit();
                 }
 
-                //$row=$res_e->fetch_assoc();
+                $row=$res_e->fetch_assoc();
                 $_SESSION['logged']=true;
                 $_SESSION['user']=$user;
+                $_SESSION['matricola']=$row['Matricola'];
                 header("Location: ../../dashboard");
                 exit();
             }

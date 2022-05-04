@@ -35,13 +35,11 @@
                     header("Location: ../");
                     exit();
                 }
-                else{
-                    $row=$res_e->fetch_assoc();
-                    $_SESSION['logged']=true;
-                    $_SESSION['user']=$user;
-                    header("Location: ../../management");
-                    exit();
-                }
+                $row=$res_e->fetch_assoc();
+                $_SESSION['logged']=true;
+                $_SESSION['user']=$user;
+                header("Location: ../../management");
+                exit();
             }
         }
     }

@@ -1,4 +1,4 @@
-<?php if (isset($_SESSION['auth'])) ?>
+<?php if(isset($_SESSION['auth'])) ?>
 
 <!-- inizio navbar -->
 

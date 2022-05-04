@@ -10,7 +10,7 @@
         require "../../assets/includes/security_functions.php";
         require "../../assets/includes/query_include.php";
 
-        //Controla se i campi sono vuoti cioa
+        //Controla se i campi sono vuoti
         if(empty($_POST['user']) || empty($_POST['pw'])){
             $_SESSION['error']='I campi non possono essere vuoti';
             header("Location: ../");
@@ -26,26 +26,24 @@
             else{
                 $user=htmlspecialchars($_POST['user']);
                 $pw=hash("sha256", htmlspecialchars($_POST['pw']));
-
-                $stmt=$conn->prepare($search_user_employee);
-                $stmt->bind_param("ss", $user, $pw);
-
-                $stmt->execute();
                 
                 //Variabile contente il possibile impiegato
-                $res_e=$stmt->get_result();
+                $result = db_get_impiegato($user, $pw);
 
-                if(!$res_e){ 
+                if(!$result) { 
+
                     $_SESSION['error']='Utente o password errati';
                     header("Location: ../");
                     exit();
-                }
-                else{
-                    $row=$res_e->fetch_assoc();
-                    $_SESSION['logged']=true;
-                    $_SESSION['user']=$user;
+
+                } else {
+
+                    $_SESSION['logged'] = true;
+                    $_SESSION['user'] = $user;
+                    $_SESSION['matricola'] = $result[0]['Matricola'];
                     header("Location: ../../management");
                     exit();
+
                 }
             }
         }

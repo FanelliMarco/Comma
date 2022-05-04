@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if(!isset($_SESSION["logged"])) {
+        header("Location: ../");
+        exit();
+    }
+
     if(isset($_POST['sub'])){
         require_once "../../assets/setup/connessionedb.php";
         require "../../assets/includes/security_functions.php";
@@ -35,13 +40,13 @@
                     header("Location: ../");
                     exit();
                 }
-
-                $row=$res_e->fetch_assoc();
-                $_SESSION['logged']=true;
-                $_SESSION['user']=$user;
-                $_SESSION['matricola']=$row['Matricola'];
-                header("Location: ../../dashboard");
-                exit();
+                else{
+                    $row=$res_e->fetch_assoc();
+                    $_SESSION['logged']=true;
+                    $_SESSION['user']=$user;
+                    header("Location: ../../management");
+                    exit();
+                }
             }
         }
     }

@@ -1,7 +1,13 @@
 <?php
 define("TITLE", "Comma - Dashboard");
+session_start();
+if(!($_SESSION['logged'])){
+    header("Location: ../login/");
+    exit();
+}
 include "../assets/layouts/header.php";
 include "./includes/dashboard_include.php";
+include "../assets/includes/data_functions.php";
 ?>
 
 <!-- Non conformità -->
@@ -45,7 +51,7 @@ include "./includes/dashboard_include.php";
                 </tr>
             </thead>
             <tbody>
-                <?php fill_NC_table(); ?> <!-- BACKEND: da rivedere perché non corretto -->
+                <?php fill_NC_table($_SESSION['matricola']); ?> <!-- BACKEND: da rivedere perché non corretto -->
             </tbody>
         </table>
     </div>

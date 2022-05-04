@@ -180,10 +180,31 @@
 
 		}
 	}
+	*/
+	function fill_NC_table($matr){
+		global $conn;
+        $stmt = $conn->prepare(search_nc_all);
+        $stmt->bind_param("s", $matr);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        if($result){
+			foreach($result as $record){
+				echo "<tr>";
+				echo "<td>" . $record['numero'] . "</td>";
+				echo "<td>" . $record['data'] . "</td>";
+				echo "<td>" . $record['stato'] . "</td>";
+				echo "<td>" . $record['priorita'] . "</td>";
+				echo "<td>" . $record['origine'] . "</td>";
+				echo "</tr>";
+			}
+		}
+	}
+	/*
 
     //BACKEND controllare connessione database valida (controllare anche sessione credo)
     //far funzionare i require e cancellare il codice sostitutivo
-    function fill_NC_table()
+    function fill_NC_table_search()
     {
         /*try {  NON TOCCATE grazie
             if (isset($_POST['search_button']) && !empty($_POST['search_field'])) {

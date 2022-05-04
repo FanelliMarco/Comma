@@ -205,7 +205,8 @@
 
 	}
 
-    function db_modifica_nc($stato, $priorita, $risolutore, $verificatore, $decisioni, $az_corr) {
+    // mofifica una nc
+    function db_modifica_nc($stato, $priorita, $risolutore, $verificatore, $decisioni, $az_corr, $numero, $tipo) {
 
         global $conn;
         $stmt = $conn->prepare(update_nc_all);
@@ -214,7 +215,7 @@
 
         try {
 
-            $stmt->bind_param("ssssss", $stato, $priorita, $risolutore, $verificatore, $decisoni, $az_corr);
+            $stmt->bind_param("ssssssss", $stato, $priorita, $risolutore, $verificatore, $decisoni, $az_corr, $numero, $tipo);
             $stmt->execute();
 
             if(!$stmt->get_result())
@@ -256,7 +257,63 @@
 
 		}
 	}
-	*/
+
+    // restituisce i dati tutti gli impiegati
+    function db_get_impiegati() {
+
+        global $conn;
+		$stmt = $conn->prepare(search_users_employees);
+        $stmt->execute();
+        $result = $stmt->get_result();
+		$result = db_result_to_array($result);
+		return $result;
+
+    }
+
+    // modifica un impiegato
+    function db_modifica_impiegato($nome, $cognome, $user, $pw, $tipo, $processo, $matricola) {
+
+        global $conn;
+        $stmt1 = $conn->prepare(search_user_employee_all);
+        $stmt2 = $conn->prepare(update_user_employee);
+
+        try {
+
+            $conn->begin_transaction();
+
+            $stmt1->bind_param("s", $matricola);
+            $stmt1->execute();
+            $result = $stmt1->get_result();
+
+            if(!$result)
+                throw new Exception("Errore selezione tabella impiegato");
+            
+            $result = db_result_to_array($result);
+
+            if(!isset($nome))       $nome = $result[0]["Nome"];
+            if(!isset($cognome))    $cognome = $result[0]["Cognome"];
+            if(!isset($user))       $user = $result[0]["Username"];
+            if(!isset($pw))         $pw = $result[0]["Password"];
+            if(!isset($tipo))       $tipo = $result[0]["Tipo"];
+            if(!isset($processo))   $processo = $result[0]["Processo"];
+
+            $stmt2->bind_param("sssssss", $nome, $cognome, $user, $pw, $tipo, $processo);
+            $stmt2->execute();
+
+            if(!$stmt2->get_result())
+                throw new Exception("Errore aggiornamento tabella impiegato");
+
+            $conn->commit();
+
+        } catch(Exception $ex) {
+
+            $conn->rollback();
+            return $ex;
+
+        }
+    }
+
+    
 	function fill_NC_table($matr){
 		global $conn;
         $stmt = $conn->prepare(search_nc_all);
@@ -276,60 +333,7 @@
 			}
 		}
 	}
-	/*
-
-    function db_get_impiegati() {
-
-        global $conn;
-		$stmt = $conn->prepare(search_users_employees);
-        $stmt->execute();
-        $result = $stmt->get_result();
-		$result = db_result_to_array($result);
-		return $result;
-
-    }
-
-    function db_modifica_impiegato($matricola, $nome, $cognome, $user, $pw, $tipo, $processo) {
-
-        global $conn;
-        $stmt1 = $conn->prepare(search_user_employee_all);
-        $stmt2 = $conn->prepare(update_user_employee);
-
-        try {
-
-            $conn->begin_transaction();
-
-            $stmt1->bind_param("s", $matricola);
-            $stmt1->execute();
-            $result = $stmt1->get_result();
-
-            if(!$result)
-                throw new Exception("Errore selezione tabella impiegato");
-            
-            $result = db_result_to_array($result);
-
-            if(!isset($nome)) $nome = $result[0]["Nome"];
-            if(!isset($cognome)) $cognome = $result[0]["Cognome"];
-            if(!isset($user)) $user = $result[0]["Username"];
-            if(!isset($pw)) $pw = $result[0]["Password"];
-            if(!isset($tipo)) $tipo = $result[0]["Tipo"];
-            if(!isset($processo)) $processo = $result[0]["Processo"];
-
-            $stmt2->bind_param("sssssss", $nome, $cognome, $user, $pw, $tipo, $processo);
-            $stmt2->execute();
-
-            if(!$stmt2->get_result())
-                throw new Exception("Errore aggiornamento tabella impiegato");
-
-            $conn->commit();
-
-        } catch(Exception $ex) {
-
-            $conn->rollback();
-            return $ex;
-
-        }
-    }
+	
 
     //BACKEND controllare connessione database valida (controllare anche sessione credo)
     //far funzionare i require e cancellare il codice sostitutivo

@@ -33,6 +33,9 @@ include "../assets/layouts/header.php";
                     <label for="pw" class="h2 form-label mb-3 ml-3">Password</label>
                     <input type="password" class="form-control mb-3 form_control_font" id="pw" name='pw'>
                 </div>
+                <div>
+                    <?php if(isset($_SESSION['error'])) echo $_SESSION['error'];?>
+                </div>
                 <div class="form-group w-100 d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary w-100 text-uppercase" id="sub" name='sub'><span class="form_control_font">conferma</span></button>
                 </div>

@@ -38,6 +38,6 @@ require '../assets/includes/security_functions.php';
 
     <!-- require navbar -->
 
-    <?php
+<?php
     require "../assets/layouts/navbar.php";
-    ?>
+?>

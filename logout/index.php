@@ -2,8 +2,6 @@
 
     session_start();
 
-    require "../assets/includes/auth_functions.php";
-
     // Decidere se mettere il cookie remeber me o no
 
     /* Per distruggere cookie di sessione */

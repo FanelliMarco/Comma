@@ -6,6 +6,10 @@
     background-color: #041F4F;
 }
 
+#body::before {
+    height: 0px !important;
+}
+
 button {    
     margin-top: 40px;
     margin-bottom: 16px;
@@ -41,9 +45,3 @@ button {
 .form_control_font {
     font-size: 2rem;
 }
-
-/*@media only screen and (max-width: 992px) {
-    .centered-axis-x {
-        transform: translate(25%, 0);
-    }
-}*/

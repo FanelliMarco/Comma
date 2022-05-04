@@ -13,6 +13,12 @@ body::before {
     height: 250px;
 }
 
+body::after {
+    display: block;
+    content: '';
+    height: 100px;
+}
+
 /* --------------Navbar---------------------- */
 .navbar {
     height: 250px;

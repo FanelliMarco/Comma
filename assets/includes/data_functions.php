@@ -213,9 +213,9 @@
 			
 			$conn->begin_transaction();
 
-            $stmt1->bind_param("ss", $descrizione, $processo);
+            $stmt1->bind_param("sss", $descrizione, $matr, $processo);
 
-            if(!$$stmt1->execute());
+            if(!$stmt1->execute())
                 throw new Exception("errore inserimento nella tabella nc_interna");
 
             if(!$stmt2->execute())
@@ -226,9 +226,9 @@
 			$res = db_result_to_array($res);
 			$n = $res[0]["n"];
 
-            $stmt3->bind_param("ss", $n, $user, $semilavorato);
+            $stmt3->bind_param("sss", $n, $user, $semilavorato);
 
-            if(!$stmt3->execute());
+            if(!$stmt3->execute())
                 throw new Exception("Errore inserimento nella tablella rilevamento_interno");
 			
 			$conn->commit();

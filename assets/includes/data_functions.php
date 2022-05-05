@@ -322,7 +322,7 @@
 
     //BACKEND controllare connessione database valida (controllare anche sessione credo)
     //far funzionare i require e cancellare il codice sostitutivo
-    function fill_NC_table_search($search_field)
+    function fill_NC_table_search($search_field, $matr)
     {
         //crare ricerca per le nc
         $search=htmlspecialchars($search_field);

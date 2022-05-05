@@ -131,24 +131,21 @@
 			$conn->begin_transaction();
 
             $stmt1->bind_param("ss", $descrizione, $fornitore);
-            $stmt1->execute();
 
-            if(!$stmt1->get_result());
+            if(!$stmt1->execute());
                 throw new Exception("errore inserimento nella tabella nc_input");
 
-            $stmt2->execute();
-            $res = $stmt2->get_result();
-
-            if(!$res)
+            if(!$stmt2->execute())
                 throw new Exception("Errore selezione nella tabella nc_input");
+
+            $res = $stmt2->get_result();
 
 			$res = db_result_to_array($res);
 			$n = $res[0]["n"];
 
             $stmt3->bind_param("ss", $n, $user, $materia_prima);
-            $stmt3->execute();
 
-            if(!$stmt1->get_result());
+            if(!$stmt3->execute());
                 throw new Exception("Errore inserimento nella tablella rilevamento_input");
 			
 			$conn->commit();
@@ -174,24 +171,21 @@
 			$conn->begin_transaction();
 
             $stmt1->bind_param("ss", $descrizione, $processo);
-            $stmt1->execute();
 
-            if(!$stmt1->get_result());
+            if(!$stmt1->execute());
                 throw new Exception("errore inserimento nella tabella nc_output");
 
-            $stmt2->execute();
-            $res = $stmt2->get_result();
-
-            if(!$res)
+            if(!$stmt2->execute())
                 throw new Exception("Errore selezione nella tabella nc_output");
+            
+            $res = $stmt2->get_result();
 
 			$res = db_result_to_array($res);
 			$n = $res[0]["n"];
 
             $stmt3->bind_param("ss", $n, $user, $mprodotto);
-            $stmt3->execute();
 
-            if(!$stmt1->get_result());
+            if(!$stmt3->execute());
                 throw new Exception("Errore inserimento nella tablella rilevamento_output");
 			
 			$conn->commit();
@@ -218,24 +212,21 @@
 			$conn->begin_transaction();
 
             $stmt1->bind_param("ss", $descrizione, $processo);
-            $stmt1->execute();
 
-            if(!$stmt1->get_result());
+            if(!$$stmt1->execute());
                 throw new Exception("errore inserimento nella tabella nc_interna");
 
-            $stmt2->execute();
-            $res = $stmt2->get_result();
-
-            if(!$res)
+            if(!$stmt2->execute())
                 throw new Exception("Errore selezione nella tabella nc_interna");
+
+            $res = $stmt2->get_result();
 
 			$res = db_result_to_array($res);
 			$n = $res[0]["n"];
 
             $stmt3->bind_param("ss", $n, $user, $semilavorato);
-            $stmt3->execute();
 
-            if(!$stmt1->get_result());
+            if(!$stmt3->execute());
                 throw new Exception("Errore inserimento nella tablella rilevamento_interno");
 			
 			$conn->commit();
@@ -260,9 +251,8 @@
         try {
 
             $stmt->bind_param("ssssssss", $stato, $priorita, $risolutore, $verificatore, $decisoni, $az_corr, $numero, $tipo);
-            $stmt->execute();
 
-            if(!$stmt->get_result())
+            if(!$stmt->execute())
                 throw new Exception("Errore aggiornamento nella vista vi_riepilogo");
             
             $conn->commit();
@@ -287,9 +277,8 @@
 			$conn->begin_transaction();
 
             $stmt->bind_param("ssssss", $nome, $cognome, $user, $pw, $tipo, $processo);
-			$stmt->execute();
 
-            if(!$stmt->get_result())
+            if(!$stmt->execute())
                 throw new Exception("Errore inserimento nella tabella impiegato");
 			
 			$conn->commit();
@@ -326,11 +315,11 @@
             $conn->begin_transaction();
 
             $stmt1->bind_param("s", $matricola);
-            $stmt1->execute();
-            $result = $stmt1->get_result();
 
-            if(!$result)
+            if(!$stmt1->execute())
                 throw new Exception("Errore selezione tabella impiegato");
+
+            $result = $stmt1->get_result();
             
             $result = db_result_to_array($result);
 
@@ -342,9 +331,8 @@
             if(!isset($processo))   $processo = $result[0]["Processo"];
 
             $stmt2->bind_param("sssssss", $nome, $cognome, $user, $pw, $tipo, $processo);
-            $stmt2->execute();
 
-            if(!$stmt2->get_result())
+            if(!$stmt2->execute())
                 throw new Exception("Errore aggiornamento tabella impiegato");
 
             $conn->commit();

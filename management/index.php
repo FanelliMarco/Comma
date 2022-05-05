@@ -1,11 +1,11 @@
 <?php
-    define("TITLE", "Comma - Report");
-    include "../assets/layouts/header.php";
+define("TITLE", "Comma - Report");
+include "../assets/layouts/header.php";
 ?>
 
 <!-- Non conformità -->
 <section class="p-3 w-100 d-flex align-items-center justify-content-center">
-    <span class="page_subtitle text-uppercase text-light d-none d-md-block">segnalazione di non conformità</span>
+    <span class="page_subtitle text-uppercase text-light d-none d-md-block">gestione profili aziendali</span>
 </section>
 
 
@@ -18,26 +18,18 @@
             <div class="row g-3">
                 <div class="col-lg-6 col-md-12 p-5">
                     <div class="form-group">
-                        <label for="processo" class="h2 form-label mb-3 ml-3">Processo di origine</label>
-                        <input type="text" class="form-control mb-3 form_control_font" id="processo" name='processo'>
+                        <label for="processo" class="h2 form-label mb-3 ml-3">Utente</label>
+                        <input type="text" class="form-control mb-3 form_control_font" id="Utente" name='Utente'>
                     </div>
                     <div class="form-group">
-                        <label for="codice" class="h2 form-label mb-3 ml-3">
-                            Codice
-                            <select class="form-select" name='fase'>
-                                <option value="Prodotto" selected>Prodotto</option>
-                                <option value="Semilavorato">Semilavorato</option>
-                                <option value="Altro">Altro</option>
-                            </select>
-                            :
-                        </label>
-                        <input type="text" class="form-control mb-3 form_control_font" id="codice" name='codice_semicodice'>
+                        <label for="codice" class="h2 form-label mb-3 ml-3">Permessi</label>
+                        <input type="text" class="form-control mb-3 form_control_font" id="Permessi" name='Permessi'>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 p-5">
                     <div class="form-group">
-                        <label for="descrizione" class="h2 form-label mb-3 ml-3">Descrizione </label>
-                        <input type="text" class="form-control mb-3 form_control_font form_control_descrizione" id="descrizione" name='descrizione'>
+                        <label for="descrizione" class="h2 form-label mb-3 ml-3">Note</label>
+                        <textarea class="form-control mb-3 text-dark form_control_descrizione" cols="40" rows="5" id="note" name='note'></textarea>
                     </div>
                 </div>
             </div>
@@ -47,7 +39,7 @@
                 </div>
             </div>
             <div>
-                <?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?>
+                <?php if (isset($_SESSION['error'])) echo $_SESSION['error']; ?>
             </div>
         </form>
     </div>
@@ -55,5 +47,5 @@
 
 
 <?php
-    include "../assets/layouts/footer.php";
+include "../assets/layouts/footer.php";
 ?>

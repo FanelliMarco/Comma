@@ -13,7 +13,7 @@
             }
             else{
                 $search_field=$_POST['search_field'];
-                $result=fill_NC_table_search($search_field);
+                fill_NC_table_search($search_field);
             }
         }
         else{

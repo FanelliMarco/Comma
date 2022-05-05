@@ -25,8 +25,8 @@
             <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
                 <!-- BACKEND: tasto ordina -->
                 <select class="btn btn-primary btn-lg text-uppercase" name="order" id="">
-                    <option value="numero">NUMERO</option>
-                    <option value="data">DATA</option>
+                    <option value="numero" class="colorino">NUMERO</option>
+                    <option value="data" class="bg-light">DATA</option>
                     <option value="stato">STATO</option>
                     <option value="priorita">PRIORITA</option>
                     <option value="origine">ORIGINE</option>
@@ -34,6 +34,7 @@
             </div>
             <div>
                 <?php if (isset($_SESSION['error'])) echo $_SESSION['error']; ?>
+            </div>
         </form>
     </div>
 </section>

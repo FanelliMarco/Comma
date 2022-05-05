@@ -420,7 +420,7 @@
 				echo "<td>" . $record['stato'] . "</td>";
 				echo "<td>" . $record['priorita'] . "</td>";
 				echo "<td>" . $record['origine'] . "</td>";
-				echo "</tr>";
+				echo '<td><button class="btn btn-dark btn-lg">PROVA</button></td>';
 			}
 		}
     }

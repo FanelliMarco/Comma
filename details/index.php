@@ -1,7 +1,10 @@
 <?php
 define("TITLE", "Comma - Details");
 include "../assets/layouts/header.php";
-include "./includes/details_include.php";
+require_once "../assets/includes/data_functions.php";
+require '../assets/includes/query_include.php';
+//include "./includes/details_include.php";
+$result=db_get_nc($_GET['id'], 'interna');
 check_logged_in();
 ?>
 
@@ -21,7 +24,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="id"><?php echo $_GET['id']; ?></span>
+                    <span class="" id="" name="id"><?php echo $result[0]['numero']; ?></span>
                 </div>
             </div>
 
@@ -31,7 +34,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">tipo:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="tipo"><?php echo $_result[0]['tipo'] ?></span>
                 </div>
             </div>
 
@@ -41,7 +44,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">data:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="data"></span>
+                    <span class="" id="" name="data"><?php echo $_result[0]['data'] ?></span>
                 </div>
             </div>
 
@@ -51,7 +54,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">stato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="stato"></span>
+                    <span class="" id="" name="stato"><?php echo $_result[0]['stato'] ?></span>
                 </div>
             </div>
 
@@ -61,7 +64,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">priorità:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="priorita"></span>
+                    <span class="" id="" name="priorita"><?php echo $_result[0]['priorita'] ?></span>
                 </div>
             </div>
 
@@ -71,7 +74,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">origine:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="origine"></span>
+                    <span class="" id="" name="origine"><?php echo $_result[0]['origine'] ?></span>
                 </div>
             </div>
 
@@ -81,7 +84,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">descrizione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="descrizione"></span>
+                    <span class="" id="" name="descrizione"><?php echo $_result[0]['descrizione'] ?></span>
                 </div>
             </div>
 
@@ -91,7 +94,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">semilavorato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="semilavorato"></span>
+                    <span class="" id="" name="semilavorato"><?php echo $_result[0]['oggetto'] ?></span>
                 </div>
             </div>
 
@@ -101,7 +104,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">segnalatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="segnalatore"></span>
+                    <span class="" id="" name="segnalatore"><?php echo $_result[0]['segnalatore'] ?></span>
                 </div>
             </div>
 
@@ -111,7 +114,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">risolutore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="risolutore"></span>
+                    <span class="" id="" name="risolutore"><?php echo $_result[0]['risolutore'] ?></span>
                 </div>
             </div>
 
@@ -121,7 +124,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">verificatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="verificatore"></span>
+                    <span class="" id="" name="verificatore"><?php echo $_result[0]['verificatore'] ?></span>
                 </div>
             </div>
 
@@ -131,7 +134,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">decisione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="decisione"></span>
+                    <span class="" id="" name="decisione"><?php echo $_result[0]['decisione'] ?></span>
                 </div>
             </div>
 
@@ -141,7 +144,7 @@ check_logged_in();
                 <div class="col-3 text-uppercase"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="azioni_correttive"></span>
+                    <span class="" id="" name="az_corr"><?php echo $_result[0]['az_corr'] ?></span>
                 </div>
             </div>
         </form>

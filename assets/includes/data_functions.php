@@ -50,6 +50,19 @@
 
 	}
 
+    // restituisce tutti i dati della nc richiesta
+	function db_get_nc($numero, $tipo) {
+
+		global $conn;
+		$stmt = $conn->prepare(search_nc_spec);
+        $stmt->bind_param("ss", $numero, $tipo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+		$result = db_result_to_array($result);
+		return $result;
+
+	}
+
 	// restituisce i nomi di tutti i processi
 	function db_get_processi() {
 

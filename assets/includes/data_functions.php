@@ -255,7 +255,7 @@
 
 	}
 
-    // mofifica una nc
+    // modifica una nc
     function db_modifica_nc($stato, $priorita, $risolutore, $verificatore, $decisioni, $az_corr, $numero, $tipo) {
 
         global $conn;

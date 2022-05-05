@@ -21,7 +21,7 @@
 
     if(!defined("insert_nc_interna")) define("insert_nc_interna", "INSERT INTO nc_interna (Descrizione, Stato, Priorita, Origine) VALUES (?, 'rilevata', 'bassa', ?/* processo */)"); // nuova non conformità interna
     if(!defined("search_nc_interna_number")) define("search_nc_interna_number", "SELECT max(Numero) as n FROM nc_interna"); // numero dell'ultima nc_interna inserita
-    if(!defined("insert_rilevamento_inetrno")) define("insert_rilevamento_inetrno", "INSERT INTO rilevamento_interno (NC, Impiegato, semilavorato, Data) VALUES (?/* output della search_nc_interna_number */, ?, ?, now())"); // nuovo rilevamento interno
+    if(!defined("insert_rilevamento_interno")) define("insert_rilevamento_interno", "INSERT INTO rilevamento_interno (NC, Impiegato, semilavorato, Data) VALUES (?/* output della search_nc_interna_number */, ?, ?, now())"); // nuovo rilevamento interno
     
     // MODIFICA
     // usare $search_nc_all

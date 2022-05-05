@@ -14,17 +14,14 @@ button {
     height: 50px;
 }
 
-.page_subtitle {
-    font-size: 60px;
+select {
+    height: 50px;
 }
 
-@media only screen and (max-width: 992px) {
-    .page_subtitle {
-        font-size: 30px;
-    }
+.search_field {
+    border-radius: 15px 0px 0px 15px !important;
 }
 
-.colorino {
-    background-color: #ebebeb;
-    color: #041f4f;
+.search_button {
+    border-radius: 0px 15px 15px 0px !important;
 }

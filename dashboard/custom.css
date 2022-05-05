@@ -13,7 +13,16 @@ input {
 button {
     height: 50px;
 }
-.colorino {
-    background-color: #ebebeb;
-    color: #041f4f;
+
+select {
+    height: 50px;
+    border-radius: 15px !important;
+}
+
+.search_field {
+    border-radius: 15px 0px 0px 15px !important;
+}
+
+.search_button {
+    border-radius: 0px 15px 15px 0px !important;
 }

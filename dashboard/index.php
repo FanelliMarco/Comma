@@ -16,7 +16,7 @@
             <div class="col-md-6 p-3 col-sm-12 input-group align-items-center justify-content-center">
                 <!-- BACKEND: barra di ricerca per filtro sulle non conformità -->
                 <input type="text" class="form-control search_field" name="search_field" placeholder="Cerca una non conformità" />
-                <button class="btn btn-primary" type="submit" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
+                <button class="btn btn-primary search_button" type="submit" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
             </div>
             <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
                 <!-- BACKEND: tasto filtra -->

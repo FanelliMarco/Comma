@@ -357,6 +357,10 @@
         }
     }
 
+    function db_order_numero($numero){
+        
+    }
+
 	function fill_NC_table($matr){
         $result = db_get_riepilogo($matr);
         create_table($result);

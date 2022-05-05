@@ -39,4 +39,5 @@
     if(!defined("search_user_employee_all")) define("search_user_employee_all", "SELECT Nome, Cognome, Username, Password, Tipo, Processo FROM impiegato WHERE Matricola=?"); // dati deell'impiegato prima dell'aggiornamento
     if(!defined("update_user_employee")) define("update_user_employee", "UPDATE impiegato SET Nome=?, Cognome=?, Username=?, Password=?, Tipo=?, Processo=?, updated_at=now() WHERE Matricola=?"); // aggiornamento dati dell'impiegato
 
+    //
 ?>

@@ -419,7 +419,7 @@
     }
 
     //funzione che crea gli errori
-    function error($error){
+    function get_error($error){
         $_SESSION['error']=$error;
         header("Location: ../");
         exit();

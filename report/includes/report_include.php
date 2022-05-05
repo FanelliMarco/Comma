@@ -1,37 +1,28 @@
 <?php
-    require '../../assets/includes/data_functions.php';
-    
+    require "../../assets/includes/data_functions.php";
+
     session_start();
 
     if(isset($_POST['sub'])){
+
         require_once "../../assets/setup/connessionedb.php";
         require "../../assets/includes/security_functions.php";
         
-        if(empty($_POST['processo']) || empty($_POST['descrizione'])){
-            error('I campi non possono essere vuoti');
+        if(empty($_POST['processo']) || empty($_POST['descrizione'] || empty($_POST['codice_semicodice']))){
+            get_error('I campi non possono essere vuoti');
         }
         else{
-            if($_POST['fase']==='Altro'){
-                if(empty($_POST['descr_fase'])){
-                    error('I campi non possono essere vuoti');
-                }
-                else{
-                    if(_cleaninjections($_POST['processo'] || _cleaninjections($_POST['descrizione']) || _cleaninjections($_POST['descr_fase']))){
-                        error('I campi contengono caratteri o parole non ammesse');
-                    }
-                    else{
-                        //inserimento query con descrizione e altro
-                    }
-                }
+            if(_cleaninjections($_POST['processo'] || _cleaninjections($_POST['descrizione']) || _cleaninjections($_POST['descr_fase']))){
+                get_error('I campi contengono caratteri o parole non ammesse');
             }
-            if(_cleaninjections($_POST['processo']) || _cleaninjections($_POST['descrizione'])){
-                error('I campi contengono caratteri o parole non ammesse');
-            }
-            else{
+            else{ 
                 //inserimento query con descrizione
                 $processo=$_POST['processo'];
                 $descrizione=$_POST['descrizione'];
-                
+                $codice=$_POST['codice_semicodice'];
+                db_inserisci_nc_interna($processo, $codice, $descrizione, $_SESSION['matricola']);
+                header("Location: ../");
+                exit();
             }
         }
     }

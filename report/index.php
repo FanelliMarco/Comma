@@ -1,6 +1,6 @@
 <?php
-define("TITLE", "Comma - Report");
-include "../assets/layouts/header.php";
+    define("TITLE", "Comma - Report");
+    include "../assets/layouts/header.php";
 ?>
 
 <!-- Non conformità -->
@@ -22,14 +22,14 @@ include "../assets/layouts/header.php";
                         <input type="text" class="form-control mb-3 form_control_font" id="processo" name='processo'>
                     </div>
                     <div class="form-group">
-                        <label for="fase" class="h2 form-label mb-3 ml-3">
+                        <label for="codice" class="h2 form-label mb-3 ml-3">
                             <select class="form-select" name='fase'>
                                 <option value="Prodotto" selected>Prodotto</option>
                                 <option value="Semilavorato">Semilavorato</option>
                                 <option value="Altro">Altro</option>
                             </select>
                         </label>
-                        <input type="text" class="form-control mb-3 form_control_font" id="fase" name='descr_fase'>
+                        <input type="text" class="form-control mb-3 form_control_font" id="codice" name='codice_semicodice'>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 p-5">
@@ -44,11 +44,14 @@ include "../assets/layouts/header.php";
                     <button type="submit" class="btn btn-primary w-50 text-uppercase" id="sub" name='sub'><span class="form_control_font">conferma</span></button>
                 </div>
             </div>
+            <div>
+                <?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?>
+            </div>
         </form>
     </div>
 </section>
 
 
 <?php
-include "../assets/layouts/footer.php";
+    include "../assets/layouts/footer.php";
 ?>

@@ -14,10 +14,12 @@
                 exit();
             }
             else{
+                /*
                 $search_field=$_POST['search_field'];
                 $htmlContents=file_get_contents($_SERVER['PHP_SELF']);
                 $htmlContents=str_replace('{{TEXT_TO_REPLACE}}', fill_NC_table_search($search_field, $_SESSION['matricola']), $htmlContents);
                 echo $htmlContents;
+                */
             }
         }
         else{
@@ -25,10 +27,5 @@
             header("Location: ../");
             exit();
         }
-    }
-    else{
-        $htmlContents=file_get_contents('./', true);
-        $htmlContents=str_replace('{{TEXT_TO_REPLACE}}', fill_NC_table($_SESSION['matricola']), $htmlContents);
-        echo $htmlContents;
     }
 ?>

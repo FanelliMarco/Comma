@@ -35,6 +35,28 @@
             <div>
                 <?php if (isset($_SESSION['error'])) echo $_SESSION['error']; ?>
             </div>
+
+            <!-- DROPFUCKINGDOWN -->
+            <div class="dropdown dropleft">
+                    <a class="btn btn-transparent dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- BACKEND : togliere il link alla pagina corrente -->
+                        <?php 
+                            if(isset($_SESSION['admin'])){
+                                echo "<li><a class='dropdown-item text-uppercase' href='../management/index.php'><span>management</span></a></li>";}
+                        ?>
+                        <li><a class="dropdown-item text-uppercase" href="../dashboard/index.php"><span>Dashboard</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../edit/index.php"><span>edit</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../recover/index.php"><span>recover</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../report/index.php"><span>report</span></a></li>
+                    </ul>
+                </div>
+
+
         </form>
     </div>
 </section>

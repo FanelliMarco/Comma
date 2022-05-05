@@ -11,14 +11,11 @@
 <!-- search bar -->
 <section class="p-5">
     <div class="container">
-        <form class="row text-center" action="./includes/management_include.php" method="post">
+        <form class="row text-center" action="./includes/management_include.php" method="POST">
             <div class="col-md-6 p-3 col-sm-12 input-group align-items-center justify-content-center">
                 <!-- BACKEND: barra di ricerca per filtro sulle non conformità -->
                 <input type="text" class="form-control" name="search_field" placeholder="Cerca una non conformità" />
-                <button class="btn btn-primary" type="button" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
-            </div>
-            <div>
-                <?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?>
+                <button class="btn btn-primary" type="submit" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
             </div>
             <div class="col-md-3 col-sm-6 p-3 align-items-center justify-content-center">
                 <!-- BACKEND: tasto filtra -->
@@ -27,6 +24,9 @@
             <div class="col-md-3 col-sm-6 p-3 text-center">
                 <!-- BACKEND: tasto ordina -->
                 <button class="btn btn-primary btn-lg text-uppercase" type="button" id="">ordina</button>
+            </div>
+            <div>
+                <?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?>
             </div>
         </form>
     </div>

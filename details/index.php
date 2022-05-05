@@ -70,9 +70,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">descrizione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, hic suscipit commodi dolorum nisi voluptates pariatur facilis labore quidem corporis vel minus optio nostrum ipsam perferendis ad deserunt aliquam cum amet numquam! Velit, inventore aspernatur nemo nisi quam consequatur illo ea veritatis repudiandae debitis officiis vero labore amet. Exercitationem, vero.
-                    </span>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -139,15 +137,8 @@ include "./includes/details_include.php";
     </div>
 </section>
 
-<!-- conferma edit -->
+<!-- bottoni - link -->
 <section class="p-5">
-    <div class="row">
-        <div class="col form-group d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary w-25 text-uppercase" id="" name=''>
-                <span class="form_control_font">conferma</span>
-            </button>
-        </div>
-    </div>
 </section>
 
 <?php

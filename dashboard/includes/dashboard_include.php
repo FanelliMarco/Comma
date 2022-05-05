@@ -6,7 +6,7 @@
 
     session_start();
 
-    
+    $utente = $_SESSION['utente'];
 
     if(isset($_POST['search_button'])){
         if(!(empty($_POST['search_field']))){
@@ -26,8 +26,14 @@
     }
 
     //filter
-
+    /*
     if (isset($_POST['order'])){
-        
-    }
+        $ordine = $_POST['order'];
+        switch ($ordine){
+            case 'numero': $result = db_order_number($utente, $order);
+            case 'data': db_order_date($utente, $order);
+        }
+
+        $result 
+    }*/
 ?>

@@ -24,11 +24,6 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <!--
-                        BACKEND in base al valore inserito nel seguente input id="" name="" field,
-                        i valore di default degli input id="" name="" successivi cambiano secondo
-                        il contenuto del database
-                    -->
                     <input type="text" value="<?php echo $_GET["numero"] ?>" class="form-control bg-transparent text-light" id="n_nc" name="n_nc" required>
                 </div>
             </div>
@@ -90,7 +85,6 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-9">
                     <div class="input-group">
                         <select class="form-control text-uppercase bg-transparent text-light" id="origine" name="origine" required>
-                            <!-- BACKEND conviene creare gli option con una quey alla tabella: processi -->
                             <?php
 
                                 $processi = db_get_processi();
@@ -123,7 +117,6 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <textarea <?php if(isset($nc[0]["descrizione"])) echo "value='" . $nc[0]["descrizione"] . "'" ?> class="form-control bg-transparent text-light" cols="40" rows="5" id="descrizione" name="descrizione"></textarea>
-                    <!-- input type="text" class="form-control bg-transparent text-light input_field_descrizione" id="" name="" -->
                 </div>
             </div>
 
@@ -175,7 +168,6 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-9">
                     <div class="input-group">
                         <select class="form-control text-uppercase bg-transparent text-light" id="decisioni" name="decisioni" required>
-                            <!-- BACKEND conviene creare gli option con una quey alla tabella: processi -->
                             <option <?php if($nc[0]["decisioni"] == "semilavorato scartato") echo "selected" ?> value="semilavorato scartato" class="text-dark">semilavorato scartato</option>
                             <option <?php if($nc[0]["decisioni"] == "rilavorazione") echo "selected" ?> value="rilavorazione" class="text-dark">rilavorazione</option>
                             <option <?php if($nc[0]["decisioni"] == "opzione 3") echo "selected" ?> value="opzione 3" class="text-dark">opzione 3</option>
@@ -207,6 +199,13 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 </div>
             </section>
         </form>
+    </div>
+    <div>
+        <?php
+
+            if(isset($_SESSION["error"])) echo $_SESSION["error"];
+
+        ?>
     </div>
 </section>
 

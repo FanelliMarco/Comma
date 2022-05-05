@@ -20,6 +20,7 @@
                 $htmlContents=str_replace('{{TEXT_TO_REPLACE}}', fill_NC_table_search($search_field, $_SESSION['matricola']), $htmlContents);
                 echo $htmlContents;
                 */
+                $_SESSION['error']='';
             }
         }
         else{

@@ -4,8 +4,11 @@ include "../assets/layouts/header.php";
 require_once "../assets/includes/data_functions.php";
 require '../assets/includes/query_include.php';
 //include "./includes/details_include.php";
-$result=db_get_nc($_GET['id'], 'interna');
 check_logged_in();
+$result=db_get_nc($_GET['id'], 'interna');
+if(!$result){
+    echo "Non funziona";
+}
 ?>
 
 <!-- Non conformità -->

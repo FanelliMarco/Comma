@@ -420,6 +420,7 @@
 				echo "<td>" . $record['stato'] . "</td>";
 				echo "<td>" . $record['priorita'] . "</td>";
 				echo "<td>" . $record['origine'] . "</td>";
+                echo "<td><a href='../details/index.php?id=".$record['numero']."'>Dettagli</a></td>";
 				echo "</tr>";
 			}
 		}

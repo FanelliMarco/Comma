@@ -1,7 +1,7 @@
 <?php
 define("TITLE", "Comma - Login");
 include "../assets/layouts/header.php";
-include "./includes/edit_include.php";
+include "./includes/details_include.php";
 ?>
 
 <!-- Non conformità -->
@@ -20,12 +20,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <!--
-                        BACKEND in base al valore inserito nel seguente input id="" name="" field,
-                        i valore di default degli input id="" name="" successivi cambiano secondo
-                        il contenuto del database
-                    -->
-                    <input type="text" value="1" class="form-control bg-transparent text-light" id="" name="" required>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -45,20 +40,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">stato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <div class="input-group">
-                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="" required>
-                            <option selected class="text-dark">rilevata</option>
-                            <option value="1" class="text-dark">in gestione</option>
-                            <option value="1" class="text-dark">assegnata</option>
-                            <option value="1" class="text-dark">in risoluzione</option>
-                            <option value="1" class="text-dark">risolta</option>
-                            <option value="1" class="text-dark">da verificare</option>
-                            <option value="1" class="text-dark">non verificata</option>
-                            <option value="1" class="text-dark">in verifica</option>
-                            <option value="1" class="text-dark">verificata</option>
-                            <option value="1" class="text-dark">conclusa</option>
-                        </select>
-                    </div>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -68,13 +50,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">priorità:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <div class="input-group">
-                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="" required>
-                            <option selected valuie="bassa" class="text-dark">bassa</option>
-                            <option value="media" class="text-dark">media</option>
-                            <option value="alta" class="text-dark">alta</option>
-                        </select>
-                    </div>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -84,23 +60,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">origine:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <div class="input-group">
-                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="" required>
-                            <!-- BACKEND conviene creare gli option con una quey alla tabella: processi -->
-                            <option selected class="text-dark">applicazione ologramma anticontraffazione</option>
-                            <option value="1" class="text-dark">controllo qualita input</option>
-                            <option value="1" class="text-dark">controllo stampa grafica</option>
-                            <option value="1" class="text-dark">inserimento banda magnetica</option>
-                            <option value="1" class="text-dark">inserimento chip</option>
-                            <option value="1" class="text-dark">inserimento contactless</option>
-                            <option value="1" class="text-dark">irrigidimento plastica</option>
-                            <option value="1" class="text-dark">laminazione</option>
-                            <option value="1" class="text-dark">posizionamento degli elaborati</option>
-                            <option value="1" class="text-dark">separazione carte</option>
-                            <option value="1" class="text-dark">stampa codice carta</option>
-                            <option value="1" class="text-dark">stampaggio grafica</option>
-                        </select>
-                    </div>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -110,8 +70,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">descrizione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <textarea class="form-control bg-transparent text-light" cols="40" rows="5"></textarea>
-                    <!-- input type="text" class="form-control bg-transparent text-light input_field_descrizione" id="" name="" -->
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -121,7 +80,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">semilavorato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -131,7 +90,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">segnalatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -141,7 +100,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">risolutore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -151,7 +110,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">verificatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -161,15 +120,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">decisione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <div class="input-group">
-                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="" required>
-                            <!-- BACKEND conviene creare gli option con una quey alla tabella: processi -->
-                            <option selected class="text-dark">opzione 1</option>
-                            <option class="text-dark">opzione 2</option>
-                            <option class="text-dark">opzione 3</option>
-                            <option class="text-dark">opzione 4</option>
-                        </select>
-                    </div>
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
@@ -179,8 +130,7 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <textarea class="form-control bg-transparent text-light" cols="40" rows="5"></textarea>
-                    <!-- input type="text" class="form-control bg-transparent text-light input_field_descrizione" id="" name="" -->
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
         </form>

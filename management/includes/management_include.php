@@ -4,6 +4,8 @@
 
     session_start();
 
+    
+
     if(isset($_POST['search_button'])){
         if(!(empty($_POST['search_field']))){
             if(_cleaninjections($_POST['search_field'])){

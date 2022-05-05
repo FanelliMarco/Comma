@@ -1,6 +1,7 @@
 <?php
     define("TITLE", "Comma - Management");
     include "../assets/layouts/header.php";
+
 ?>
 
 <!-- Non conformità -->

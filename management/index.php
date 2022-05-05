@@ -2,7 +2,7 @@
 define("TITLE", "Comma - Management");
 include "../assets/layouts/header.php";
 include "./includes/management_include.php";
-include_once "../assets/includes/data_functions.php";
+require "../assets/includes/data_functions.php";
 ?>
 
 <!-- Non conformità -->

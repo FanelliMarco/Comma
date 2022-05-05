@@ -10,6 +10,6 @@
     else
         $_SESSION["error"] = "";
 
-    header("Location: ../");
+    header("Location: ../../dashboard");
 
 ?>

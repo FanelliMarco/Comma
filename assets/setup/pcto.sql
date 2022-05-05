@@ -141,7 +141,8 @@ INSERT INTO `impiegato` (`Matricola`, `Nome`, `Cognome`, `Username`, `Password`,
 ('0000020', 'Leonardo', 'Rinaldi', 'leonardo_rinaldi', 'D620D07C8743FDABC5995F1ED749BE21EA59E9B41FAE985631BB5F190AB0B67B', 'Operaio', 'logistica', NULL, '2022-05-02 19:02:31', NULL, NULL),
 ('0000021', 'Basilio', 'Celentano', 'basilio_celentano', '96C9811127209B5DD23C5B1EC7EC69E23074C478BCE3FC99945C1575BF0A94F0', 'Addetto al controllo qualita', NULL, NULL, '2022-05-02 19:02:31', NULL, NULL),
 ('0000022', 'Fabiola', 'Denari', 'fabiola_denari', '0CB7E0D4D7A397614554381E0516BA74FD5F870A7056C5DD4E518CC6052F1E7A', 'Addetto al controllo qualita', NULL, NULL, '2022-05-02 19:02:31', NULL, NULL),
-('0000023', 'Igor', 'Rampa', 'igor_rampa', '9755FEFC878A2990AD5123634FD9656E90557875350269EE095643E67BBFD481', 'Addetto al controllo qualita', NULL, NULL, '2022-05-02 19:02:31', NULL, NULL);
+('0000023', 'Igor', 'Rampa', 'igor_rampa', '9755FEFC878A2990AD5123634FD9656E90557875350269EE095643E67BBFD481', 'Addetto al controllo qualita', NULL, NULL, '2022-05-02 19:02:31', NULL, NULL),
+('1000000', 'Admin', 'Admin', 'admin', '6B9062CDD10C260A6C092A953E9677CE02C4765BDBCFF9EA77C45561AE11B8C3', 'Boss del database', NULL, '2022-05-05 20:13:23', '2022-05-05 20:13:23', NULL, NULL);<
 
 -- --------------------------------------------------------
 

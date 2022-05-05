@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 04, 2022 alle 17:59
--- Versione del server: 10.4.21-MariaDB
--- Versione PHP: 8.0.12
+-- Creato il: Mag 05, 2022 alle 21:26
+-- Versione del server: 10.4.14-MariaDB
+-- Versione PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 -- Database: `pcto`
 --
 
-create schema pcto;
-use pcto;
-
 -- --------------------------------------------------------
 
 --
@@ -38,7 +35,7 @@ CREATE TABLE `auth_tokens` (
   `token` longtext NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `expires_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -57,7 +54,7 @@ CREATE TABLE `cliente` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL,
   `last_login_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `cliente`
@@ -83,7 +80,7 @@ CREATE TABLE `fornitore` (
   `Nome` varchar(20) NOT NULL,
   `Indirizzo` varchar(40) DEFAULT NULL,
   `Telefono` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `fornitore`
@@ -112,7 +109,7 @@ CREATE TABLE `impiegato` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL,
   `last_login_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `impiegato`
@@ -142,7 +139,7 @@ INSERT INTO `impiegato` (`Matricola`, `Nome`, `Cognome`, `Username`, `Password`,
 ('0000021', 'Basilio', 'Celentano', 'basilio_celentano', '96C9811127209B5DD23C5B1EC7EC69E23074C478BCE3FC99945C1575BF0A94F0', 'Addetto al controllo qualita', NULL, NULL, '2022-05-02 19:02:31', NULL, NULL),
 ('0000022', 'Fabiola', 'Denari', 'fabiola_denari', '0CB7E0D4D7A397614554381E0516BA74FD5F870A7056C5DD4E518CC6052F1E7A', 'Addetto al controllo qualita', NULL, NULL, '2022-05-02 19:02:31', NULL, NULL),
 ('0000023', 'Igor', 'Rampa', 'igor_rampa', '9755FEFC878A2990AD5123634FD9656E90557875350269EE095643E67BBFD481', 'Addetto al controllo qualita', NULL, NULL, '2022-05-02 19:02:31', NULL, NULL),
-('1000000', 'Admin', 'Admin', 'admin', '6B9062CDD10C260A6C092A953E9677CE02C4765BDBCFF9EA77C45561AE11B8C3', 'Boss del database', NULL, '2022-05-05 20:13:23', '2022-05-05 20:13:23', NULL, NULL);<
+('1000000', 'Admin', 'Admin', 'admin', '6B9062CDD10C260A6C092A953E9677CE02C4765BDBCFF9EA77C45561AE11B8C3', 'Boss del database', NULL, '2022-05-05 18:13:23', '2022-05-05 18:13:23', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -153,7 +150,7 @@ INSERT INTO `impiegato` (`Matricola`, `Nome`, `Cognome`, `Username`, `Password`,
 CREATE TABLE `materie_prime` (
   `Codice` varchar(10) NOT NULL,
   `Lotto` char(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `materie_prime`
@@ -191,7 +188,7 @@ CREATE TABLE `nc_input` (
   `Priorita` varchar(20) DEFAULT NULL,
   `Addetto_gestione` char(16) NOT NULL,
   `Origine` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -208,7 +205,7 @@ CREATE TABLE `nc_interna` (
   `Priorita` varchar(50) DEFAULT NULL,
   `Addetto_gestione` char(16) NOT NULL,
   `Origine` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `nc_interna`
@@ -217,7 +214,8 @@ CREATE TABLE `nc_interna` (
 INSERT INTO `nc_interna` (`Numero`, `Descrizione`, `Azioni_correttive`, `Decisioni`, `Stato`, `Priorita`, `Addetto_gestione`, `Origine`) VALUES
 (1, 'stampa non conforme', NULL, 'semilavorato scartato', 'rilevata', 'basso', '0000021', 'stampaggio grafica'),
 (2, 'fogli disallineati', NULL, 'semilavorato scartato', 'in risoluzione', 'basso', '0000023', 'laminazione'),
-(3, 'plastica non irrigidita abbastanza', 'ripetere il processo di irrigidimento', 'rilavorazione', 'Risolta', 'basso', '0000022', 'laminazione');
+(3, 'plastica non irrigidita abbastanza', 'ripetere il processo di irrigidimento', 'rilavorazione', 'Risolta', 'basso', '0000022', 'laminazione'),
+(30, 'prova', NULL, NULL, 'rilevata', 'bassa', '0000021', 'inserimento chip');
 
 -- --------------------------------------------------------
 
@@ -234,7 +232,7 @@ CREATE TABLE `nc_output` (
   `Priorita` varchar(20) DEFAULT NULL,
   `Addetto_gestione` char(16) NOT NULL,
   `Origine` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -245,7 +243,7 @@ CREATE TABLE `nc_output` (
 CREATE TABLE `processi` (
   `Nome` varchar(50) NOT NULL,
   `Descrizione` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `processi`
@@ -275,7 +273,7 @@ INSERT INTO `processi` (`Nome`, `Descrizione`) VALUES
 CREATE TABLE `prodotto` (
   `Codice` varchar(10) NOT NULL,
   `Lotto` char(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `prodotto`
@@ -319,7 +317,7 @@ CREATE TABLE `rilevamento_input` (
   `Impiegato` varchar(20) NOT NULL,
   `Materia_prima` varchar(10) NOT NULL,
   `Data` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -332,7 +330,7 @@ CREATE TABLE `rilevamento_interno` (
   `Impiegato` char(16) NOT NULL,
   `Semilavorato` char(16) NOT NULL,
   `Data` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `rilevamento_interno`
@@ -355,7 +353,7 @@ CREATE TABLE `rilevamento_output` (
   `Cliente` varchar(40) NOT NULL,
   `Prodotto` varchar(10) NOT NULL,
   `Data` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -368,7 +366,7 @@ CREATE TABLE `risoluzione_input` (
   `Fornitore` varchar(20) NOT NULL,
   `Data_inizio` date DEFAULT NULL,
   `Data_fine` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -381,7 +379,7 @@ CREATE TABLE `risoluzione_interna` (
   `Impiegato` char(16) NOT NULL,
   `Data_inizio` date DEFAULT NULL,
   `Data_fine` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -394,7 +392,7 @@ CREATE TABLE `risoluzione_output` (
   `Impiegato` varchar(20) NOT NULL,
   `Data_inizio` date DEFAULT NULL,
   `Data_fine` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -405,7 +403,7 @@ CREATE TABLE `risoluzione_output` (
 CREATE TABLE `semilavorato` (
   `Codice` char(16) NOT NULL,
   `Lotto` char(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `semilavorato`
@@ -449,7 +447,7 @@ CREATE TABLE `verifica_input` (
   `Impiegato` varchar(20) NOT NULL,
   `Data_inizio` date DEFAULT NULL,
   `Data_fine` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -462,7 +460,7 @@ CREATE TABLE `verifica_interna` (
   `Impiegato` char(16) NOT NULL,
   `Data_inizio` date DEFAULT NULL,
   `Data_fine` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -475,7 +473,7 @@ CREATE TABLE `verifica_output` (
   `Impiegato` varchar(20) NOT NULL,
   `Data_inizio` date DEFAULT NULL,
   `Data_fine` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -664,7 +662,7 @@ ALTER TABLE `nc_input`
 -- AUTO_INCREMENT per la tabella `nc_interna`
 --
 ALTER TABLE `nc_interna`
-  MODIFY `Numero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Numero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Limiti per le tabelle scaricate

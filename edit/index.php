@@ -171,7 +171,15 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
+                    <div class="input-group">
+                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="" required>
+                            <!-- BACKEND conviene creare gli option con una quey alla tabella: processi -->
+                            <option selected class="text-dark">opzione 1</option>
+                            <option class="text-dark">opzione 2</option>
+                            <option class="text-dark">opzione 3</option>
+                            <option class="text-dark">opzione 4</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </form>

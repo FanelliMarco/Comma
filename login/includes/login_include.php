@@ -30,6 +30,7 @@
                     $_SESSION['logged'] = true;
                     $_SESSION['user'] = $user;
                     $_SESSION['matricola'] = $result[0]['Matricola'];
+                    $_SESSION['error']='';
                     header("Location: ../../management");
                     exit();
                 }

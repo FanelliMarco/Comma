@@ -24,6 +24,16 @@ include "./includes/details_include.php";
                 </div>
             </div>
 
+            <!-- Riga tipo -->
+            <div class="row align-items-center justify-content-center pb-5">
+                <!-- Colonna di sinistra -->
+                <div class="col-3 text-uppercase"><span class="">tipo:</span></div>
+                <!-- Colonna di destra -->
+                <div class="col-9">
+                    <span class="" id="" name=""></span>
+                </div>
+            </div>
+
             <!-- Riga data -->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->

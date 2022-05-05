@@ -24,10 +24,10 @@
                     <div class="form-group">
                         <label for="codice" class="h2 form-label mb-3 ml-3">
                             Codice
-                            <select class="form-select" name='fase'>
-                                <option value="Prodotto" selected>Prodotto</option>
-                                <option value="Semilavorato">Semilavorato</option>
-                                <option value="Altro">Altro</option>
+                            <select class="form-select bg-transparent text-light" name='fase'>
+                                <option class="text-dark" value="Prodotto" selected>Prodotto</option>
+                                <option class="text-dark" value="Semilavorato">Semilavorato</option>
+                                <option class="text-dark" value="Altro">Altro</option>
                             </select>
                             :
                         </label>

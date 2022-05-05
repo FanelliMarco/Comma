@@ -265,7 +265,16 @@
 
         try {
 
-            $stmt->bind_param("sssssssss", $stato, $priorita, $risolutore, $verificatore, $decisoni, $az_corr, $numero, $tipo);
+            $result = db_get_nc($numero, $tipo);
+
+            if(!isset($stato))              $stato = $result[0]["stato"];
+            if(!isset($priorita))           $priorita = $result[0]["priorita"];
+            if(!isset($risolutore))         $risolutore = $result[0]["risolutore"];
+            if(!isset($verificatore))       $verificatore = $result[0]["verificatore"];
+            if(!isset($decisioni))          $decisioni = $result[0]["decisioni"];
+            if(!isset($az_corr))            $az_corr = $result[0]["az_corr"];
+
+            $stmt->bind_param("ssssssss", $stato, $priorita, $risolutore, $verificatore, $decisoni, $az_corr, $numero, $tipo);
 
             if(!$stmt->execute())
                 throw new Exception("Errore aggiornamento nella vista vi_riepilogo");

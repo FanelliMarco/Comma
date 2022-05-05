@@ -27,6 +27,8 @@
                 if(!$result) { 
                     get_error('Utente o password errati');
                 } else {
+                    if($result[0]['Matricola']==='1000000')
+                        $_SESSION['admin']=true;
                     $_SESSION['logged'] = true;
                     $_SESSION['user'] = $user;
                     $_SESSION['matricola'] = $result[0]['Matricola'];

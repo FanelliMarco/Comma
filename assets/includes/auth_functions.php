@@ -1,14 +1,15 @@
 <?php
-function check_logged_in(){}
-function check_logged_out(){
-    if (!isset($_SESSION['logged'])){
-    
-        return true;
-    }
-    else {
+    function check_logged_in(){}
+    function check_logged_out(){
+        if (!isset($_SESSION['logged'])){
+        
+            return true;
+        }
+        else {
 
-        header("Location: ../management");
-        exit();
+            header("Location: ../dashboard");
+            exit();
+        }
     }
-}
+
 ?>

@@ -1,6 +1,7 @@
 <?php
     define("TITLE", "Comma - Management");
     include "../assets/layouts/header.php";
+    require_once "../assets/includes/data_functions.php";
 ?>
 
 <!-- Non conformità -->
@@ -46,7 +47,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{TEXT_TO_REPLACE}} <!-- BACKEND: da rivedere perché non corretto -->
+                <?php fill_NC_table($_SESSION['matricola']); ?> <!-- BACKEND: da rivedere perché non corretto -->
             </tbody>
         </table>
     </div>

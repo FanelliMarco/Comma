@@ -1,4 +1,4 @@
-<?php
+ <?php
 
     // LOGIN
     if(!defined("search_user_employee")) define("search_user_employee", "SELECT * FROM impiegato WHERE Username=? AND Password=?"); // dati di un impiegato che si vuole autenticare
@@ -6,6 +6,10 @@
     
     // DASHBOARD
     if(!defined("search_nc_all")) define("search_nc_all", "SELECT * FROM vi_riepilogo WHERE gestore=? or segnalatore=? or risolutore=? or verificatore=?"); // non conformità relative ad un utente
+    if(!defined("search_nc_data")) define("search_nc_data", "SELECT * FROM vi_riepilogo WHERE gestore=? and data=?"); //non conformita relativa ad un utente e data
+    if(!defined("search_nc_stato")) define("search_nc_stato", "SELECT * FROM vi_riepilogo WHERE gestore=? and stato=?"); //non conformita relativa ad un utente e stato
+    if(!defined("search_nc_priorita")) define("search_nc_priorita", "SELECT * FROM vi_riepilogo WHERE gestore=? and priorita=?"); //non conformita relativa ad un utente e priorita
+    if(!defined("search_nc_origine")) define("search_nc_origine", "SELECT * FROM vi_riepilogo WHERE gestore=? and orgine=?"); ////non conformita relativa ad un utente e origine
     
     // SEGNALAZIONE
     if(!defined("search_processi_nome")) define("search_processi_nome", "SELECT Nome FROM processi"); // nomi di tutti i processi

@@ -24,7 +24,7 @@ include "../assets/layouts/header.php";
                     <div class="form-group">
                         <label for="fase" class="h2 form-label mb-3 ml-3">
                             <select class="form-select" name='fase'>
-                                <option value="Semilavorato" selected>Prodotto</option>
+                                <option value="Prodotto" selected>Prodotto</option>
                                 <option value="Semilavorato">Semilavorato</option>
                                 <option value="Altro">Altro</option>
                             </select>

@@ -1,7 +1,7 @@
 <?php
 
-    require '../../assets/setup/connessionedb.php';
     require 'query_include.php';
+    
 
     // trasforma il risultato di una query in array (record numerati e campi individuati dal nome)
 	function db_result_to_array($mysqli_result) {
@@ -42,7 +42,7 @@
 
 		global $conn;
 		$stmt = $conn->prepare(search_nc_all);
-        $stmt->bind_param("s", $user);
+        $stmt->bind_param("ssss", $user, $user, $user, $user);
         $stmt->execute();
         $result = $stmt->get_result();
 		$result = db_result_to_array($result);
@@ -73,6 +73,50 @@
 		return $result;
 
 	}
+
+    // restituisce tutte le non conformita di una certa data e di un certo utente
+    function db_get_data($data, $matr){
+        global $conn;
+        $stmt = $conn->prepare(search_nc_data);
+        $stmt->bind_param("ss", $data, $matr);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
+    }
+
+    // restituisce tutte le non conformita di un certo stato e di un certo utente
+    function db_get_stato($stato, $matr){
+        global $conn;
+        $stmt = $conn->prepare(search_nc_stato);
+        $stmt->bind_param("ss", $stato, $matr);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
+    }
+
+    // restituisce tutte le non conformita di una certa priorita e di un certo utente
+    function db_get_priorita($priorita, $matr){
+        global $conn;
+        $stmt = $conn->prepare(search_nc_priorita);
+        $stmt->bind_param("ss", $priorita, $matr);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
+    }
+
+    // restituisce tutte le non conformita di una certa origine e di un certo utente
+    function db_get_origine($origine, $matr){
+        global $conn;
+        $stmt = $conn->prepare(search_nc_origine);
+        $stmt->bind_param("ss", $origine, $matr);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
+    }
 
 	// inserisce una nuova non confromità in input
 	function db_inserisci_nc_input($fornitore, $materia_prima, $descrizione, $user) {
@@ -313,7 +357,6 @@
         }
     }
 
-    
 	function fill_NC_table($matr){
         $result = db_get_riepilogo($matr);
         create_table($result);
@@ -337,15 +380,19 @@
         switch($search_t){
             case 'data':
                 //cose da fare
+                $result=db_get_data($search, $matr);
                 break;
             case 'stato':
                 //cose da fare
+                $result=db_get_stato($search, $matr);
                 break;
             case 'priorita':
                 //cose da fare
+                $result=db_get_priorita($search, $matr);
                 break;
             case 'origine':
                 //cose da fare
+                $result=db_get_origine($search, $matr);
                 break;
             default:
                 $_SESSION['error']='Input non valido';
@@ -367,7 +414,14 @@
 				echo "</tr>";
 			}
 		}
-        header('Location: ../');
+        //header('Location: ../');
+        //exit();
+    }
+
+    //funzione che crea gli errori
+    function error($error){
+        $_SESSION['error']=$error;
+        header("Location: ../");
         exit();
     }
 ?>

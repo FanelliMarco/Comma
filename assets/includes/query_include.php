@@ -30,7 +30,18 @@
     // MODIFICA
     // usare $search_nc_all
     if(!defined("search_nc_spec")) define("search_nc_spec", "SELECT * FROM vi_riepilogo WHERE numero=? AND tipo=?");
-    if(!defined("update_nc_all")) define("update_nc_all", "UPDATE vi_riepilogo SET stato=?, priorita=?, risolutore=?, verificatore=?, decisioni=?, azz_corr=? WHERE numero=? AND tipo=?"); // aggiornamento delle tablelle attraverso la vista
+
+    if(!defined("update_nc_input")) define("update_nc_input", "UPDATE nc_input SET Stato=?, Priorita=?, Decisioni=?, Azioni_correttive=? WHERE Numero=?");
+    if(!defined("update_risoluzione_input")) define("update_risoluzione_input", "UPDATE risoluzione_input SET Fornitore=? WHERE NC=?");
+    if(!defined("update_verifica_input")) define("update_verifica_input", "UPDATE verifica_input SET Impiegato=? WHERE NC=?");
+
+    if(!defined("update_nc_output")) define("update_nc_output", "UPDATE nc_output SET Stato=?, Priorita=?, Decisioni=?, Azioni_correttive=? WHERE Numero=?");
+    if(!defined("update_risoluzione_output")) define("update_risoluzione_output", "UPDATE risoluzione_output SET Impiegato=? WHERE NC=?");
+    if(!defined("update_verifica_output")) define("update_verifica_output", "UPDATE verifica_output SET Impiegato=? WHERE NC=?");
+
+    if(!defined("update_nc_interna")) define("update_nc_interna", "UPDATE nc_interna SET Stato=?, Priorita=?, Decisioni=?, Azioni_correttive=? WHERE Numero=?");
+    if(!defined("update_risoluzione_interna")) define("update_risoluzione_interna", "UPDATE risoluzione_interna SET Impiegato=? WHERE NC=?");
+    if(!defined("update_verifica_interna")) define("update_verifica_interna", "UPDATE verifica_interna SET Impiegato=? WHERE NC=?");
 
     // REGISTRAZIONE
     if(!defined("insert_user_employee")) define("insert_user_employee", "INSERT INTO impiegato (Matricola, Nome, Cognome, Username, Password, Tipo, Processo, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, now(), now())"); // registrazione nuovo impiegato

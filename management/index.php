@@ -47,7 +47,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php fill_NC_table($_SESSION['matricola']); ?> <!-- BACKEND: da rivedere perché non corretto -->
+                <!-- BACKEND: da rivedere perché non corretto -->
             </tbody>
         </table>
     </div>

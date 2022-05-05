@@ -359,10 +359,19 @@
 
         }
     }
-
-    function db_order_numero($numero){
+    /*
+    //ordina la dashboard secondo il numero
+    function db_order_number($utente, $numero){
         
-    }
+        global $conn;
+		$stmt = $conn->prepare(order_nc_number);
+        $stmt->bind_param("ss" , $utente, $numero);
+        $stmt->execute();
+        $result = $stmt->get_result();
+		$result = db_result_to_array($result);
+		return $result; 
+
+    }*/
 
 	function fill_NC_table($matr){
         $result = db_get_riepilogo($matr);

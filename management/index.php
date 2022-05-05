@@ -1,6 +1,9 @@
 <?php
 define("TITLE", "Comma - Report");
 include "../assets/layouts/header.php";
+check_logged_in();
+if(!isset($_SESSION['admin']))
+    header("Location: ../");
 ?>
 
 <!-- Non conformità -->

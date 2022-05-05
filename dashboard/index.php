@@ -2,6 +2,7 @@
     define("TITLE", "Comma - Management");
     include "../assets/layouts/header.php";
     require_once "../assets/includes/data_functions.php";
+    check_logged_in();
 ?>
 
 <!-- Non conformità -->

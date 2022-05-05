@@ -2,6 +2,7 @@
 define("TITLE", "Comma - Details");
 include "../assets/layouts/header.php";
 include "./includes/details_include.php";
+check_logged_in();
 ?>
 
 <!-- Non conformità -->
@@ -20,7 +21,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="id"></span>
+                    <span class="" id="" name="id"><?php echo $_GET['id']; ?></span>
                 </div>
             </div>
 
@@ -133,19 +134,19 @@ include "./includes/details_include.php";
                     <span class="" id="" name="azioni_correttive"></span>
                 </div>
             </div>
-
-            <!-- bottoni - link -->
-            <section class="container p-5">
-                <div class="row">
-                        <div class="col-md-6 col-sm-12 text-center py-3">
-                            <a href="../edit/index.php"><button class="btn btn-warning btn-lg text-uppercase w-75" type="button" id="">modifica</button></a>
-                        </div>
-                        <div class="col-md-6 col-sm-12 text-center py-3">
-                            <a href="../report/index.php"><button class="btn btn-danger btn-lg text-uppercase w-75" type="button" id="">segnala</button></a>
-                        </div>
-                </div>
-            </section>
         </form>
+    </div>
+</section>
+
+<!-- bottoni - link -->
+<section class="container p-5">
+    <div class="row">
+            <div class="col-md-6 col-sm-12 text-center py-3">
+                <a href="../edit/index.php"><button class="btn btn-warning btn-lg text-uppercase w-75" type="button" id="">modifica</button></a>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center py-3">
+                <a href="../report/index.php"><button class="btn btn-danger btn-lg text-uppercase w-75" type="button" id="">segnala</button></a>
+            </div>
     </div>
 </section>
 

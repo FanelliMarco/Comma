@@ -155,20 +155,10 @@ include "./includes/edit_include.php";
                 </div>
             </div>
 
-            <!-- Riga decisione-->
+            <!-- Riga decisione -->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">decisione:</span></div>
-                <!-- Colonna di destra -->
-                <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
-                </div>
-            </div>
-
-            <!-- Riga azioni correttive-->
-            <div class="row align-items-center justify-content-center pb-5">
-                <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <div class="input-group">
@@ -182,7 +172,29 @@ include "./includes/edit_include.php";
                     </div>
                 </div>
             </div>
+
+            <!-- Riga azioni correttive-->
+            <div class="row align-items-center justify-content-center pb-5">
+                <!-- Colonna di sinistra -->
+                <div class="col-3"><span class="">azioni correttive:</span></div>
+                <!-- Colonna di destra -->
+                <div class="col-9">
+                    <textarea class="form-control bg-transparent text-light" cols="40" rows="5"></textarea>
+                    <!-- input type="text" class="form-control bg-transparent text-light input_field_descrizione" id="" name="" -->
+                </div>
+            </div>
         </form>
+    </div>
+</section>
+
+<!-- conferma edit -->
+<section class="p-5">
+    <div class="row">
+        <div class="col form-group d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary w-25 text-uppercase" id="" name=''>
+                <span class="form_control_font">conferma</span>
+            </button>
+        </div>
     </div>
 </section>
 

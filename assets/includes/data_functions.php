@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../setup/connessionedb.php';
+    require_once '../../assets/setup/connessionedb.php';
     require 'query_include.php';
 
     // trasforma il risultato di una query in array (record numerati e campi individuati dal nome)

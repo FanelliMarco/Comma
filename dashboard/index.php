@@ -25,11 +25,11 @@
             <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
                 <!-- BACKEND: tasto ordina -->
                 <select class="btn btn-primary btn-lg text-uppercase" name="order" id="">
-                    <option value="numero">numero</option>
-                    <option value="data">data</option>
-                    <option value="stato">stato</option>
-                    <option value="priorita">priorita</option>
-                    <option value="origine">origine</option>
+                    <option value="numero">NUMERO</option>
+                    <option value="data">DATA</option>
+                    <option value="stato">STATO</option>
+                    <option value="priorita">PRIORITA</option>
+                    <option value="origine">ORIGINE</option>
                 </select>
             </div>
             <div>

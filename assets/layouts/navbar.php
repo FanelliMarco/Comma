@@ -36,6 +36,7 @@ if (isset($_SESSION['logged'])) { ?>
                         <li><a class="dropdown-item text-uppercase" href="../edit/index.php"><span>edit</span></a></li>
                         <li><a class="dropdown-item text-uppercase" href="../recover/index.php"><span>recover</span></a></li>
                         <li><a class="dropdown-item text-uppercase" href="../report/index.php"><span>report</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../details/index.php"><span>details</span></a></li>
                     </ul>
                 </div>
             </div>

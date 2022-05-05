@@ -1,7 +1,8 @@
 <?php
-define("TITLE", "Comma - Login");
+define("TITLE", "Comma - Details");
 include "../assets/layouts/header.php";
 include "./includes/details_include.php";
+check_logged_in();
 ?>
 
 <!-- Non conformità -->
@@ -20,6 +21,16 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
+                    <span class="" id="" name="id"><?php echo $_GET['id']; ?></span>
+                </div>
+            </div>
+
+            <!-- Riga tipo -->
+            <div class="row align-items-center justify-content-center pb-5">
+                <!-- Colonna di sinistra -->
+                <div class="col-3 text-uppercase"><span class="">tipo:</span></div>
+                <!-- Colonna di destra -->
+                <div class="col-9">
                     <span class="" id="" name=""></span>
                 </div>
             </div>
@@ -30,7 +41,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">data:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="data"></span>
                 </div>
             </div>
 
@@ -40,7 +51,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">stato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="stato"></span>
                 </div>
             </div>
 
@@ -50,7 +61,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">priorità:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="priorita"></span>
                 </div>
             </div>
 
@@ -60,7 +71,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">origine:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="origine"></span>
                 </div>
             </div>
 
@@ -70,7 +81,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">descrizione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="descrizione"></span>
                 </div>
             </div>
 
@@ -80,7 +91,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">semilavorato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="semilavorato"></span>
                 </div>
             </div>
 
@@ -90,7 +101,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">segnalatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="segnalatore"></span>
                 </div>
             </div>
 
@@ -100,7 +111,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">risolutore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="risolutore"></span>
                 </div>
             </div>
 
@@ -110,7 +121,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">verificatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="verificatore"></span>
                 </div>
             </div>
 
@@ -120,7 +131,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">decisione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="decisione"></span>
                 </div>
             </div>
 
@@ -130,7 +141,7 @@ include "./includes/details_include.php";
                 <div class="col-3 text-uppercase"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="azioni_correttive"></span>
                 </div>
             </div>
         </form>
@@ -140,11 +151,11 @@ include "./includes/details_include.php";
 <!-- bottoni - link -->
 <section class="container p-5">
     <div class="row">
-            <div class="col-md-6 col-sm-12 py-3">
-                <a href="../report/index.php"><button class="btn btn-danger btn-lg text-uppercase" type="button" id="">segnala non conformità</button></a>
+            <div class="col-md-6 col-sm-12 text-center py-3">
+                <a href="../edit/index.php"><button class="btn btn-warning btn-lg text-uppercase w-75" type="button" id="">modifica</button></a>
             </div>
-            <div class="col-md-6 col-sm-12 py-3">
-                <a href="../report/index.php"><button class="btn btn-danger btn-lg text-uppercase" type="button" id="">segnala non conformità</button></a>
+            <div class="col-md-6 col-sm-12 text-center py-3">
+                <a href="../report/index.php"><button class="btn btn-danger btn-lg text-uppercase w-75" type="button" id="">segnala</button></a>
             </div>
     </div>
 </section>

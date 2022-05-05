@@ -1,62 +1,55 @@
 <?php
-    define("TITLE", "Comma - Management");
+    define("TITLE", "Comma - Report");
     include "../assets/layouts/header.php";
-    require_once "../assets/includes/data_functions.php";
 ?>
 
 <!-- Non conformità -->
 <section class="p-3 w-100 d-flex align-items-center justify-content-center">
-    <span class="page_subtitle text-uppercase text-light">non conformità</span>
+    <span class="page_subtitle text-uppercase text-light d-none d-md-block">segnalazione di non conformità</span>
 </section>
 
-<!-- search bar -->
+
+<!-- Form per compilazione -->
 <section class="p-5">
     <div class="container">
-        <form class="row text-center" action="./includes/management_include.php" method="POST">
-            <div class="col-md-6 p-3 col-sm-12 input-group align-items-center justify-content-center">
-                <!-- BACKEND: barra di ricerca per filtro sulle non conformità -->
-                <input type="text" class="form-control" name="search_field" placeholder="Cerca una non conformità" />
-                <button class="btn btn-primary" type="submit" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
+        <form class="form-auth flex-column text-white" action="./includes/report_include.php" method="POST">
+            <!-- BACKEND completare gli id di ogni tag input e del tag button di conferma-->
+            <!-- nel campo for dei label copiare il corrispettivo id del campo input associato -->
+            <div class="row g-3">
+                <div class="col-lg-6 col-md-12 p-5">
+                    <div class="form-group">
+                        <label for="processo" class="h2 form-label mb-3 ml-3">Processo di origine</label>
+                        <input type="text" class="form-control mb-3 form_control_font" id="processo" name='processo'>
+                    </div>
+                    <div class="form-group">
+                        <label for="codice" class="h2 form-label mb-3 ml-3">
+                            Codice
+                            <select class="form-select" name='fase'>
+                                <option value="Prodotto" selected>Prodotto</option>
+                                <option value="Semilavorato">Semilavorato</option>
+                                <option value="Altro">Altro</option>
+                            </select>
+                            :
+                        </label>
+                        <input type="text" class="form-control mb-3 form_control_font" id="codice" name='codice_semicodice'>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 p-5">
+                    <div class="form-group">
+                        <label for="descrizione" class="h2 form-label mb-3 ml-3">Descrizione </label>
+                        <input type="text" class="form-control mb-3 form_control_font form_control_descrizione" id="descrizione" name='descrizione'>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3 col-sm-6 p-3 align-items-center justify-content-center">
-                <!-- BACKEND: tasto filtra -->
-                <button class="btn btn-primary btn-lg text-uppercase" type="button" id="">filtra</button>
-            </div>
-            <div class="col-md-3 col-sm-6 p-3 text-center">
-                <!-- BACKEND: tasto ordina -->
-                <button class="btn btn-primary btn-lg text-uppercase" type="button" id="">ordina</button>
+            <div class="row">
+                <div class="col form-group d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary w-50 text-uppercase" id="sub" name='sub'><span class="form_control_font">conferma</span></button>
+                </div>
             </div>
             <div>
                 <?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?>
             </div>
         </form>
-    </div>
-</section>
-
-<section class="p-1">
-    <div class="container">
-        <table class="table table-hover text-light text-uppercase">
-            <thead>
-                <!-- prima riga della tabella -->
-                <tr>
-                    <th scope="col">numero</th>
-                    <th scope="col">data</th>
-                    <th scope="col">stato</th>
-                    <th scope="col">priorità</th>
-                    <th scope="col">origine</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- BACKEND: da rivedere perché non corretto -->
-            </tbody>
-        </table>
-    </div>
-</section>
-
-
-<section class="p-5">
-    <div class="container d-flex justify-content-end">
-        <a href="../report/index.php"><button class="btn btn-danger btn-lg text-uppercase" type="button" id="">segnala non conformità</button></a>
     </div>
 </section>
 

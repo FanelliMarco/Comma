@@ -1,7 +1,8 @@
 <?php
-define("TITLE", "Comma - Login");
+define("TITLE", "Comma - Management");
 include "../assets/layouts/header.php";
 include "./includes/management_include.php";
+include_once "../assets/includes/data_functions.php";
 ?>
 
 <!-- Non conformità -->
@@ -17,6 +18,7 @@ include "./includes/management_include.php";
                 <!-- BACKEND: barra di ricerca per filtro sulle non conformità -->
                 <input type="text" class="form-control" name="search_field" placeholder="Cerca una non conformità" />
                 <button class="btn btn-primary" type="button" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
+                <div><?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?></div>
             </div>
             <div class="col-md-3 col-sm-6 p-3 align-items-center justify-content-center">
                 <!-- BACKEND: tasto filtra -->

@@ -17,7 +17,7 @@
 
     if(!defined("insert_nc_output")) define("insert_nc_output", "INSERT INTO nc_output (Descrizione, Stato, Priorita, Origine) VALUES (?, 'rilevata', 'bassa', ?/* processo */)"); // nuova non confromità in output
     if(!defined("search_nc_output_number")) define("search_nc_output_number", "SELECT max(Numero) as n FROM nc_output"); // numero dell'ultima nc_output inserita
-    if(!defined("insert_rilevamento_input")) define("insert_rilevamento_input", "INSERT INTO rilevamento_output (NC, Impiegato, prodotto, Data) VALUES (?/* output della search_nc_output_number */, ?, ?, now())"); // nuovo rilevamento in output
+    if(!defined("insert_rilevamento_output")) define("insert_rilevamento_output", "INSERT INTO rilevamento_output (NC, Impiegato, prodotto, Data) VALUES (?/* output della search_nc_output_number */, ?, ?, now())"); // nuovo rilevamento in output
 
     if(!defined("insert_nc_interna")) define("insert_nc_interna", "INSERT INTO nc_interna (Descrizione, Stato, Priorita, Origine) VALUES (?, 'rilevata', 'bassa', ?/* processo */)"); // nuova non conformità interna
     if(!defined("search_nc_interna_number")) define("search_nc_interna_number", "SELECT max(Numero) as n FROM nc_interna"); // numero dell'ultima nc_interna inserita

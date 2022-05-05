@@ -2,7 +2,7 @@
 define("TITLE", "Comma - Dashboard");
 include "../assets/layouts/header.php";
 include "./includes/dashboard_include.php";
-include "../assets/includes/data_functions.php";
+include_once "../assets/includes/data_functions.php";
 ?>
 
 <!-- Non conformità -->

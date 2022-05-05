@@ -20,11 +20,17 @@
             </div>
             <div class="col-md-3 col-sm-6 p-3 align-items-center justify-content-center">
                 <!-- BACKEND: tasto filtra -->
-                <button class="btn btn-primary btn-lg text-uppercase" type="button" id="">filtra</button>
+                <button class="btn btn-primary btn-lg text-uppercase" type="button" name="filter" id="">filtra</button>
             </div>
             <div class="col-md-3 col-sm-6 p-3 text-center">
                 <!-- BACKEND: tasto ordina -->
-                <button class="btn btn-primary btn-lg text-uppercase" type="button" id="">ordina</button>
+                <select class="btn btn-primary btn-lg text-uppercase" name="order" id="">
+                    <option value="numero">numero</option>
+                    <option value="data">data</option>
+                    <option value="stato">stato</option>
+                    <option value="priorita">priorita</option>
+                    <option value="origine">origine</option>
+                </select>
             </div>
             <div>
                 <?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?>

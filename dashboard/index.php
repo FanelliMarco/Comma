@@ -1,8 +1,8 @@
 <?php
-    define("TITLE", "Comma - Management");
-    include "../assets/layouts/header.php";
-    require_once "../assets/includes/data_functions.php";
-    check_logged_in();
+define("TITLE", "Comma - Management");
+include "../assets/layouts/header.php";
+require_once "../assets/includes/data_functions.php";
+check_logged_in();
 ?>
 
 <!-- Non conformità -->
@@ -55,7 +55,8 @@
                 </tr>
             </thead>
             <tbody>
-                <?php fill_NC_table($_SESSION['matricola']); ?> <!-- BACKEND: da rivedere perché non corretto -->
+                <?php fill_NC_table($_SESSION['matricola']); ?>
+                <!-- BACKEND: da rivedere perché non corretto -->
             </tbody>
         </table>
     </div>
@@ -70,5 +71,5 @@
 
 
 <?php
-    include "../assets/layouts/footer.php";
+include "../assets/layouts/footer.php";
 ?>

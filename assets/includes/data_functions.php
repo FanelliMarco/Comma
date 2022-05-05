@@ -256,7 +256,7 @@
 	}
 
     // modifica una nc
-    function db_modifica_nc($stato, $priorita, $risolutore, $verificatore, $decisioni, $az_corr, $numero, $tipo) {
+    function db_modifca_nc($stato, $priorita, $risolutore, $verificatore, $decisioni, $az_corr, $numero, $tipo) {
 
         global $conn;
         $stmt = $conn->prepare(update_nc_all);
@@ -265,7 +265,7 @@
 
         try {
 
-            $stmt->bind_param("ssssssss", $stato, $priorita, $risolutore, $verificatore, $decisoni, $az_corr, $numero, $tipo);
+            $stmt->bind_param("sssssssss", $stato, $priorita, $risolutore, $verificatore, $decisoni, $az_corr, $numero, $tipo);
 
             if(!$stmt->execute())
                 throw new Exception("Errore aggiornamento nella vista vi_riepilogo");

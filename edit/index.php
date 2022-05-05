@@ -24,7 +24,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" value="<?php echo $_GET["numero"] ?>" class="form-control bg-transparent text-light" id="n_nc" name="n_nc" required>
+                    <input type="text" value="<?php echo $_GET["numero"] ?>" class="form-control bg-transparent text-light" id="n_nc" name="numero">
                 </div>
             </div>
 
@@ -34,7 +34,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3 text-uppercase"><span class="">tipo:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="form-control bg-transparent text-light" id="tipo" name="tipo"><?php echo $_GET['tipo']; ?></span>
+                    <input type='text' value="<?php echo $_GET["tipo"] ?>" class="form-control bg-transparent text-light" id="tipo" name="tipo" readonly>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <div class="input-group">
-                        <select class="form-control text-uppercase bg-transparent text-light" id="stato" name="stato" required>
+                        <select class="form-control text-uppercase bg-transparent text-light" id="stato" name="stato" >
                             <option <?php if ($nc[0]["stato"] == "rilevata") echo "selected" ?> class="text-dark">rilevata</option>
                             <option <?php if ($nc[0]["stato"] == "in gestione") echo "selected" ?> value="rilevata" class="text-dark">in gestione</option>
                             <option <?php if ($nc[0]["stato"] == "assegnata") echo "selected" ?> value="assegnaa" class="text-dark">assegnata</option>
@@ -78,7 +78,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <div class="input-group">
-                        <select class="form-control text-uppercase bg-transparent text-light" id="priorita" name="priorita" required>
+                        <select class="form-control text-uppercase bg-transparent text-light" id="priorita" name="priorita" >
                             <option <?php if ($nc[0]["priorita"] == "bassa") echo "selected" ?> valuie="bassa" class="text-dark">bassa</option>
                             <option <?php if ($nc[0]["priorita"] == "media") echo "selected" ?> value="media" class="text-dark">media</option>
                             <option <?php if ($nc[0]["priorita"] == "alta") echo "selected" ?> value="alta" class="text-dark">alta</option>
@@ -94,7 +94,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <div class="input-group">
-                        <select class="form-control text-uppercase bg-transparent text-light" id="origine" name="origine" required>
+                        <select class="form-control text-uppercase bg-transparent text-light" id="origine" name="origine" >
                             <?php
 
                             $processi = db_get_processi();
@@ -137,7 +137,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3"><span class="">oggetto:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input value="<?php echo $nc[0]["oggetto"] ?>" type="text" class="form-control bg-transparent text-light" id="oggetto" name="oggetto" required>
+                    <input value="<?php echo $nc[0]["oggetto"] ?>" type="text" class="form-control bg-transparent text-light" id="oggetto" name="oggetto" >
                 </div>
             </div>
 
@@ -147,7 +147,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3"><span class="">segnalatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input value="<?php echo $nc[0]["segnalatore"] ?>" type="text" class="form-control bg-transparent text-light" id="segnalatore" name="segnalatore" required>
+                    <input value="<?php echo $nc[0]["segnalatore"] ?>" type="text" class="form-control bg-transparent text-light" id="segnalatore" name="segnalatore">
                 </div>
             </div>
 
@@ -157,7 +157,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3"><span class="">risolutore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input <?php if (isset($nc[0]["risolutore"])) echo "value='" . $nc[0]["risolutore"] . "'" ?> type="text" class="form-control bg-transparent text-light" id="risolutore" name="risolutore" required>
+                    <input <?php if (isset($nc[0]["risolutore"])) echo "value='" . $nc[0]["risolutore"] . "'" ?> type="text" class="form-control bg-transparent text-light" id="risolutore" name="risolutore" >
                 </div>
             </div>
 
@@ -167,7 +167,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3"><span class="">verificatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input <?php if (isset($nc[0]["verificatore"])) echo "value='" . $nc[0]["verificatore"] . "'" ?> type="text" class="form-control bg-transparent text-light" id="verificatore" name="varificatore" required>
+                    <input <?php if (isset($nc[0]["verificatore"])) echo "value='" . $nc[0]["verificatore"] . "'" ?> type="text" class="form-control bg-transparent text-light" id="verificatore" name="verificatore" >
                 </div>
             </div>
 
@@ -178,7 +178,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <div class="input-group">
-                        <select class="form-control text-uppercase bg-transparent text-light" id="decisioni" name="decisioni" required>
+                        <select class="form-control text-uppercase bg-transparent text-light" id="decisioni" name="decisioni" >
                             <option <?php if($nc[0]["decisioni"] == "semilavorato scartato") echo "selected" ?> value="semilavorato scartato" class="text-dark">semilavorato scartato</option>
                             <option <?php if($nc[0]["decisioni"] == "rilavorazione") echo "selected" ?> value="rilavorazione" class="text-dark">rilavorazione</option>
                             <option <?php if($nc[0]["decisioni"] == "opzione 3") echo "selected" ?> value="opzione 3" class="text-dark">opzione 3</option>

@@ -39,11 +39,12 @@
     if(!defined("search_users_employees")) define("search_users_employees", "SELECT * FROM impiegato");
     if(!defined("search_user_employee_all")) define("search_user_employee_all", "SELECT Nome, Cognome, Username, Password, Tipo, Processo FROM impiegato WHERE Matricola=?"); // dati deell'impiegato prima dell'aggiornamento
     if(!defined("update_user_employee")) define("update_user_employee", "UPDATE impiegato SET Nome=?, Cognome=?, Username=?, Password=?, Tipo=?, Processo=?, updated_at=now() WHERE Matricola=?"); // aggiornamento dati dell'impiegato
-
+    /*
     // ORDINAMENTI NC DASHBOARD
-    if(!defined("order_nc_number")) define("order_nc_all", "SELECT * FROM vi_riepilogo WHERE gestore=? ORDER BY numero"); //ordinamento per Numero
-    if(!defined("order_nc_data")) define("order_nc_number", "SELECT * FROM vi_riepilogo WHERE gestore=? ORDER BY data"); //ordinamento per data
+    if(!defined("order_nc_number")) define("order_nc_number", "SELECT * FROM vi_riepilogo WHERE gestore=? ORDER BY numero"); //ordinamento per Numero
+    if(!defined("order_nc_date")) define("order_nc_date", "SELECT * FROM vi_riepilogo WHERE gestore=? ORDER BY data"); //ordinamento per data
     if(!defined("order_nc_state")) define("order_nc_state", "SELECT * FROM vi_riepilogo WHERE gestore=? ORDER BY stato"); //ordinamento per stato
     if(!defined("order_nc_priority")) define("order_nc_priority", "SELECT * FROM vi_riepilogo WHERE ORDER BY priorita"); //ordinamento per priorita
     if(!defined("order_nc_origin")) define("order_nc_origin", "SELECT * FROM vi_riepilogo WHERE gestore=? ORDER BY origine"); //ordinamento per origine
+    */
 ?>

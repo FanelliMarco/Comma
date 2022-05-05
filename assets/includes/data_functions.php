@@ -337,7 +337,7 @@
 
     //BACKEND controllare connessione database valida (controllare anche sessione credo)
     //far funzionare i require e cancellare il codice sostitutivo
-    function fill_NC_table_search()
+    function fill_NC_table_search($search_field)
     {
         /*try {  NON TOCCATE grazie
             if (isset($_POST['search_button']) && !empty($_POST['search_field'])) {
@@ -371,7 +371,7 @@
         }*/
 
                 //crare ricerca per le nc
-        $search=htmlspecialchars($_POST['search_field']);
+        $search=htmlspecialchars($search_field);
         
         $pos=strpos($search, '=');
         if(!$pos){

@@ -46,7 +46,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php /*fill_NC_table();*/ ?> <!-- BACKEND: da rivedere perché non corretto -->
+                <?php  ?> <!-- BACKEND: da rivedere perché non corretto -->
             </tbody>
         </table>
     </div>

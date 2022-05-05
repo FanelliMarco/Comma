@@ -6,9 +6,6 @@ require '../assets/includes/query_include.php';
 //include "./includes/details_include.php";
 check_logged_in();
 $result=db_get_nc($_GET['id'], 'interna');
-if(!$result){
-    echo "Non funziona";
-}
 ?>
 
 <!-- Non conformità -->
@@ -37,7 +34,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">tipo:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="tipo"><?php echo $_result[0]['tipo'] ?></span>
+                    <span class="" id="" name="tipo"><?php echo $result[0]['tipo'] ?></span>
                 </div>
             </div>
 
@@ -47,7 +44,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">data:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="data"><?php echo $_result[0]['data'] ?></span>
+                    <span class="" id="" name="data"><?php echo $result[0]['data'] ?></span>
                 </div>
             </div>
 
@@ -57,7 +54,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">stato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="stato"><?php echo $_result[0]['stato'] ?></span>
+                    <span class="" id="" name="stato"><?php echo $result[0]['stato'] ?></span>
                 </div>
             </div>
 
@@ -67,7 +64,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">priorità:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="priorita"><?php echo $_result[0]['priorita'] ?></span>
+                    <span class="" id="" name="priorita"><?php echo $result[0]['priorita'] ?></span>
                 </div>
             </div>
 
@@ -77,7 +74,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">origine:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="origine"><?php echo $_result[0]['origine'] ?></span>
+                    <span class="" id="" name="origine"><?php echo $result[0]['origine'] ?></span>
                 </div>
             </div>
 
@@ -87,7 +84,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">descrizione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="descrizione"><?php echo $_result[0]['descrizione'] ?></span>
+                    <span class="" id="" name="descrizione"><?php echo $result[0]['descrizione'] ?></span>
                 </div>
             </div>
 
@@ -97,7 +94,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">semilavorato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="semilavorato"><?php echo $_result[0]['oggetto'] ?></span>
+                    <span class="" id="" name="semilavorato"><?php echo $result[0]['oggetto'] ?></span>
                 </div>
             </div>
 
@@ -107,7 +104,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">segnalatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="segnalatore"><?php echo $_result[0]['segnalatore'] ?></span>
+                    <span class="" id="" name="segnalatore"><?php echo $result[0]['segnalatore'] ?></span>
                 </div>
             </div>
 
@@ -117,7 +114,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">risolutore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="risolutore"><?php echo $_result[0]['risolutore'] ?></span>
+                    <span class="" id="" name="risolutore"><?php echo $result[0]['risolutore'] ?></span>
                 </div>
             </div>
 
@@ -127,7 +124,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">verificatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="verificatore"><?php echo $_result[0]['verificatore'] ?></span>
+                    <span class="" id="" name="verificatore"><?php echo $result[0]['verificatore'] ?></span>
                 </div>
             </div>
 
@@ -137,7 +134,7 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">decisione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="decisione"><?php echo $_result[0]['decisione'] ?></span>
+                    <span class="" id="" name="decisione"><?php echo $result[0]['decisioni'] ?></span>
                 </div>
             </div>
 
@@ -147,12 +144,13 @@ if(!$result){
                 <div class="col-3 text-uppercase"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="az_corr"><?php echo $_result[0]['az_corr'] ?></span>
+                    <span class="" id="" name="az_corr"><?php echo $result[0]['az_corr'] ?></span>
                 </div>
             </div>
         </form>
     </div>
 </section>
+
 
 <!-- bottoni - link -->
 <section class="container p-5">

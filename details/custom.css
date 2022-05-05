@@ -1,0 +1,11 @@
+.navbar{
+    background-color: #041F4F !important;
+}
+
+input {
+    height: 60px;
+}
+
+select{
+    height: 60px !important;
+}

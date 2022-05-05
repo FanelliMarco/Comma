@@ -12,11 +12,11 @@
 <!-- search bar -->
 <section class="p-5">
     <div class="container">
-        <form class="row text-center" action="./includes/management_include.php" method="POST">
+        <form class="row text-center" action="./includes/dashboard_include.php" method="POST">
             <div class="col-md-6 p-3 col-sm-12 input-group align-items-center justify-content-center">
                 <!-- BACKEND: barra di ricerca per filtro sulle non conformità -->
-                <input type="text" class="form-control" name="search_field" placeholder="Cerca una non conformità" />
-                <button class="btn btn-primary" type="submit" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
+                <input type="text" class="form-control search_field" name="search_field" placeholder="Cerca una non conformità" />
+                <button class="btn btn-primary search_button" type="submit" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
             </div>
             <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
                 <!-- BACKEND: tasto filtra -->
@@ -25,11 +25,11 @@
             <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
                 <!-- BACKEND: tasto ordina -->
                 <select class="btn btn-primary btn-lg text-uppercase" name="order" id="">
-                    <option value="numero" class="colorino">NUMERO</option>
-                    <option value="data" class="bg-light">DATA</option>
-                    <option value="stato">STATO</option>
-                    <option value="priorita">PRIORITA</option>
-                    <option value="origine">ORIGINE</option>
+                    <option value="numero" class="bg-light text-dark">NUMERO</option>
+                    <option value="data" class="bg-light text-dark">DATA</option>
+                    <option value="stato" class="bg-light text-dark">STATO</option>
+                    <option value="priorita" class="bg-light text-dark">PRIORITA</option>
+                    <option value="origine" class="bg-light text-dark">ORIGINE</option>
                 </select>
             </div>
             <div>

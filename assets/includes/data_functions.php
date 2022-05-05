@@ -384,10 +384,12 @@
             exit();
         }
         $search_t=substr($search, 0, $pos);
+        $search_temp=substr($search, $pos+1, strlen($search));
+        $search_temp=str_replace("'", "", $search_temp);
         switch($search_t){
             case 'data':
                 //cose da fare
-                $result=db_get_data($search, $matr);
+                $result=db_get_data($search_temp, $matr);
                 break;
             case 'stato':
                 //cose da fare
@@ -421,8 +423,6 @@
 				echo "</tr>";
 			}
 		}
-        //header('Location: ../');
-        //exit();
     }
 
     //funzione che crea gli errori

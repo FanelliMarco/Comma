@@ -315,23 +315,8 @@
 
     
 	function fill_NC_table($matr){
-		global $conn;
-        $stmt = $conn->prepare(search_nc_all);
-        $stmt->bind_param("s", $matr);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $result = db_result_to_array($result);
-        if($result){
-			foreach($result as $record){
-				echo "<tr>";
-				echo "<td>" . $record['numero'] . "</td>";
-				echo "<td>" . $record['data'] . "</td>";
-				echo "<td>" . $record['stato'] . "</td>";
-				echo "<td>" . $record['priorita'] . "</td>";
-				echo "<td>" . $record['origine'] . "</td>";
-				echo "</tr>";
-			}
-		}
+        $result = db_get_riepilogo($matr);
+        create_table($result);
 	}
 	
 
@@ -367,5 +352,22 @@
                 header("Location: ../");
                 exit();
         }
+        create_table($result);
+    }
+
+    function create_table($result){
+        if($result){
+			foreach($result as $record){
+				echo "<tr>";
+				echo "<td>" . $record['numero'] . "</td>";
+				echo "<td>" . $record['data'] . "</td>";
+				echo "<td>" . $record['stato'] . "</td>";
+				echo "<td>" . $record['priorita'] . "</td>";
+				echo "<td>" . $record['origine'] . "</td>";
+				echo "</tr>";
+			}
+		}
+        header('Location: ../');
+        exit();
     }
 ?>

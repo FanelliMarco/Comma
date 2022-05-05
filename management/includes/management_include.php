@@ -1,6 +1,7 @@
 <?php
     require "../../assets/includes/data_functions.php";
     require "../../assets/includes/security_functions.php";
+
     session_start();
 
     if(isset($_POST['search_button'])){

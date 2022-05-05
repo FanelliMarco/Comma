@@ -202,6 +202,8 @@
 	// inserisce una nuova non confromità interna
 	function db_inserisci_nc_interna($processo, $semilavorato, $descrizione, $user) {
 
+        $matr='0000021';
+
         global $conn;
 		$stmt1 = $conn->prepare(insert_nc_interna);
         $stmt2 = $conn->prepare(search_nc_interna_number);

@@ -9,3 +9,8 @@ input {
 select{
     height: 60px !important;
 }
+
+span {
+    height: 60px !important;
+    border-radius: 15px !important;
+}

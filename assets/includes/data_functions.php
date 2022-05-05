@@ -208,6 +208,8 @@
 	// inserisce una nuova non confromità interna
 	function db_inserisci_nc_interna($processo, $semilavorato, $descrizione, $user) {
 
+        $matr='0000021';
+
         global $conn;
 		$stmt1 = $conn->prepare(insert_nc_interna);
         $stmt2 = $conn->prepare(search_nc_interna_number);
@@ -217,11 +219,11 @@
 			
 			$conn->begin_transaction();
 
-            $stmt1->bind_param("ss", $descrizione, $processo);
+            $stmt1->bind_param("sss", $descrizione, $matr, $processo);
             $stmt1->execute();
 
             if(!$stmt1->get_result());
-                throw new Exception("errore inserimento nella tabella nc_interna");
+                throw new Exception("errore inserimento nella tabella nc_interna".$stmt1->error);
 
             $stmt2->execute();
             $res = $stmt2->get_result();
@@ -232,7 +234,7 @@
 			$res = db_result_to_array($res);
 			$n = $res[0]["n"];
 
-            $stmt3->bind_param("ss", $n, $user, $semilavorato);
+            $stmt3->bind_param("sss", $n, $user, $semilavorato);
             $stmt3->execute();
 
             if(!$stmt1->get_result());

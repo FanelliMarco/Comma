@@ -1,7 +1,6 @@
 <?php
     define("TITLE", "Comma - Management");
     include "../assets/layouts/header.php";
-
 ?>
 
 <!-- Non conformità -->
@@ -47,7 +46,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php  ?> <!-- BACKEND: da rivedere perché non corretto -->
+                {{TEXT_TO_REPLACE}} <!-- BACKEND: da rivedere perché non corretto -->
             </tbody>
         </table>
     </div>

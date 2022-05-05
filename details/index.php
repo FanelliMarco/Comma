@@ -12,12 +12,12 @@ include "./includes/details_include.php";
 <!-- Form container -->
 <section>
     <div class="container mt-5">
-        <form class="h4 text-light text-align-start text-uppercase" action="./includes/edit_include.php" method="post">
+        <form class="h4 text-light text-align-start" action="./includes/edit_include.php" method="post">
             <!-- Per ogni riga -->
             <!-- Riga Numero -->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">numero:</span></div>
+                <div class="col-3 text-uppercase"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>
@@ -27,17 +27,17 @@ include "./includes/details_include.php";
             <!-- Riga data -->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">data:</span></div>
+                <div class="col-3 text-uppercase"><span class="">data:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input id="" name="" type="date" class="form-control bg-transparent text-light">
+                    <span class="" id="" name=""></span>
                 </div>
             </div>
 
             <!-- Riga stato-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">stato:</span></div>
+                <div class="col-3 text-uppercase"><span class="">stato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>
@@ -47,7 +47,7 @@ include "./includes/details_include.php";
             <!-- Riga priorità-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">priorità:</span></div>
+                <div class="col-3 text-uppercase"><span class="">priorità:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>
@@ -57,7 +57,7 @@ include "./includes/details_include.php";
             <!-- Riga origine-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">origine:</span></div>
+                <div class="col-3 text-uppercase"><span class="">origine:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>
@@ -67,17 +67,19 @@ include "./includes/details_include.php";
             <!-- Riga descrizione-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">descrizione:</span></div>
+                <div class="col-3 text-uppercase"><span class="">descrizione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name=""></span>
+                    <span class="" id="" name="">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, hic suscipit commodi dolorum nisi voluptates pariatur facilis labore quidem corporis vel minus optio nostrum ipsam perferendis ad deserunt aliquam cum amet numquam! Velit, inventore aspernatur nemo nisi quam consequatur illo ea veritatis repudiandae debitis officiis vero labore amet. Exercitationem, vero.
+                    </span>
                 </div>
             </div>
 
             <!-- Riga semilavorato-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">semilavorato:</span></div>
+                <div class="col-3 text-uppercase"><span class="">semilavorato:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>
@@ -87,7 +89,7 @@ include "./includes/details_include.php";
             <!-- Riga segnalatore-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">segnalatore:</span></div>
+                <div class="col-3 text-uppercase"><span class="">segnalatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>
@@ -97,7 +99,7 @@ include "./includes/details_include.php";
             <!-- Riga risolutore-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">risolutore:</span></div>
+                <div class="col-3 text-uppercase"><span class="">risolutore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>
@@ -107,7 +109,7 @@ include "./includes/details_include.php";
             <!-- Riga verificatore-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">verificatore:</span></div>
+                <div class="col-3 text-uppercase"><span class="">verificatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>
@@ -117,7 +119,7 @@ include "./includes/details_include.php";
             <!-- Riga decisione -->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">decisione:</span></div>
+                <div class="col-3 text-uppercase"><span class="">decisione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>
@@ -127,7 +129,7 @@ include "./includes/details_include.php";
             <!-- Riga azioni correttive-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">azioni correttive:</span></div>
+                <div class="col-3 text-uppercase"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <span class="" id="" name=""></span>

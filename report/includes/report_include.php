@@ -20,7 +20,7 @@
                 $codice=$_POST['codice_semicodice'];
                 db_inserisci_nc_interna($processo, $codice, $descrizione, $_SESSION['matricola']);
                 $_SESSION['error']='';
-                header("Location: ../");
+                header("Location: ../../dashboard");
                 exit();
             }
         }

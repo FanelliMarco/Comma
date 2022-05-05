@@ -102,16 +102,16 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
 
                             foreach ($processi as $processo) {
 
-                                echo "<option value='$processo' ";
+                                echo "<option value='" . $processo["Nome"] . "' ";
                                 if ($nc[0]["origine"] == $processo) echo "selected ";
-                                echo "class='text-dark'>$processo (processo)</option>";
+                                echo "class='text-dark'>" . $processo["Nome"] . " (processo)</option>";
                             }
 
                             foreach ($fornitori as $fornitore) {
 
-                                echo "<option value='$fornitore' ";
+                                echo "<option value='" . $fornitore["Nome"] . "' ";
                                 if ($nc[0]["origine"] == $fornitore) echo "selected ";
-                                echo "class='text-dark'>$fornitore (fornitore)</option>";
+                                echo "class='text-dark'>" . $fornitore["Nome"] . " (fornitore)</option>";
                             }
 
                             ?>

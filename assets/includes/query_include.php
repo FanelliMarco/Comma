@@ -29,6 +29,7 @@
     
     // MODIFICA
     // usare $search_nc_all
+    if(!defined("search_nc_spec")) define("search_nc_spec", "SELECT * FROM vi_riepilogo WHERE numero=? AND tipo=?");
     if(!defined("update_nc_all")) define("update_nc_all", "UPDATE vi_riepilogo SET stato=?, priorita=?, risolutore=?, verificatore=?, decisioni=?, azz_corr=? WHERE numero=? AND tipo=?"); // aggiornamento delle tablelle attraverso la vista
 
     // REGISTRAZIONE

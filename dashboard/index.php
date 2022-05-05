@@ -51,6 +51,7 @@
                     <th scope="col">stato</th>
                     <th scope="col">priorità</th>
                     <th scope="col">origine</th>
+                    <th scope="col">dettagli</th>
                 </tr>
             </thead>
             <tbody>

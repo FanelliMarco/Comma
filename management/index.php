@@ -1,8 +1,8 @@
 <?php
-define("TITLE", "Comma - Management");
-include "../assets/layouts/header.php";
-include "./includes/management_include.php";
-require "../assets/includes/data_functions.php";
+    define("TITLE", "Comma - Management");
+    include "../assets/layouts/header.php";
+    include "./includes/management_include.php";
+    require "../assets/includes/data_functions.php";
 ?>
 
 <!-- Non conformità -->
@@ -61,5 +61,5 @@ require "../assets/includes/data_functions.php";
 
 
 <?php
-include "../assets/layouts/footer.php";
+    include "../assets/layouts/footer.php";
 ?>

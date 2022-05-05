@@ -28,12 +28,12 @@ if (isset($_SESSION['logged'])) { ?>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- BACKEND : togliere il link alla pagina corrente -->
-                        <li><a class="dropdown-item text-uppercase" href="../dashboard/index.php"><span>Dashboard</span></a></li>
-                        <li><a class="dropdown-item text-uppercase" href="../edit/index.php"><span>edit</span></a></li>
                         <?php 
                             if(isset($_SESSION['admin'])){
                                 echo "<li><a class='dropdown-item text-uppercase' href='../management/index.php'><span>management</span></a></li>";}
                         ?>
+                        <li><a class="dropdown-item text-uppercase" href="../dashboard/index.php"><span>Dashboard</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../edit/index.php"><span>edit</span></a></li>
                         <li><a class="dropdown-item text-uppercase" href="../recover/index.php"><span>recover</span></a></li>
                         <li><a class="dropdown-item text-uppercase" href="../report/index.php"><span>report</span></a></li>
                     </ul>

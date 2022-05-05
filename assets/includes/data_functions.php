@@ -260,7 +260,7 @@
 
         global $conn;
         $stmt = $conn->prepare(update_nc_all);
-
+        $_SESSION['error']=$stmt;
         $conn->begin_transaction();
 
         try {

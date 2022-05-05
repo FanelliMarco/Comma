@@ -15,7 +15,7 @@ include "./includes/edit_include.php";
         <form class="h4 text-light text-align-start text-uppercase" action="./includes/edit_include.php" method="post">
             <!-- Per ogni riga -->
             <!-- Riga Numero -->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
@@ -30,7 +30,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga data -->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">data:</span></div>
                 <!-- Colonna di destra -->
@@ -40,7 +40,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga stato-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">stato:</span></div>
                 <!-- Colonna di destra -->
@@ -63,7 +63,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga priorità-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">priorità:</span></div>
                 <!-- Colonna di destra -->
@@ -79,27 +79,44 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga origine-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">origine:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
+                    <div class="input-group">
+                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="" required>
+                            <!-- BACKEND conviene creare gli option con una quey alla tabella: processi -->
+                            <option selected class="text-dark">applicazione ologramma anticontraffazione</option>
+                            <option value="1" class="text-dark">controllo qualita input</option>
+                            <option value="1" class="text-dark">controllo stampa grafica</option>
+                            <option value="1" class="text-dark">inserimento banda magnetica</option>
+                            <option value="1" class="text-dark">inserimento chip</option>
+                            <option value="1" class="text-dark">inserimento contactless</option>
+                            <option value="1" class="text-dark">irrigidimento plastica</option>
+                            <option value="1" class="text-dark">laminazione</option>
+                            <option value="1" class="text-dark">posizionamento degli elaborati</option>
+                            <option value="1" class="text-dark">separazione carte</option>
+                            <option value="1" class="text-dark">stampa codice carta</option>
+                            <option value="1" class="text-dark">stampaggio grafica</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
             <!-- Riga descrizione-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">descrizione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="">
+                    <textarea class="form-control bg-transparent text-light" cols="40" rows="5"></textarea>
+                    <!-- input type="text" class="form-control bg-transparent text-light input_field_descrizione" id="" name="" -->
                 </div>
             </div>
 
             <!-- Riga semilavorato-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">semilavorato:</span></div>
                 <!-- Colonna di destra -->
@@ -109,7 +126,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga segnalatore-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">segnalatore:</span></div>
                 <!-- Colonna di destra -->
@@ -119,7 +136,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga risolutore-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">risolutore:</span></div>
                 <!-- Colonna di destra -->
@@ -129,7 +146,7 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga verificatore-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">verificatore:</span></div>
                 <!-- Colonna di destra -->
@@ -138,10 +155,10 @@ include "./includes/edit_include.php";
                 </div>
             </div>
 
-            <!-- Riga verificatore-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <!-- Riga decisione-->
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">verificatore:</span></div>
+                <div class="col-3"><span class="">decisione:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
@@ -149,12 +166,28 @@ include "./includes/edit_include.php";
             </div>
 
             <!-- Riga azioni correttive-->
-            <div class="row align-items-center justify-content-center pb-4">
+            <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
+                    <div class="input-group">
+                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="" required>
+                            <!-- BACKEND conviene creare gli option con una quey alla tabella: processi -->
+                            <option selected class="text-dark">applicazione ologramma anticontraffazione</option>
+                            <option value="1" class="text-dark">controllo qualita input</option>
+                            <option value="1" class="text-dark">controllo stampa grafica</option>
+                            <option value="1" class="text-dark">inserimento banda magnetica</option>
+                            <option value="1" class="text-dark">inserimento chip</option>
+                            <option value="1" class="text-dark">inserimento contactless</option>
+                            <option value="1" class="text-dark">irrigidimento plastica</option>
+                            <option value="1" class="text-dark">laminazione</option>
+                            <option value="1" class="text-dark">posizionamento degli elaborati</option>
+                            <option value="1" class="text-dark">separazione carte</option>
+                            <option value="1" class="text-dark">stampa codice carta</option>
+                            <option value="1" class="text-dark">stampaggio grafica</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </form>

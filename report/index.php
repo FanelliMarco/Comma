@@ -23,11 +23,13 @@
                     </div>
                     <div class="form-group">
                         <label for="codice" class="h2 form-label mb-3 ml-3">
+                            Codice
                             <select class="form-select" name='fase'>
                                 <option value="Prodotto" selected>Prodotto</option>
                                 <option value="Semilavorato">Semilavorato</option>
                                 <option value="Altro">Altro</option>
                             </select>
+                            :
                         </label>
                         <input type="text" class="form-control mb-3 form_control_font" id="codice" name='codice_semicodice'>
                     </div>

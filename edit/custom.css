@@ -1,3 +1,15 @@
 .navbar{
     background-color: #041F4F !important;
 }
+
+input {
+    height: 60px;
+}
+
+select{
+    height: 60px !important;
+}
+
+.input_field_descrizione{    
+    height: 150px !important;
+}

@@ -18,11 +18,11 @@
                 <input type="text" class="form-control" name="search_field" placeholder="Cerca una non conformità" />
                 <button class="btn btn-primary" type="submit" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
             </div>
-            <div class="col-md-3 col-sm-6 p-3 align-items-center justify-content-center">
+            <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
                 <!-- BACKEND: tasto filtra -->
                 <button class="btn btn-primary btn-lg text-uppercase" type="button" name="filter" id="">filtra</button>
             </div>
-            <div class="col-md-3 col-sm-6 p-3 text-center">
+            <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
                 <!-- BACKEND: tasto ordina -->
                 <select class="btn btn-primary btn-lg text-uppercase" name="order" id="">
                     <option value="numero">numero</option>
@@ -33,7 +33,7 @@
                 </select>
             </div>
             <div>
-                <?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?>
+                <?php if (isset($_SESSION['error'])) echo $_SESSION['error']; ?>
             </div>
         </form>
     </div>

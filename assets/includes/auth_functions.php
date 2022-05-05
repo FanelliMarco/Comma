@@ -7,7 +7,7 @@ function check_logged_out(){
     }
     else {
 
-        header("Location: ../dashboard");
+        header("Location: ../management");
         exit();
     }
 }

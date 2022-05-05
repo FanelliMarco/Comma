@@ -259,8 +259,31 @@
     function db_modifca_nc($stato, $priorita, $risolutore, $verificatore, $decisioni, $az_corr, $numero, $tipo) {
 
         global $conn;
-        $stmt = $conn->prepare(update_nc_all);
-        $_SESSION['error']=$stmt;
+
+        if($tipo == "input") {
+
+            $stmt1 = $conn->prepare(update_nc_input);
+            $stmt2 = $conn->prepare(update_risoluzione_input);
+            $stmt3 = $conn->prepare(update_verifica_input);
+
+        } else if ($tipo == "output") {
+
+            $stmt1 = $conn->prepare(update_nc_output);
+            $stmt2 = $conn->prepare(update_risoluzione_output);
+            $stmt3 = $conn->prepare(update_verifica_output);
+
+        } else if($tipo == "interna") {
+
+            $stmt1 = $conn->prepare(update_nc_interna);
+            $stmt2 = $conn->prepare(update_risoluzione_interna);
+            $stmt3 = $conn->prepare(update_verifica_interna);
+
+        }
+        
+        $_SESSION['error']=$stmt1;
+        $_SESSION['error']=$stmt2;
+        $_SESSION['error']=$stmt3;
+
         $conn->begin_transaction();
 
         try {
@@ -274,10 +297,18 @@
             if(!isset($decisioni))          $decisioni = $result[0]["decisioni"];
             if(!isset($az_corr))            $az_corr = $result[0]["az_corr"];
 
-            $stmt->bind_param("ssssssss", $stato, $priorita, $risolutore, $verificatore, $decisoni, $az_corr, $numero, $tipo);
+            $stmt1->bind_param("sssss", $stato, $priorita, $decisoni, $az_corr, $numero);
+            $stmt1->bind_param("ss", $risolutore, $numero);
+            $stmt1->bind_param("ss", $verificatore, $numero);
 
-            if(!$stmt->execute())
-                throw new Exception("Errore aggiornamento nella vista vi_riepilogo");
+            if(!$stmt1->execute())
+                throw new Exception("Errore aggiornamento nella tablella nc_qualcosa");
+
+            if(!$stmt2->execute())
+                throw new Exception("Errore aggiornamento nella tablella risoluzione_qualcosa");
+
+            if(!$stmt3->execute())
+                throw new Exception("Errore aggiornamento nella tablella verifica_qualcosa");
             
             $conn->commit();
 

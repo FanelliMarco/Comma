@@ -171,7 +171,23 @@ include "./includes/edit_include.php";
                 <div class="col-3"><span class="">azioni correttive:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" class="form-control bg-transparent text-light" id="" name="" required>
+                    <div class="input-group">
+                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="" required>
+                            <!-- BACKEND conviene creare gli option con una quey alla tabella: processi -->
+                            <option selected class="text-dark">applicazione ologramma anticontraffazione</option>
+                            <option value="1" class="text-dark">controllo qualita input</option>
+                            <option value="1" class="text-dark">controllo stampa grafica</option>
+                            <option value="1" class="text-dark">inserimento banda magnetica</option>
+                            <option value="1" class="text-dark">inserimento chip</option>
+                            <option value="1" class="text-dark">inserimento contactless</option>
+                            <option value="1" class="text-dark">irrigidimento plastica</option>
+                            <option value="1" class="text-dark">laminazione</option>
+                            <option value="1" class="text-dark">posizionamento degli elaborati</option>
+                            <option value="1" class="text-dark">separazione carte</option>
+                            <option value="1" class="text-dark">stampa codice carta</option>
+                            <option value="1" class="text-dark">stampaggio grafica</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </form>

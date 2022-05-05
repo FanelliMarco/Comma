@@ -138,7 +138,15 @@ include "./includes/details_include.php";
 </section>
 
 <!-- bottoni - link -->
-<section class="p-5">
+<section class="container p-5">
+    <div class="row">
+            <div class="col-md-6 col-sm-12 py-3">
+                <a href="../report/index.php"><button class="btn btn-danger btn-lg text-uppercase" type="button" id="">segnala non conformità</button></a>
+            </div>
+            <div class="col-md-6 col-sm-12 py-3">
+                <a href="../report/index.php"><button class="btn btn-danger btn-lg text-uppercase" type="button" id="">segnala non conformità</button></a>
+            </div>
+    </div>
 </section>
 
 <?php

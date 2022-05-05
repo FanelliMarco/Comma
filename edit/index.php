@@ -1,7 +1,6 @@
 <?php
 define("TITLE", "Comma - Login");
 include "../assets/layouts/header.php";
-include "./includes/edit_include.php";
 require "../assets/includes/data_functions.php";
 check_logged_in();
 
@@ -35,7 +34,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3 text-uppercase"><span class="">tipo:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="form-control bg-transparent text-light" id="" name=""></span>
+                    <span class="form-control bg-transparent text-light" id="tipo" name="tipo"><?php echo $_GET['tipo']; ?></span>
                 </div>
             </div>
 

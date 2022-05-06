@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 05, 2022 alle 21:26
+-- Creato il: Mag 06, 2022 alle 16:07
 -- Versione del server: 10.4.14-MariaDB
 -- Versione PHP: 7.2.34
 
@@ -215,7 +215,14 @@ INSERT INTO `nc_interna` (`Numero`, `Descrizione`, `Azioni_correttive`, `Decisio
 (1, 'stampa non conforme', NULL, 'semilavorato scartato', 'rilevata', 'basso', '0000021', 'stampaggio grafica'),
 (2, 'fogli disallineati', NULL, 'semilavorato scartato', 'in risoluzione', 'basso', '0000023', 'laminazione'),
 (3, 'plastica non irrigidita abbastanza', 'ripetere il processo di irrigidimento', 'rilavorazione', 'Risolta', 'basso', '0000022', 'laminazione'),
-(30, 'prova', NULL, NULL, 'rilevata', 'bassa', '0000021', 'inserimento chip');
+(34, 'prova', NULL, NULL, 'rilevata', 'bassa', '0000021', 'inserimento chip'),
+(35, 'prova2', NULL, NULL, 'rilevata', 'basso', '0000021', 'logistica'),
+(36, 'prova', NULL, NULL, 'rilevata', 'basso', '0000021', 'inserimento chip'),
+(37, 'dadadadada', NULL, NULL, 'rilevata', 'basso', '0000021', 'logistica'),
+(38, 'prova2', NULL, NULL, 'rilevata', 'basso', '0000021', 'logistica'),
+(39, 'ciao come va la vita', NULL, NULL, 'rilevata', 'basso', '0000021', 'logistica'),
+(40, 'prova', NULL, NULL, 'rilevata', 'basso', '0000021', 'inserimento chip'),
+(41, 'dadadadad', NULL, NULL, 'rilevata', 'basso', '0000021', 'logistica');
 
 -- --------------------------------------------------------
 
@@ -340,7 +347,15 @@ INSERT INTO `rilevamento_interno` (`NC`, `Impiegato`, `Semilavorato`, `Data`) VA
 (1, '0000003', '0000000017', '2021-01-02'),
 (2, '0000004', '0000000001', '2020-06-15'),
 (3, '0000001', '0000000010', '2020-05-17'),
-(3, '0000002', '0000000016', '2021-11-29');
+(3, '0000002', '0000000016', '2021-11-29'),
+(34, '0000021', '0000000005', '2022-05-05'),
+(35, '0000021', '0000000005', '2022-05-05'),
+(36, '0000021', '0000000005', '2022-05-05'),
+(37, '0000021', '0000000005', '2022-05-05'),
+(38, '0000021', '0000000005', '2022-05-05'),
+(39, '0000021', '0000000005', '2022-05-06'),
+(40, '0000021', '0000000006', '2022-05-06'),
+(41, '0000021', '0000000007', '2022-05-06');
 
 -- --------------------------------------------------------
 
@@ -491,7 +506,7 @@ CREATE TABLE `vi_riepilogo` (
 ,`az_corr` varchar(255)
 ,`gestore` char(16)
 ,`tipo` varchar(7)
-,`data` date
+,`data_nc` date
 ,`oggetto` varchar(16)
 ,`segnalatore` varchar(40)
 ,`risolutore` varchar(20)
@@ -509,7 +524,7 @@ CREATE TABLE `vi_riepilogo` (
 --
 DROP TABLE IF EXISTS `vi_riepilogo`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vi_riepilogo`  AS SELECT `nci`.`Numero` AS `numero`, `nci`.`Stato` AS `stato`, `nci`.`Priorita` AS `priorita`, `nci`.`Origine` AS `origine`, `nci`.`Descrizione` AS `descrizione`, `nci`.`Decisioni` AS `decisioni`, `nci`.`Azioni_correttive` AS `az_corr`, `nci`.`Addetto_gestione` AS `gestore`, 'input' AS `tipo`, `rili`.`Data` AS `data`, `rili`.`Materia_prima` AS `oggetto`, `rili`.`Impiegato` AS `segnalatore`, `risi`.`Fornitore` AS `risolutore`, `risi`.`Data_inizio` AS `data_inizio_risoluzione`, `risi`.`Data_fine` AS `data_fine_risoluzione`, `veri`.`Impiegato` AS `verificatore`, `veri`.`Data_inizio` AS `data_inizio_verifica`, `veri`.`Data_fine` AS `data_fine_verifica` FROM (((`nc_input` `nci` left join `rilevamento_input` `rili` on(`nci`.`Numero` = `rili`.`NC`)) left join `risoluzione_input` `risi` on(`nci`.`Numero` = `risi`.`NC`)) left join `verifica_input` `veri` on(`nci`.`Numero` = `veri`.`NC`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vi_riepilogo`  AS SELECT `nci`.`Numero` AS `numero`, `nci`.`Stato` AS `stato`, `nci`.`Priorita` AS `priorita`, `nci`.`Origine` AS `origine`, `nci`.`Descrizione` AS `descrizione`, `nci`.`Decisioni` AS `decisioni`, `nci`.`Azioni_correttive` AS `az_corr`, `nci`.`Addetto_gestione` AS `gestore`, 'input' AS `tipo`, `rili`.`Data` AS `data_nc`, `rili`.`Materia_prima` AS `oggetto`, `rili`.`Impiegato` AS `segnalatore`, `risi`.`Fornitore` AS `risolutore`, `risi`.`Data_inizio` AS `data_inizio_risoluzione`, `risi`.`Data_fine` AS `data_fine_risoluzione`, `veri`.`Impiegato` AS `verificatore`, `veri`.`Data_inizio` AS `data_inizio_verifica`, `veri`.`Data_fine` AS `data_fine_verifica` FROM (((`nc_input` `nci` left join `rilevamento_input` `rili` on(`nci`.`Numero` = `rili`.`NC`)) left join `risoluzione_input` `risi` on(`nci`.`Numero` = `risi`.`NC`)) left join `verifica_input` `veri` on(`nci`.`Numero` = `veri`.`NC`)) ;
 
 --
 -- Indici per le tabelle scaricate
@@ -662,7 +677,7 @@ ALTER TABLE `nc_input`
 -- AUTO_INCREMENT per la tabella `nc_interna`
 --
 ALTER TABLE `nc_interna`
-  MODIFY `Numero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `Numero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Limiti per le tabelle scaricate

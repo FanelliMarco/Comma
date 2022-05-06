@@ -44,7 +44,7 @@ $result=db_get_nc($_GET['id'], 'interna');
                 <div class="col-3 text-uppercase"><span class="">data:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="data"><?php echo $result[0]['data'] ?></span>
+                    <span class="" id="" name="data"><?php echo $result[0]['data_nc'] ?></span>
                 </div>
             </div>
 

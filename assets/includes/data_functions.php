@@ -91,7 +91,7 @@
     function db_get_data($data, $matr){
         global $conn;
         $stmt = $conn->prepare(search_nc_data);
-        $stmt->bind_param("ss", $data, $matr);
+        $stmt->bind_param("ss", $matr, $data);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = db_result_to_array($result);
@@ -102,7 +102,7 @@
     function db_get_stato($stato, $matr){
         global $conn;
         $stmt = $conn->prepare(search_nc_stato);
-        $stmt->bind_param("ss", $stato, $matr);
+        $stmt->bind_param("ss", $matr, $stato);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = db_result_to_array($result);
@@ -113,7 +113,7 @@
     function db_get_priorita($priorita, $matr){
         global $conn;
         $stmt = $conn->prepare(search_nc_priorita);
-        $stmt->bind_param("ss", $priorita, $matr);
+        $stmt->bind_param("ss", $matr, $priorita);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = db_result_to_array($result);
@@ -124,7 +124,7 @@
     function db_get_origine($origine, $matr){
         global $conn;
         $stmt = $conn->prepare(search_nc_origine);
-        $stmt->bind_param("ss", $origine, $matr);
+        $stmt->bind_param("ss", $matr, $origine);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = db_result_to_array($result);
@@ -429,8 +429,6 @@
         $pos=strpos($search, '=');
         if(!$pos){
             $_SESSION['error']='Input non valido';
-            header("Location: ../");
-            exit();
         }
         $search_t=substr($search, 0, $pos);
         $search_temp=substr($search, $pos+1, strlen($search));
@@ -442,20 +440,19 @@
                 break;
             case 'stato':
                 //cose da fare
-                $result=db_get_stato($search, $matr);
+                $result=db_get_stato($search_temp, $matr);
                 break;
             case 'priorita':
                 //cose da fare
-                $result=db_get_priorita($search, $matr);
+                $result=db_get_priorita($search_temp, $matr);
                 break;
             case 'origine':
                 //cose da fare
-                $result=db_get_origine($search, $matr);
+                $result=db_get_origine($search_temp, $matr);
                 break;
             default:
                 $_SESSION['error']='Input non valido';
-                header("Location: ../");
-                exit();
+                $result = db_get_riepilogo($matr);
         }
         create_table($result);
     }
@@ -465,7 +462,7 @@
 			foreach($result as $record){
 				echo "<tr>";
 				echo "<td>" . $record['numero'] . "</td>";
-				echo "<td>" . $record['data'] . "</td>";
+				echo "<td>" . $record['data_nc'] . "</td>";
 				echo "<td>" . $record['stato'] . "</td>";
 				echo "<td>" . $record['priorita'] . "</td>";
 				echo "<td>" . $record['origine'] . "</td>";

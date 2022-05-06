@@ -24,7 +24,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input type="text" value="<?php echo $_GET["numero"] ?>" class="form-control bg-transparent text-light" id="n_nc" name="numero">
+                    <input type="text" value="<?php echo $_GET["numero"] ?>" class="form-control bg-transparent text-light" id="n_nc" name="numero" readonly>
                 </div>
             </div>
 

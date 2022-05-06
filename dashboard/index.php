@@ -13,7 +13,7 @@
 <!-- search bar -->
 <section class="p-5">
     <div class="container">
-        <form class="row text-center" action="./includes/dashboard_include.php" method="POST">
+        <form class="row text-center" action="" method="POST">
             <div class="col-md-6 p-3 col-sm-12 input-group align-items-center justify-content-center">
                 <!-- BACKEND: barra di ricerca per filtro sulle non conformità -->
                 <input type="text" class="form-control search_field" name="search_field" placeholder="Cerca una non conformità" />
@@ -55,7 +55,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php fill_NC_table($_SESSION['matricola']); ?>
+                <?php include "./includes/dashboard_include.php"; ?>
                 <!-- BACKEND: da rivedere perché non corretto -->
             </tbody>
         </table>

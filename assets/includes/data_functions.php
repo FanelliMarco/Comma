@@ -50,6 +50,18 @@
 
 	}
 
+    // restituisce tutti i dati delle non conformità per l'admin
+	function db_get_riepilogo_admin() {
+
+		global $conn;
+		$stmt = $conn->prepare(view_nc_all);
+        $stmt->execute();
+        $result = $stmt->get_result();
+		$result = db_result_to_array($result);
+		return $result;
+
+	}
+
     // restituisce tutti i dati della nc richiesta
 	function db_get_nc($numero, $tipo) {
 
@@ -414,7 +426,12 @@
     }*/
 
 	function fill_NC_table($matr){
-        $result = db_get_riepilogo($matr);
+        if($_SESSION['user']=='admin'){
+            $result=db_get_riepilogo_admin();
+        }
+        else{
+            $result = db_get_riepilogo($matr);
+        }
         create_table($result);
 	}
 	

@@ -33,9 +33,6 @@
                     <option value="origine" class="bg-light text-dark">ORIGINE</option>
                 </select>
             </div>
-            <div>
-                <?php if (isset($_SESSION['error'])) echo $_SESSION['error']; ?>
-            </div>
         </form>
     </div>
 </section>
@@ -60,8 +57,13 @@
             </tbody>
         </table>
     </div>
+    <div>
+        <?php
+            if (isset($_SESSION['error'])) echo $_SESSION['error'];
+            if(isset($_SESSION['error']['update'])) echo $_SESSION['error']['update'];
+        ?>
+    </div>
 </section>
-
 
 <section class="p-5">
     <div class="container d-flex justify-content-end">

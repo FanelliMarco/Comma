@@ -1,5 +1,5 @@
 <?php
-define("TITLE", "Comma - Login");
+define("TITLE", "Comma - Edit");
 include "../assets/layouts/header.php";
 require "../assets/includes/data_functions.php";
 check_logged_in();
@@ -147,7 +147,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
                 <div class="col-3"><span class="">segnalatore:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <input value="<?php echo $nc[0]["segnalatore"] ?>" type="text" class="form-control bg-transparent text-light" id="segnalatore" name="segnalatore">
+                    <input value="<?php echo $nc[0]["segnalatore"] ?>" type="text" class="form-control bg-transparent text-light" id="segnalatore" name="segnalatore" readonly>
                 </div>
             </div>
 
@@ -213,9 +213,7 @@ $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
     </div>
     <div>
         <?php
-
             if(isset($_SESSION["error"])) echo $_SESSION["error"];
-
         ?>
     </div>
 </section>

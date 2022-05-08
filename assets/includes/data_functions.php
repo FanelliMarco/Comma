@@ -292,9 +292,9 @@
 
         }
         
-        $_SESSION['error']=$stmt1;
-        $_SESSION['error']=$stmt2;
-        $_SESSION['error']=$stmt3;
+        $_SESSION['error']['update']=$stmt1->error;
+        $_SESSION['error']['update']=$stmt2->error;
+        $_SESSION['error']['update']=$stmt3->error;
 
         $conn->begin_transaction();
 
@@ -310,8 +310,8 @@
             if(!isset($az_corr))            $az_corr = $result[0]["az_corr"];
 
             $stmt1->bind_param("sssss", $stato, $priorita, $decisoni, $az_corr, $numero);
-            $stmt1->bind_param("ss", $risolutore, $numero);
-            $stmt1->bind_param("ss", $verificatore, $numero);
+            $stmt2->bind_param("ss", $risolutore, $numero);
+            $stmt3->bind_param("ss", $verificatore, $numero);
 
             if(!$stmt1->execute())
                 throw new Exception("Errore aggiornamento nella tablella nc_qualcosa");
@@ -323,6 +323,7 @@
                 throw new Exception("Errore aggiornamento nella tablella verifica_qualcosa");
             
             $conn->commit();
+
 
         } catch(Exception $ex) {
 

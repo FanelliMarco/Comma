@@ -359,7 +359,7 @@
 		}
 	}
 
-    // restituisce i dati tutti gli impiegati
+    // restituisce i dati di tutti gli impiegati
     function db_get_impiegati() {
 
         global $conn;
@@ -426,6 +426,28 @@
 
     }*/
 
+    //crea la dashboard con tutti gli impiegati per l'admin
+    function fill_user_table(){
+        $result=db_get_impiegati();
+        create_table_user($result);
+	}
+
+    function create_table_user($result){
+        if($result){
+			foreach($result as $record){
+				echo "<tr>";
+				echo "<td>" . $record['Matricola'] . "</td>";
+				echo "<td>" . $record['Nome'] . "</td>";
+				echo "<td>" . $record['Cognome'] . "</td>";
+				echo "<td>" . $record['Tipo'] . "</td>";
+				echo "<td>" . $record['Processo'] . "</td>";
+                echo "<td><a href='../details/index.php?id=".$record['Matricola']."'>Dettagli</a></td>";
+				echo "</tr>";
+			}
+		}
+    }
+
+    //fa una ricerca di tutte le nc gestite/segnalate e altro da un determinato impiegato
 	function fill_NC_table($matr){
         if($_SESSION['user']=='admin'){
             $result=db_get_riepilogo_admin();
@@ -435,7 +457,42 @@
         }
         create_table($result);
 	}
-	
+
+    function fill_user_table_search($search_field)
+    {
+        //crare ricerca per le nc
+        $search=htmlspecialchars($search_field);
+        
+        $pos=strpos($search, '=');
+        if(!$pos){
+            $_SESSION['error']='Input non valido';
+        }
+        $search_t=substr($search, 0, $pos);
+        $search_temp=substr($search, $pos+1, strlen($search));
+        $search_temp=str_replace("'", "", $search_temp);
+        switch($search_t){
+            case 'data':
+                //cose da fare
+                //$result=db_get_data($search_temp);
+                break;
+            case 'stato':
+                //cose da fare
+                //$result=db_get_stato($search_temp);
+                break;
+            case 'priorita':
+                //cose da fare
+                //$result=db_get_priorita($search_temp);
+                break;
+            case 'origine':
+                //cose da fare
+                //$result=db_get_origine($search_temp);
+                break;
+            default:
+                $_SESSION['error']='Input non valido';
+                $result = db_get_impiegati();
+        }
+        create_table($result);
+    }
 
     //BACKEND controllare connessione database valida (controllare anche sessione credo)
     //far funzionare i require e cancellare il codice sostitutivo

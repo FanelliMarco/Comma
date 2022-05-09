@@ -6,10 +6,22 @@ i {
     color: white;
 }
 
-.page_subtitle {
-    font-size: 60px;
+input {
+    height: 50px;
 }
 
-.form_control_descrizione{
-    height: 240px;
+button {
+    height: 50px;
+}
+
+select {
+    height: 50px;
+}
+
+.search_field {
+    border-radius: 15px 0px 0px 15px !important;
+}
+
+.search_button {
+    border-radius: 0px 15px 15px 0px !important;
 }

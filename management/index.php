@@ -1,9 +1,10 @@
 <?php
-define("TITLE", "Comma - Management");
-include "../assets/layouts/header.php";
-check_logged_in();
-if(!isset($_SESSION['admin']))
-    header("Location: ../");
+    define("TITLE", "Comma - Management");
+    include "../assets/layouts/header.php";
+    require_once "../assets/includes/data_functions.php";
+    check_logged_in();
+    if(!isset($_SESSION['admin']))
+        header("Location: ../");
 ?>
 
 <!-- Non conformità -->
@@ -73,5 +74,5 @@ if(!isset($_SESSION['admin']))
 </section>
 
 <?php
-include "../assets/layouts/footer.php";
+    include "../assets/layouts/footer.php";
 ?>

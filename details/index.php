@@ -10,7 +10,7 @@ $result=db_get_nc($_GET['id'], 'interna');
 
 <!-- Non conformità -->
 <section class="p-3 w-100 d-flex align-items-center justify-content-center">
-    <span class="page_subtitle text-uppercase text-light">modifica non conformità</span>
+    <span class="page_subtitle text-uppercase text-light">dettagli non conformità</span>
 </section>
 
 <!-- Form container -->

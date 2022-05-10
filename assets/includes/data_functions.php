@@ -268,7 +268,7 @@
 	}
 
     // modifica una nc
-    function db_modifca_nc($stato, $priorita, $risolutore, $verificatore, $decisioni, $az_corr, $numero, $tipo) {
+    function db_modifica_nc($stato, $priorita, $risolutore, $verificatore, $decisioni, $az_corr, $numero, $tipo) {
 
         global $conn;
 
@@ -335,7 +335,7 @@
     }
 
 	// inserisce un nuovo impiegato
-	function db_inserisci_impiegato($nome, $cognome, $user, $pw, $tipo, $proceso) {
+	function db_inserisci_impiegato($nome, $cognome, $user, $tipo, $proceso) {
 
         global $conn;
 		$stmt = $conn->prepare(insert_user_employee);
@@ -371,8 +371,21 @@
 
     }
 
+    // restituisce i dati di un impiegato
+    function db_get_impiegato_spec($matr) {
+
+        global $conn;
+		$stmt = $conn->prepare(search_user_employee_all);
+        $stmt->bind_param('s', $matr);
+        $stmt->execute();
+        $result = $stmt->get_result();
+		$result = db_result_to_array($result);
+		return $result;
+
+    }
+
     // modifica un impiegato
-    function db_modifica_impiegato($nome, $cognome, $user, $pw, $tipo, $processo, $matricola) {
+    function db_modifica_impiegato($nome, $cognome, $user, $tipo, $processo, $matricola) {
 
         global $conn;
         $stmt1 = $conn->prepare(search_user_employee_all);
@@ -394,11 +407,11 @@
             if(!isset($nome))       $nome = $result[0]["Nome"];
             if(!isset($cognome))    $cognome = $result[0]["Cognome"];
             if(!isset($user))       $user = $result[0]["Username"];
-            if(!isset($pw))         $pw = $result[0]["Password"];
+            //if(!isset($pw))         $pw = $result[0]["Password"];
             if(!isset($tipo))       $tipo = $result[0]["Tipo"];
             if(!isset($processo))   $processo = $result[0]["Processo"];
 
-            $stmt2->bind_param("sssssss", $nome, $cognome, $user, $pw, $tipo, $processo);
+            $stmt2->bind_param("ssssss", $nome, $cognome, $user, $tipo, $processo, $matricola);
 
             if(!$stmt2->execute())
                 throw new Exception("Errore aggiornamento tabella impiegato");
@@ -430,32 +443,6 @@
     function fill_user_table(){
         $result=db_get_impiegati();
         create_table_user($result);
-	}
-
-    function create_table_user($result){
-        if($result){
-			foreach($result as $record){
-				echo "<tr>";
-				echo "<td>" . $record['Matricola'] . "</td>";
-				echo "<td>" . $record['Nome'] . "</td>";
-				echo "<td>" . $record['Cognome'] . "</td>";
-				echo "<td>" . $record['Tipo'] . "</td>";
-				echo "<td>" . $record['Processo'] . "</td>";
-                echo "<td><a href='../details/index.php?id=".$record['Matricola']."'>Dettagli</a></td>";
-				echo "</tr>";
-			}
-		}
-    }
-
-    //fa una ricerca di tutte le nc gestite/segnalate e altro da un determinato impiegato
-	function fill_NC_table($matr){
-        if($_SESSION['user']=='admin'){
-            $result=db_get_riepilogo_admin();
-        }
-        else{
-            $result = db_get_riepilogo($matr);
-        }
-        create_table($result);
 	}
 
     function fill_user_table_search($search_field)
@@ -493,6 +480,32 @@
         }
         create_table($result);
     }
+
+    function create_table_user($result){
+        if($result){
+			foreach($result as $record){
+				echo "<tr>";
+				echo "<td>" . $record['Matricola'] . "</td>";
+				echo "<td>" . $record['Nome'] . "</td>";
+				echo "<td>" . $record['Cognome'] . "</td>";
+				echo "<td>" . $record['Tipo'] . "</td>";
+				echo "<td>" . $record['Processo'] . "</td>";
+                echo "<td><a href='../details_user/index.php?id=".$record['Matricola']."'>Dettagli</a></td>";
+				echo "</tr>";
+			}
+		}
+    }
+
+    //fa una ricerca di tutte le nc gestite/segnalate e altro da un determinato impiegato
+	function fill_NC_table($matr){
+        if($_SESSION['user']=='admin'){
+            $result=db_get_riepilogo_admin();
+        }
+        else{
+            $result = db_get_riepilogo($matr);
+        }
+        create_table($result);
+	}
 
     //BACKEND controllare connessione database valida (controllare anche sessione credo)
     //far funzionare i require e cancellare il codice sostitutivo
@@ -537,7 +550,7 @@
 			foreach($result as $record){
 				echo "<tr>";
 				echo "<td>" . $record['numero'] . "</td>";
-				echo "<td>" . $record['data'] . "</td>";
+				echo "<td>" . $record['data_nc'] . "</td>";
 				echo "<td>" . $record['stato'] . "</td>";
 				echo "<td>" . $record['priorita'] . "</td>";
 				echo "<td>" . $record['origine'] . "</td>";

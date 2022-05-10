@@ -6,6 +6,7 @@
 
     $matr = $_SESSION['matricola'];
 
+    
     if(isset($_POST['search_button'])){
         if(!(empty($_POST['search_field']))){
             if(_cleaninjections($_POST['search_field'])){
@@ -26,4 +27,5 @@
         $_SESSION['error']='';
         fill_user_table();
     }
+    
 ?>

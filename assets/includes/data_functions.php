@@ -537,7 +537,7 @@
 			foreach($result as $record){
 				echo "<tr>";
 				echo "<td>" . $record['numero'] . "</td>";
-				echo "<td>" . $record['data'] . "</td>"; //aggiornamento data_nc -> data
+				echo "<td>" . $record['data'] . "</td>";
 				echo "<td>" . $record['stato'] . "</td>";
 				echo "<td>" . $record['priorita'] . "</td>";
 				echo "<td>" . $record['origine'] . "</td>";

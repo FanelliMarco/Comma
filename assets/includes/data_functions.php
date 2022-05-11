@@ -335,7 +335,7 @@
     }
 
 	// inserisce un nuovo impiegato
-	function db_inserisci_impiegato($nome, $cognome, $user, $tipo, $proceso) {
+	function db_inserisci_impiegato($matricola, $nome, $cognome, $user, $password, $tipo, $processo) {
 
         global $conn;
 		$stmt = $conn->prepare(insert_user_employee);
@@ -344,7 +344,7 @@
 			
 			$conn->begin_transaction();
 
-            $stmt->bind_param("ssssss", $nome, $cognome, $user, $pw, $tipo, $processo);
+            $stmt->bind_param("sssssss", $matricola, $nome, $cognome, $user, $password, $tipo, $processo);
 
             if(!$stmt->execute())
                 throw new Exception("Errore inserimento nella tabella impiegato");

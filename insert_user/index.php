@@ -1,6 +1,7 @@
 <?php
 define("TITLE", "Comma - Insert User");
 include "../assets/layouts/header.php";
+require "../assets/includes/data_functions.php";
 check_logged_in();
 if(!isset($_SESSION['admin']))
     header("Location: ../");
@@ -15,28 +16,80 @@ if(!isset($_SESSION['admin']))
 <!-- Form per compilazione -->
 <section class="p-5">
     <div class="container">
-        <form class="form-auth flex-column text-white" action="./includes/edit_user_include.php" method="POST">
+        <form class="form-auth flex-column text-white" action="./includes/insert_user_include.php" method="POST">
             <!-- BACKEND completare gli id di ogni tag input e del tag button di conferma-->
             <!-- nel campo for dei label copiare il corrispettivo id del campo input associato -->
             <!-- contenuti del form -->
-            <div class="row g-3">
-                <div class="col-lg-6 col-md-12 p-5">
-                    <div class="form-group">
-                        <label for="processo" class="h2 form-label mb-3 ml-3">Utente</label>
-                        <input type="text" class="form-control mb-3 form_control_font" id="Utente" name='Utente'>
-                    </div>
-                    <div class="form-group">
-                        <label for="codice" class="h2 form-label mb-3 ml-3">Permessi</label>
-                        <input type="text" class="form-control mb-3 form_control_font" id="Permessi" name='Permessi'>
-                    </div>
+
+            <div class="row align-items-center justify-content-center pb-5">
+                <!-- Colonna di sinistra -->
+                <div class="col-3"><span class="">matricola:</span></div>
+                <!-- Colonna di destra -->
+                <div class="col-9">
+                    <input type="text" class="form-control bg-transparent text-light" id="matricola" name="matricola">
                 </div>
-                <div class="col-lg-6 col-md-12 p-5">
-                    <div class="form-group">
-                        <label for="descrizione" class="h2 form-label mb-3 ml-3">Note</label>
-                        <textarea class="form-control mb-3 text-dark form_control_descrizione" cols="40" rows="5" id="note" name='note'></textarea>
+            </div>
+
+            <div class="row align-items-center justify-content-center pb-5">
+                <!-- Colonna di sinistra -->
+                <div class="col-3"><span class="">nome:</span></div>
+                <!-- Colonna di destra -->
+                <div class="col-9">
+                    <input type="text" class="form-control bg-transparent text-light" id="nome" name="nome">
+                </div>
+            </div>
+
+            <div class="row align-items-center justify-content-center pb-5">
+                <!-- Colonna di sinistra -->
+                <div class="col-3"><span class="">cognome:</span></div>
+                <!-- Colonna di destra -->
+                <div class="col-9">
+                    <input type="text" class="form-control bg-transparent text-light" id="cognome" name="cognome">
+                </div>
+            </div>
+
+            <!-- Riga tipo-->
+            <div class="row align-items-center justify-content-center pb-5">
+                <!-- Colonna di sinistra -->
+                <div class="col-3"><span class="">tipo:</span></div>
+                <!-- Colonna di destra -->
+                <div class="col-9">
+                    <div class="input-group">
+                        <select class="form-control text-uppercase bg-transparent text-light" id="tipo" name="tipo" >
+                            <option value='Operaio' class="text-dark">Operaio</option>
+                            <option value="Addetto al controllo qualita" class="text-dark">Addetto al controllo qualità</option>
+                        </select>
                     </div>
                 </div>
             </div>
+
+            
+            
+            <!-- Riga processo-->
+            <div class="row align-items-center justify-content-center pb-5" style='visibility:hidden;' id="processo">
+                <!-- Colonna di sinistra -->
+                <div class="col-3"><span class="">processo:</span></div>
+                <!-- Colonna di destra -->
+                <div class="col-9">
+                    <div class="input-group">
+                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="processo" >
+                            <?php
+
+                            $processi = db_get_processi();
+
+                            foreach ($processi as $processo) {
+
+                                echo "<option value='" . $processo["Nome"] . "' ";
+                                echo "class='text-dark'>" . $processo["Nome"] . "</option>";
+
+                            }
+
+                            ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <!-- bottone conferma -->
             <section>
                 <div class="row">

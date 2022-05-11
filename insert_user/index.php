@@ -63,10 +63,22 @@ if(!isset($_SESSION['admin']))
                 </div>
             </div>
 
-            
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $('#tipo').change(function(){
+                        if(($(this).val() === 'Operaio')){
+                            $('.processo').show();
+                        }
+                        else{
+                            $('.processo').hide();
+                        }
+                    }).change();
+                });
+            </script>
             
             <!-- Riga processo-->
-            <div class="row align-items-center justify-content-center pb-5" style='visibility:hidden;' id="processo">
+            <div class="processo row align-items-center justify-content-center pb-5" style='display:none;' id="processo">
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">processo:</span></div>
                 <!-- Colonna di destra -->

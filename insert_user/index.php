@@ -85,6 +85,7 @@ if(!isset($_SESSION['admin']))
                 <div class="col-9">
                     <div class="input-group">
                         <select class="form-control text-uppercase bg-transparent text-light" id="" name="processo" >
+                            <option value='' selected></option>
                             <?php
 
                             $processi = db_get_processi();

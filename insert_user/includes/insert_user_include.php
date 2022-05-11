@@ -6,11 +6,11 @@
     session_start();
 
     if(isset($_POST['sub'])){
-        if(empty($_POST['matricola']) || empty($_POST['nome'] || empty($_POST['cognome']) || empty($_POST['tipo']) || empty($_POST['processo']))){
+        if(empty($_POST['matricola']) || empty($_POST['nome'] || empty($_POST['cognome']) || empty($_POST['tipo']))){
             get_error('I campi non possono essere vuoti');
         }
         else{
-            if(_cleaninjections($_POST['matricola'] || _cleaninjections($_POST['nome']) || _cleaninjections($_POST['cognome']) || _cleaninjections($_POST['tipo']) || _cleaninjections($_POST['processo']))){
+            if(_cleaninjections($_POST['matricola'] || _cleaninjections($_POST['nome']) || _cleaninjections($_POST['cognome']) || _cleaninjections($_POST['tipo']))){
                 get_error('I campi contengono caratteri o parole non ammesse');
             }
             else{ 

@@ -193,6 +193,13 @@
         return $result;
     }
 
+    function db_update_user_last_login($matr){
+        global $conn;
+        $stmt = $conn->prepare(update_user_last_login);
+        $stmt->bind_param("s", $matr);
+        $stmt->execute();
+    }
+
 	// inserisce una nuova non confromità in input
 	function db_inserisci_nc_input($fornitore, $materia_prima, $descrizione, $user) {
 

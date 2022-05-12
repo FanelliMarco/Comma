@@ -18,6 +18,11 @@ $user = db_get_impiegato_spec($_GET["matricola"]);
 <!-- Form container -->
 <section>
     <div class="container mt-5">
+        <div class="text-light text-uppercase">
+            <?php
+                if(isset($_SESSION["error"])) echo $_SESSION["error"];
+            ?>
+        </div>
         <form class="h4 text-light text-align-start text-uppercase" action="./includes/edit_user_include.php" method="post">
             <!-- Per ogni riga -->
             <!-- Riga matricola -->
@@ -136,11 +141,6 @@ $user = db_get_impiegato_spec($_GET["matricola"]);
                 </div>
             </section>
         </form>
-    </div>
-    <div>
-        <?php
-            if(isset($_SESSION["error"])) echo $_SESSION["error"];
-        ?>
     </div>
 </section>
 

@@ -60,6 +60,16 @@ $user = db_get_impiegato_spec($_GET["matricola"]);
                 </div>
             </div>
 
+            <!-- Riga password -->
+            <div class="row align-items-center justify-content-center pb-5">
+                <!-- Colonna di sinistra -->
+                <div class="col-3"><span class="">password:</span></div>
+                <!-- Colonna di destra -->
+                <div class="col-9">
+                    <input id="password" name="password" type="text" class="form-control bg-transparent text-light">
+                </div>
+            </div>
+
             <!-- Riga tipo-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->

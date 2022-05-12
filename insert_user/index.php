@@ -16,6 +16,9 @@ if(!isset($_SESSION['admin']))
 <!-- Form per compilazione -->
 <section class="p-5">
     <div class="container">
+        <div class="text-light text-uppercase">
+            <?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?>
+        </div>
         <form class="form-auth flex-column text-white" action="./includes/insert_user_include.php" method="POST">
             <!-- BACKEND completare gli id di ogni tag input e del tag button di conferma-->
             <!-- nel campo for dei label copiare il corrispettivo id del campo input associato -->
@@ -112,10 +115,6 @@ if(!isset($_SESSION['admin']))
                     </div>
                 </div>
             </section>
-
-            <div>
-                <?php if (isset($_SESSION['error'])) echo $_SESSION['error']; ?>
-            </div>
         </form>
     </div>
 </section>

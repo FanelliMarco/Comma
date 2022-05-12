@@ -21,6 +21,7 @@ $user = db_get_impiegato_spec($_GET["matricola"]);
         <div class="text-light text-uppercase">
             <?php
                 if(isset($_SESSION["error"])) echo $_SESSION["error"];
+                if(isset($_SESSION['error']['update'])) echo $_SESSION['error']['update'];
             ?>
         </div>
         <form class="h4 text-light text-align-start text-uppercase" action="./includes/edit_user_include.php" method="post">

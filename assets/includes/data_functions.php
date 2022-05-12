@@ -475,6 +475,29 @@
 
         }
     }
+
+    function db_licenzia_impiegato($matricola) {
+
+        global $conn;
+        $stmt = $conn->prepare(update_user_employee_licenzia);
+        $stmt->bind_param("s", $matricola);
+        $ok = $stmt->execute();
+        if(!$ok) return "Errore licenziamento impiegato";
+
+    }
+
+    function db_get_impieagto_licenziato($matricola) {
+
+        global $conn;
+        $stmt = $conn->prepare(search_user_emloyee_licenziato);
+        $stmt->bind_param("s", $matricola);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
+
+    }
+
     /*
     //ordina la dashboard secondo il numero
     function db_order_number($utente, $numero){

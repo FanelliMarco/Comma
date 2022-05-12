@@ -3,7 +3,7 @@ define("TITLE", "Comma - Edit");
 include "../assets/layouts/header.php";
 require "../assets/includes/data_functions.php";
 check_logged_in();
-
+check_licenziato();
 $nc = db_get_nc($_GET["numero"], $_GET["tipo"]);
 
 ?>

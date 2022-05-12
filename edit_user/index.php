@@ -3,6 +3,7 @@ define("TITLE", "Comma - Edit User");
 include "../assets/layouts/header.php";
 require "../assets/includes/data_functions.php";
 check_logged_in();
+check_licenziato();
 if(!isset($_SESSION['admin']))
         header("Location: ../");
 

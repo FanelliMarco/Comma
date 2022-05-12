@@ -16,4 +16,17 @@
         }
     }
 
+    function check_licenziato() {
+
+        $licenziato = db_get_impiegato_licenziato($_SESSION['matricola']);
+
+        if($licenziato[0]["deleted_at"] != null) {
+
+            header("Location: ../logout");
+            exit();
+
+        }
+        
+    }
+
 ?>

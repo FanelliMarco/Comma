@@ -27,6 +27,10 @@
                 if(!$result) { 
                     get_error('Utente o password errati');
                 } else {
+                    
+                    if(isset($result[0]['deleted_at']))
+                        get_error("Utente licenziato");
+
                     if($result[0]['Matricola']==='1000000')
                         $_SESSION['admin']=true;
                     $_SESSION['logged'] = true;

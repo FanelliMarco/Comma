@@ -5,6 +5,7 @@ require_once "../assets/includes/data_functions.php";
 require '../assets/includes/query_include.php';
 //include "./includes/details_include.php";
 check_logged_in();
+check_licenziato();
 $result=db_get_nc($_GET['id'], 'interna');
 ?>
 

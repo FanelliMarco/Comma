@@ -103,7 +103,7 @@
     function db_get_data($data, $matr){
         global $conn;
         $stmt = $conn->prepare(search_nc_data);
-        $stmt->bind_param("ss", $matr, $data);
+        $stmt->bind_param("ssssss", $matr, $data, $matr, $data, $matr, $data);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = db_result_to_array($result);
@@ -114,7 +114,7 @@
     function db_get_stato($stato, $matr){
         global $conn;
         $stmt = $conn->prepare(search_nc_stato);
-        $stmt->bind_param("ss", $matr, $stato);
+        $stmt->bind_param("ssssss", $matr, $stato, $matr, $stato, $matr, $stato);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = db_result_to_array($result);
@@ -125,7 +125,7 @@
     function db_get_priorita($priorita, $matr){
         global $conn;
         $stmt = $conn->prepare(search_nc_priorita);
-        $stmt->bind_param("ss", $matr, $priorita);
+        $stmt->bind_param("ssssss", $matr, $priorita, $matr, $priorita, $matr, $priorita);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = db_result_to_array($result);
@@ -136,7 +136,7 @@
     function db_get_origine($origine, $matr){
         global $conn;
         $stmt = $conn->prepare(search_nc_origine);
-        $stmt->bind_param("ss", $matr, $origine);
+        $stmt->bind_param("ssssss", $matr, $origine, $matr, $origine, $matr, $origine);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = db_result_to_array($result);

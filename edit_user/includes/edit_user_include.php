@@ -22,7 +22,7 @@
                 $pw=hash('sha256', $pw);
             }
             else{
-                unset($pw);
+                $pw=NULL;
             }
 
             $result = db_modifica_impiegato($_POST["nome"], $_POST["cognome"], $_POST["username"], $pw, $_POST["tipo"], $processo, $_POST["matricola"]);
@@ -32,7 +32,7 @@
                 header("Location: ../index.php?matricola=".$_POST['matricola']."");
             }
             else{
-                $_SESSION['error']='funzia';
+                $_SESSION['error']='';
                 $_SESSION["error"]['update'] = '';
             }
 

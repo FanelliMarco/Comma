@@ -48,7 +48,7 @@
     if(!defined("insert_user_employee")) define("insert_user_employee", "INSERT INTO impiegato (Matricola, Nome, Cognome, Username, Password, Tipo, Processo, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, now(), now())"); // registrazione nuovo impiegato
 
     // GESTIONE IMPIEGATI
-    if(!defined("search_users_employees")) define("search_users_employees", "SELECT * FROM impiegato");
+    if(!defined("search_users_employees")) define("search_users_employees", "SELECT * FROM impiegato WHERE deleted_at is null");
     if(!defined("search_user_employee_all")) define("search_user_employee_all", "SELECT * FROM impiegato WHERE Matricola=?"); // dati deell'impiegato prima dell'aggiornamento
     if(!defined("update_user_employee")) define("update_user_employee", "UPDATE impiegato SET Nome=?, Cognome=?, Username=?, Tipo=?, Processo=?, updated_at=now() WHERE Matricola=?"); // aggiornamento dati dell'impiegato
     if(!defined("update_user_last_login")) define("update_user_last_login", "UPDATE impiegato SET last_login_at=now() WHERE Matricola=?");

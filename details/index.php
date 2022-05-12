@@ -25,7 +25,7 @@ $result=db_get_nc($_GET['id'], 'interna');
                 <div class="col-3 text-uppercase"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="id"><?php echo "id:" . $_GET['id'] . " tipo: interna"/**$result[0]['numero']**/; ?></span>
+                    <span class="" id="" name="id"><?php echo $result[0]['numero']; ?></span>
                 </div>
             </div>
 

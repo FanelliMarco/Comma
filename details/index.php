@@ -7,7 +7,6 @@ require '../assets/includes/query_include.php';
 check_logged_in();
 check_licenziato();
 $result=db_get_nc($_GET['id'], 'interna');
-echo $result[0]['numero'];
 ?>
 
 <!-- Non conformità -->
@@ -26,7 +25,7 @@ echo $result[0]['numero'];
                 <div class="col-3 text-uppercase"><span class="">numero:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
-                    <span class="" id="" name="id"><?php echo $result[0]['numero']; ?></span>
+                    <span class="" id="" name="id"><?php echo "ciao"/**$result[0]['numero']**/; ?></span>
                 </div>
             </div>
 

@@ -34,7 +34,7 @@
     FROM nc_input as nci left join rilevamento_input as rili on nci.Numero = rili.NC
       left join risoluzione_input as risi on nci.Numero = risi.NC
       left join verifica_input as veri on nci.Numero = veri.NC
-    WHERE numero=? AND tipo=?
+    WHERE numero=?
       
     UNION
     
@@ -42,7 +42,7 @@
     FROM nc_output as nco left join rilevamento_output as rilo on nco.Numero = rilo.NC
       left join risoluzione_output as riso on nco.Numero = riso.NC
       left join verifica_output as vero on nco.Numero = vero.NC
-    WHERE numero=? AND tipo=?
+    WHERE numero=?
     
     UNION
     
@@ -50,7 +50,7 @@
     FROM nc_interna as ncin left join rilevamento_interno rilin on ncin.Numero = rilin.NC
       left join risoluzione_interna risin on ncin.Numero = risin.NC
       left join verifica_interna verin on ncin.Numero = verin.NC
-    WHERE numero=? AND tipo=?");
+    WHERE numero=?");
 
     if(!defined("update_nc_input")) define("update_nc_input", "UPDATE nc_input SET Stato=?, Priorita=?, Decisioni=?, Azioni_correttive=? WHERE Numero=?");
     if(!defined("update_risoluzione_input")) define("update_risoluzione_input", "UPDATE risoluzione_input SET Fornitore=? WHERE NC=?");

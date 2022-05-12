@@ -506,7 +506,7 @@ CREATE TABLE `vi_riepilogo` (
 ,`az_corr` varchar(255)
 ,`gestore` char(16)
 ,`tipo` varchar(7)
-,`data_nc` date
+,`data` date
 ,`oggetto` varchar(16)
 ,`segnalatore` varchar(40)
 ,`risolutore` varchar(20)

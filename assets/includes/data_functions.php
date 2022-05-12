@@ -67,7 +67,7 @@
 
 		global $conn;
 		$stmt = $conn->prepare(search_nc_spec);
-        $stmt->bind_param("isisis", $numero, $tipo, $numero, $tipo, $numero, $tipo);
+        $stmt->bind_param("iii", $numero, $numero, $numero);
         $stmt->execute();
         $result = $stmt->get_result();
 		$result = db_result_to_array($result);

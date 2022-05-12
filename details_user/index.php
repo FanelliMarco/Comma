@@ -133,7 +133,7 @@ $result=db_get_impiegato_spec($_GET['id']);
                 <a href="../edit_user/index.php?matricola=<?php echo $result[0]['Matricola'];?>"><button class="btn btn-warning btn-lg text-uppercase w-75" type="button" id="">modifica</button></a>
             </div>
             <div class="col-md-6 col-sm-12 text-center py-3">
-                <a href="../licenzia/index.php?matricola=<?php echo $result[0]['Matricola'] ?>"><button class="btn btn-danger btn-lg text-uppercase w-75" type="button" id="">elimina</button></a>
+                <a href="../licenzia?matricola=<?php echo $result[0]['Matricola'] ?>"><button class="btn btn-danger btn-lg text-uppercase w-75" type="button" id="">elimina</button></a>
             </div>
     </div>
 </section>

@@ -68,7 +68,7 @@
 
 <section class="p-5">
     <div class="container d-flex justify-content-end">
-        <a href="../report/index.php"><button class="btn btn-danger btn-lg text-uppercase" type="button" id="">segnala non conformità</button></a>
+        <a href="../report/"><button class="btn btn-danger btn-lg text-uppercase" type="button" id="">segnala non conformità</button></a>
     </div>
 </section>
 

@@ -70,7 +70,7 @@
 
 <section class="p-5">
     <div class="container d-flex justify-content-end">
-        <a href="../insert_user/index.php"><button class="btn btn-danger btn-lg text-uppercase" type="button" id="">inserisci utente</button></a>
+        <a href="../insert_user/"><button class="btn btn-danger btn-lg text-uppercase" type="button" id="">inserisci utente</button></a>
     </div>
 </section>
 

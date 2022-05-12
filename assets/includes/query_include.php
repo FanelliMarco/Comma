@@ -61,7 +61,7 @@
     if(!defined("search_users_processo")) define("search_users_processo", "SELECT * FROM impiegato WHERE Processo LIKE ?");
     
     if(!defined("update_user_employee_licenzia")) define("update_user_employee_licenzia", "UPDATE impiegato SET deleted_at=now() WHERE Matricola=?");
-    if(!defined("search_user_employee_licenziato")) define("search_user_employee_licenziato", "SELECT deleted_at FROM impieagto WHERE Matricola=?");
+    if(!defined("search_user_employee_licenziato")) define("search_user_employee_licenziato", "SELECT deleted_at FROM impiegato WHERE Matricola=?");
     
     /*
     // ORDINAMENTI NC DASHBOARD

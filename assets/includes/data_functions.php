@@ -493,10 +493,10 @@
 
     }
 
-    function db_get_impieagto_licenziato($matricola) {
+    function db_get_impiegato_licenziato($matricola) {
 
         global $conn;
-        $stmt = $conn->prepare(search_user_emloyee_licenziato);
+        $stmt = $conn->prepare(search_user_employee_licenziato);
         $stmt->bind_param("s", $matricola);
         $stmt->execute();
         $result = $stmt->get_result();

@@ -34,7 +34,6 @@ if (isset($_SESSION['logged'])) { ?>
                         ?>
                         <li><a class="dropdown-item text-uppercase" href="../dashboard/"><span>Dashboard</span></a></li>
                         <li><a class="dropdown-item text-uppercase" href="../report/"><span>report</span></a></li>
-                        <li><a class="dropdown-item text-uppercase" href="../details/"><span>details</span></a></li>
                     </ul>
                 </div>
             </div>

@@ -32,7 +32,7 @@
     FROM nc_input as nci left join rilevamento_input as rili on nci.Numero = rili.NC
       left join risoluzione_input as risi on nci.Numero = risi.NC
       left join verifica_input as veri on nci.Numero = veri.NC
-      WHERE gestore=? and stato=?
+    WHERE gestore=? and stato=?
       
     UNION
     
@@ -40,7 +40,7 @@
     FROM nc_output as nco left join rilevamento_output as rilo on nco.Numero = rilo.NC
       left join risoluzione_output as riso on nco.Numero = riso.NC
       left join verifica_output as vero on nco.Numero = vero.NC
-      WHERE gestore=? and stato=?
+    WHERE gestore=? and stato=?
     
     UNION
     
@@ -48,7 +48,7 @@
     FROM nc_interna as ncin left join rilevamento_interno rilin on ncin.Numero = rilin.NC
       left join risoluzione_interna risin on ncin.Numero = risin.NC
       left join verifica_interna verin on ncin.Numero = verin.NC
-      WHERE gestore=? and stato=?"); //non conformita relativa ad un utente e stato
+    WHERE gestore=? and stato=?"); //non conformita relativa ad un utente e stato
     if(!defined("search_nc_priorita")) define("search_nc_priorita", "SELECT nci.Numero as numero, nci.Stato as stato, nci.Priorita as priorita, nci.Origine as origine, nci.Descrizione as descrizione, nci.Decisioni as decisioni, nci.Azioni_correttive as az_corr, nci.Addetto_gestione as gestore, 'input' as tipo, rili.Data as data, rili.Materia_prima as oggetto, rili.Impiegato as segnalatore, risi.Fornitore as risolutore, risi.Data_inizio as data_inizio_risoluzione, risi.Data_fine as data_fine_risoluzione, veri.Impiegato as verificatore, veri.Data_inizio as data_inizio_verifica, veri.Data_fine as data_fine_verifica
     FROM nc_input as nci left join rilevamento_input as rili on nci.Numero = rili.NC
       left join risoluzione_input as risi on nci.Numero = risi.NC

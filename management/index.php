@@ -17,8 +17,8 @@
     <div class="container">
         <form class="row text-center" action="" method="POST">
             <div class="col-md-6 p-3 col-sm-12 input-group align-items-center justify-content-center">
-                <!-- BACKEND: barra di ricerca per filtro sulle non conformità -->
-                <input type="text" class="form-control search_field" name="search_field" placeholder="Cerca una non conformità" />
+                <!-- BACKEND: barra di ricerca per filtro sugli utenti -->
+                <input type="text" class="form-control search_field" name="search_field" placeholder="Cerca un utente" />
                 <button class="btn btn-primary search_button" type="submit" name="search_button" onclick="refresh()"><span><i class="bi bi-search"></span></i></button>
             </div>
             <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
@@ -28,11 +28,11 @@
             <div class="col-md-3 col-sm-6 p-3 text-md-right text-sm-center">
                 <!-- BACKEND: tasto ordina -->
                 <select class="btn btn-primary btn-lg text-uppercase" name="order" id="">
-                    <option value="numero" class="bg-light text-dark">NUMERO</option>
-                    <option value="data" class="bg-light text-dark">DATA</option>
-                    <option value="stato" class="bg-light text-dark">STATO</option>
-                    <option value="priorita" class="bg-light text-dark">PRIORITA</option>
-                    <option value="origine" class="bg-light text-dark">ORIGINE</option>
+                    <option value="numero" class="bg-light text-dark">matricola</option>
+                    <option value="data" class="bg-light text-dark">nome</option>
+                    <option value="stato" class="bg-light text-dark">cognome</option>
+                    <option value="priorita" class="bg-light text-dark">tipo</option>
+                    <option value="origine" class="bg-light text-dark">processo</option>
                 </select>
             </div>
         </form>

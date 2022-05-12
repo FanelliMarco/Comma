@@ -9,7 +9,14 @@
             get_error('Caratteri inseriti non consentiti');
         }
         else{
-            $result = db_modifica_impiegato($_POST["nome"], $_POST["cognome"], $_POST["username"], hash('sha256', $_POST['password']), $_POST["tipo"], $_POST["processo"], $_POST["matricola"]);
+            if($tipo=='Addetto al controllo qualita' || $tipo=='Admin'){
+                $processo=NULL;
+            }
+            else{
+                $processo=$_POST['processo'];
+            }
+
+            $result = db_modifica_impiegato($_POST["nome"], $_POST["cognome"], $_POST["username"], hash('sha256', $_POST['password']), $_POST["tipo"], $processo, $_POST["matricola"]);
 
             if(isset($result)){
                 $_SESSION["error"]['update'] = $result;

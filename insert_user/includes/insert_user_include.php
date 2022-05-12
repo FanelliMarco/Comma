@@ -14,7 +14,6 @@
                 get_error('I campi contengono caratteri o parole non ammesse');
             }
             else{ 
-                //inserimento query con descrizione
                 $matricola=$_POST['matricola'];
                 $nome=$_POST['nome'];
                 $cognome=$_POST['cognome'];

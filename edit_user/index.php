@@ -78,21 +78,36 @@ $user = db_get_impiegato_spec($_GET["matricola"]);
                 <div class="col-9">
                     <div class="input-group">
                         <select class="form-control text-uppercase bg-transparent text-light" id="tipo" name="tipo" >
-                            <option <?php if ($user[0]["Tipo"] == "operaio") echo "selected" ?> value='Operaio' class="text-dark">Operaio</option>
-                            <option <?php if ($user[0]["Tipo"] == "addetto al controllo qualità") echo "selected" ?> value="Addetto al controllo qualità" class="text-dark">Addetto al controllo qualità</option>
+                            <option <?php if ($user[0]["Tipo"] == "Operaio") echo "selected" ?> value='Operaio' class="text-dark">Operaio</option>
+                            <option <?php if ($user[0]["Tipo"] == "Addetto al controllo qualita") echo "selected" ?> value="Addetto al controllo qualita" class="text-dark">Addetto al controllo qualità</option>
+                            <option <?php if ($user[0]["Tipo"] == "Admin") echo "selected" ?> value='Admin' class="text-dark">Admin</option>
                         </select>
                     </div>
                 </div>
             </div>
 
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $('#tipo').change(function(){
+                        if(($(this).val() === 'Operaio')){
+                            $('.processo').show();
+                        }
+                        else{
+                            $('.processo').hide();
+                        }
+                    }).change();
+                });
+            </script>
+
             <!-- Riga processo-->
-            <div class="row align-items-center justify-content-center pb-5">
+            <div class="row align-items-center justify-content-center pb-5" style='display:none;' id='processo'>
                 <!-- Colonna di sinistra -->
                 <div class="col-3"><span class="">processo:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <div class="input-group">
-                        <select class="form-control text-uppercase bg-transparent text-light" id="processo" name="processo" >
+                        <select class="form-control text-uppercase bg-transparent text-light" id="" name="processo" >
                             <?php
 
                             $processi = db_get_processi();
@@ -101,52 +116,12 @@ $user = db_get_impiegato_spec($_GET["matricola"]);
 
                                 echo "<option value='" . $processo["Nome"] . "' ";
                                 if ($user[0]["Processo"] == $processo) echo "selected ";
-                                echo "class='text-dark'>" . $processo["Nome"] . " (processo)</option>";
+                                echo "class='text-dark'>" . $processo["Nome"] . " </option>";
                             }
 
                             ?>
                         </select>
                     </div>
-                </div>
-            </div>
-
-            <!-- Riga created_at -->
-            <div class="row align-items-center justify-content-center pb-5">
-                <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">creato il giorno:</span></div>
-                <!-- Colonna di destra -->
-                <div class="col-9">
-                    <input id="created_at" name="created_at" type="date" value="<?php echo $user[0]["created_at"] ?>" class="form-control bg-transparent text-light">
-                </div>
-            </div>
-
-            <!-- Riga data -->
-            <div class="row align-items-center justify-content-center pb-5">
-                <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">ultimo aggiornamento:</span></div>
-                <!-- Colonna di destra -->
-                <div class="col-9">
-                    <input id="updated_at" name="updated_at" type="date" value="<?php echo $user[0]["updated_at"] ?>" class="form-control bg-transparent text-light">
-                </div>
-            </div>
-
-            <!-- Riga data -->
-            <div class="row align-items-center justify-content-center pb-5">
-                <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">cancellato il giorno:</span></div>
-                <!-- Colonna di destra -->
-                <div class="col-9">
-                    <input id="deleted_at" name="deleted_at" type="date" value="<?php echo $user[0]["deleted_at"] ?>" class="form-control bg-transparent text-light">
-                </div>
-            </div>
-
-            <!-- Riga data -->
-            <div class="row align-items-center justify-content-center pb-5">
-                <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">ultimo accesso il giorno:</span></div>
-                <!-- Colonna di destra -->
-                <div class="col-9">
-                    <input id="last_login_at" name="last_login_at" type="date" value="<?php echo $user[0]["last_login_at"] ?>" class="form-control bg-transparent text-light">
                 </div>
             </div>
 

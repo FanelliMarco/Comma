@@ -458,27 +458,51 @@
         $search_temp=substr($search, $pos+1, strlen($search));
         $search_temp=str_replace("'", "", $search_temp);
         switch($search_t){
-            case 'data':
+            case 'matricola':
                 //cose da fare
-                //$result=db_get_data($search_temp);
+                //$result=db_get_matricola($search_temp);
                 break;
-            case 'stato':
+            case 'nome':
                 //cose da fare
-                //$result=db_get_stato($search_temp);
+                //$result=db_get_nome($search_temp);
                 break;
-            case 'priorita':
+            case 'cognome':
                 //cose da fare
-                //$result=db_get_priorita($search_temp);
+                //$result=db_get_cognome($search_temp);
                 break;
-            case 'origine':
+            case 'tipo':
                 //cose da fare
-                //$result=db_get_origine($search_temp);
+                //$result=db_get_tipo($search_temp);
+                break;
+            case 'processo':
+                //cose da fare
+                //$result=db_get_processo($search_temp);
                 break;
             default:
                 $_SESSION['error']='Input non valido';
                 $result = db_get_impiegati();
         }
         create_table($result);
+    }
+
+    function db_get_matricola($text){
+        
+    }
+
+    function db_get_nome($text){
+
+    }
+
+    function db_get_cognome($text){
+
+    }
+
+    function db_get_tipo($text){
+
+    }
+
+    function db_get_processo($text){
+
     }
 
     function create_table_user($result){

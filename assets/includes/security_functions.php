@@ -2,7 +2,7 @@
     function _cleaninjections($test) {
         $ammessi='abcdefghijklmnopqrstuvwxyz';
         $ammessi.='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $ammessi.="0123456789@._='-";
+        $ammessi.="0123456789@._='- ";
 
         $charOk=true;
         for($pos=0; $pos<strlen($test)&&$charOk; $pos++){

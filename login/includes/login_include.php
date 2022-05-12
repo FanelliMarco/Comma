@@ -31,12 +31,14 @@
                     if(isset($result[0]['deleted_at']))
                         get_error("Utente licenziato");
 
-                    if($result[0]['Matricola']==='1000000')
+                    
+                    if($result[0]['Tipo']==='Admin' || $result[0]['Tipo']=='Boss del database')
                         $_SESSION['admin']=true;
                     $_SESSION['logged'] = true;
                     $_SESSION['user'] = $user;
                     $_SESSION['matricola'] = $result[0]['Matricola'];
                     $_SESSION['error']='';
+                    db_update_user_last_login($result[0]['Matricola']);
                     header("Location: ../../dashboard");
                     exit();
                 }

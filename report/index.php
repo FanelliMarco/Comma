@@ -1,6 +1,8 @@
 <?php
     define("TITLE", "Comma - Report");
     include "../assets/layouts/header.php";
+    check_logged_in();
+    check_licenziato();
 ?>
 
 <!-- Non conformità -->
@@ -27,7 +29,7 @@
                             <select class="form-select bg-transparent text-light" name='fase'>
                                 <option class="text-dark" value="Prodotto" selected>Prodotto</option>
                                 <option class="text-dark" value="Semilavorato">Semilavorato</option>
-                                <option class="text-dark" value="Altro">Altro</option>
+                                <option class="text-dark" value="Altro">Materie Prime</option>
                             </select>
                             :
                         </label>

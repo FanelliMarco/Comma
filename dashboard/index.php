@@ -35,6 +35,12 @@
                 </select>
             </div>
         </form>
+        <div class="text-light text-uppercase">
+            <?php
+                if (isset($_SESSION['error'])) echo $_SESSION['error'];
+                if(isset($_SESSION['error']['update'])) echo $_SESSION['error']['update'];
+            ?>
+    </div>
     </div>
 </section>
 
@@ -57,12 +63,6 @@
                 <!-- BACKEND: da rivedere perché non corretto -->
             </tbody>
         </table>
-    </div>
-    <div>
-        <?php
-            if (isset($_SESSION['error'])) echo $_SESSION['error'];
-            if(isset($_SESSION['error']['update'])) echo $_SESSION['error']['update'];
-        ?>
     </div>
 </section>
 

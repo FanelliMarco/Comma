@@ -27,7 +27,7 @@
                             <select class="form-select bg-transparent text-light" name='fase'>
                                 <option class="text-dark" value="Prodotto" selected>Prodotto</option>
                                 <option class="text-dark" value="Semilavorato">Semilavorato</option>
-                                <option class="text-dark" value="Altro">Altro</option>
+                                <option class="text-dark" value="Altro">Materie Prime</option>
                             </select>
                             :
                         </label>

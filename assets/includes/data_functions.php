@@ -574,7 +574,7 @@
 				echo "<td>" . $record['Cognome'] . "</td>";
 				echo "<td>" . $record['Tipo'] . "</td>";
 				echo "<td>" . $record['Processo'] . "</td>";
-                echo "<td><a href='../details_user/index.php?id=".$record['Matricola']."'>Dettagli</a></td>";
+                echo "<td><a href='../details_user?id=".$record['Matricola']."'>Dettagli</a></td>";
 				echo "</tr>";
 			}
 		}
@@ -638,7 +638,7 @@
 				echo "<td>" . $record['stato'] . "</td>";
 				echo "<td>" . $record['priorita'] . "</td>";
 				echo "<td>" . $record['origine'] . "</td>";
-                echo "<td><a href='../details/index.php?id=".$record['numero']."'>Dettagli</a></td>";
+                echo "<td><a href='../details?id=".$record['numero']."'>Dettagli</a></td>";
 				echo "</tr>";
 			}
 		}

@@ -7,6 +7,7 @@ require '../assets/includes/query_include.php';
 check_logged_in();
 check_licenziato();
 $result=db_get_nc($_GET['id'], 'interna');
+echo $result[0]['numero'];
 ?>
 
 <!-- Non conformità -->

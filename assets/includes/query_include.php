@@ -51,7 +51,6 @@
     if(!defined("search_users_employees")) define("search_users_employees", "SELECT * FROM impiegato");
     if(!defined("search_user_employee_all")) define("search_user_employee_all", "SELECT * FROM impiegato WHERE Matricola=?"); // dati deell'impiegato prima dell'aggiornamento
     if(!defined("update_user_employee")) define("update_user_employee", "UPDATE impiegato SET Nome=?, Cognome=?, Username=?, Tipo=?, Processo=?, updated_at=now() WHERE Matricola=?"); // aggiornamento dati dell'impiegato
-    if(!defined("update_user_employee_pw")) define("update_user_employee_pw", "UPDATE impiegato SET Nome=?, Cognome=?, Username=?, Password=?, Tipo=?, Processo=?, updated_at=now() WHERE Matricola=?"); // aggiornamento dati dell'impiegato
     /*
     // ORDINAMENTI NC DASHBOARD
     if(!defined("order_nc_number")) define("order_nc_number", "SELECT * FROM vi_riepilogo WHERE gestore=? ORDER BY numero"); //ordinamento per Numero

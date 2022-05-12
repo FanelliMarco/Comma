@@ -385,7 +385,7 @@
     }
 
     // modifica un impiegato
-    function db_modifica_impiegato($nome, $cognome, $user, $tipo, $processo, $matricola) {
+    function db_modifica_impiegato($nome, $cognome, $user, $pw, $tipo, $processo, $matricola) {
 
         global $conn;
         $stmt1 = $conn->prepare(search_user_employee_all);
@@ -407,7 +407,7 @@
             if(!isset($nome))       $nome = $result[0]["Nome"];
             if(!isset($cognome))    $cognome = $result[0]["Cognome"];
             if(!isset($user))       $user = $result[0]["Username"];
-            //if(!isset($pw))         $pw = $result[0]["Password"];
+            if(!isset($pw))         $pw = $result[0]["Password"];
             if(!isset($tipo))       $tipo = $result[0]["Tipo"];
             if(!isset($processo))   $processo = $result[0]["Processo"];
 

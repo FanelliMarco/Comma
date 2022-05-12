@@ -30,13 +30,13 @@ if (isset($_SESSION['logged'])) { ?>
                         <!-- BACKEND : togliere il link alla pagina corrente -->
                         <?php 
                             if(isset($_SESSION['admin'])){
-                                echo "<li><a class='dropdown-item text-uppercase' href='../management/index.php'><span>management</span></a></li>";}
+                                echo "<li><a class='dropdown-item text-uppercase' href='../management/'><span>management</span></a></li>";}
                         ?>
-                        <li><a class="dropdown-item text-uppercase" href="../dashboard/index.php"><span>Dashboard</span></a></li>
-                        <li><a class="dropdown-item text-uppercase" href="../edit/index.php"><span>edit</span></a></li>
-                        <li><a class="dropdown-item text-uppercase" href="../recover/index.php"><span>recover</span></a></li>
-                        <li><a class="dropdown-item text-uppercase" href="../report/index.php"><span>report</span></a></li>
-                        <li><a class="dropdown-item text-uppercase" href="../details/index.php"><span>details</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../dashboard/"><span>Dashboard</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../edit/"><span>edit</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../recover/"><span>recover</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../report/"><span>report</span></a></li>
+                        <li><a class="dropdown-item text-uppercase" href="../details/"><span>details</span></a></li>
                     </ul>
                 </div>
             </div>

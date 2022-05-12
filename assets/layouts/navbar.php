@@ -1,7 +1,7 @@
 <?php
 if (isset($_SESSION['logged'])) { ?>
     <!-- inizio navbar -->
-    <nav class="navbar navbar-expand-lg bg-transparent navbar-dark py-3 fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top" style="background-color: #03173A;">
         <div class="container-fluid">
 
             <div class="col-1 h-100 d-flex align-items-center justify-content-center">

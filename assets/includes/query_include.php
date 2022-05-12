@@ -30,7 +30,27 @@
     
     // MODIFICA
     // usare $search_nc_all
-    if(!defined("search_nc_spec")) define("search_nc_spec", "SELECT * FROM vi_riepilogo WHERE numero=? AND tipo=?");
+    if(!defined("search_nc_spec")) define("search_nc_spec", "SELECT nci.Numero as numero, nci.Stato as stato, nci.Priorita as priorita, nci.Origine as origine, nci.Descrizione as descrizione, nci.Decisioni as decisioni, nci.Azioni_correttive as az_corr, nci.Addetto_gestione as gestore, 'input' as tipo, rili.Data as data, rili.Materia_prima as oggetto, rili.Impiegato as segnalatore, risi.Fornitore as risolutore, risi.Data_inizio as data_inizio_risoluzione, risi.Data_fine as data_fine_risoluzione, veri.Impiegato as verificatore, veri.Data_inizio as data_inizio_verifica, veri.Data_fine as data_fine_verifica
+    FROM nc_input as nci left join rilevamento_input as rili on nci.Numero = rili.NC
+      left join risoluzione_input as risi on nci.Numero = risi.NC
+      left join verifica_input as veri on nci.Numero = veri.NC
+    WHERE numero=? AND tipo=?
+      
+    UNION
+    
+    SELECT nco.Numero as numero, nco.Stato as stato, nco.Priorita as priorita, nco.Origine as origine, nco.Descrizione as descrizione, nco.Decisioni as decisioni, nco.Azioni_correttive as az_corr, nco.Addetto_gestione as gestore, 'ouput' as tipo, rilo.Data as data, rilo.Prodotto as oggetto, rilo.Cliente as segnalatore, riso.Impiegato as risolutore, riso.Data_inizio as data_inizio_risoluzione, riso.Data_fine as data_fine_risoluzione, vero.Impiegato as verificatore, vero.Data_inizio as data_inizio_verifica, vero.Data_fine as data_fine_verifica
+    FROM nc_output as nco left join rilevamento_output as rilo on nco.Numero = rilo.NC
+      left join risoluzione_output as riso on nco.Numero = riso.NC
+      left join verifica_output as vero on nco.Numero = vero.NC
+    WHERE numero=? AND tipo=?
+    
+    UNION
+    
+    SELECT ncin.Numero as numero, ncin.Stato as stato, ncin.Priorita as priorita, ncin.Origine as origine, ncin.Descrizione as descrizione, ncin.Decisioni as decisioni, ncin.Azioni_correttive as az_corr, ncin.Addetto_gestione as gestore, 'interna' as tipo, rilin.Data as data, rilin.Semilavorato as oggetto, rilin.Impiegato as segnalatore, risin.Impiegato as risolutore, risin.Data_inizio as data_inizio_risoluzione, risin.Data_fine as data_fine_risoluzione, verin.Impiegato as verificatore, verin.Data_inizio as data_inizio_verifica, verin.Data_fine as data_fine_verifica
+    FROM nc_interna as ncin left join rilevamento_interno rilin on ncin.Numero = rilin.NC
+      left join risoluzione_interna risin on ncin.Numero = risin.NC
+      left join verifica_interna verin on ncin.Numero = verin.NC
+    WHERE numero=? AND tipo=?");
 
     if(!defined("update_nc_input")) define("update_nc_input", "UPDATE nc_input SET Stato=?, Priorita=?, Decisioni=?, Azioni_correttive=? WHERE Numero=?");
     if(!defined("update_risoluzione_input")) define("update_risoluzione_input", "UPDATE risoluzione_input SET Fornitore=? WHERE NC=?");
@@ -71,4 +91,7 @@
     if(!defined("order_nc_priority")) define("order_nc_priority", "SELECT * FROM vi_riepilogo WHERE ORDER BY priorita"); //ordinamento per priorita
     if(!defined("order_nc_origin")) define("order_nc_origin", "SELECT * FROM vi_riepilogo WHERE gestore=? ORDER BY origine"); //ordinamento per origine
     */
+
+    
+
 ?>

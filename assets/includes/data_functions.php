@@ -67,7 +67,7 @@
 
 		global $conn;
 		$stmt = $conn->prepare(search_nc_spec);
-        $stmt->bind_param("is", intval($numero), $tipo);
+        $stmt->bind_param("is", (int)$numero, $tipo);
         $stmt->execute();
         $result = $stmt->get_result();
 		$result = db_result_to_array($result);

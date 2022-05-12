@@ -2,6 +2,9 @@
 
     require "../assets/includes/auth_functions.php";
     require "../assets/includes/data_functions.php";
+    require_once "../assets/setup/connessionedb.php";
+
+    session_start();
     check_logged_in();
     check_licenziato();
     if(!isset($_SESSION["admin"])) {

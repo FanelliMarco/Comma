@@ -23,7 +23,7 @@ if(!isset($_SESSION['admin']))
 
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">matricola:</span></div>
+                <div class="col-3"><span class="text-uppercase">matricola:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <input type="text" class="form-control bg-transparent text-light" id="matricola" name="matricola">
@@ -32,7 +32,7 @@ if(!isset($_SESSION['admin']))
 
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">nome:</span></div>
+                <div class="col-3"><span class="text-uppercase">nome:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <input type="text" class="form-control bg-transparent text-light" id="nome" name="nome">
@@ -41,7 +41,7 @@ if(!isset($_SESSION['admin']))
 
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">cognome:</span></div>
+                <div class="col-3"><span class="text-uppercase">cognome:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <input type="text" class="form-control bg-transparent text-light" id="cognome" name="cognome">
@@ -51,13 +51,14 @@ if(!isset($_SESSION['admin']))
             <!-- Riga tipo-->
             <div class="row align-items-center justify-content-center pb-5">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">tipo:</span></div>
+                <div class="col-3"><span class="text-uppercase">tipo:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <div class="input-group">
                         <select class="form-control text-uppercase bg-transparent text-light" id="tipo" name="tipo" >
                             <option value='Operaio' class="text-dark">Operaio</option>
                             <option value="Addetto al controllo qualita" class="text-dark">Addetto al controllo qualità</option>
+                            <option value='Admin' class="text-dark">Admin</option>
                         </select>
                     </div>
                 </div>
@@ -80,12 +81,12 @@ if(!isset($_SESSION['admin']))
             <!-- Riga processo-->
             <div class="processo row align-items-center justify-content-center pb-5" style='display:none;' id="processo">
                 <!-- Colonna di sinistra -->
-                <div class="col-3"><span class="">processo:</span></div>
+                <div class="col-3"><span class="text-uppercase">processo:</span></div>
                 <!-- Colonna di destra -->
                 <div class="col-9">
                     <div class="input-group">
                         <select class="form-control text-uppercase bg-transparent text-light" id="" name="processo" >
-                            <option value='' selected></option>
+                            <option class="text-dark" value='' selected>- Nessuno -</option>
                             <?php
 
                             $processi = db_get_processi();

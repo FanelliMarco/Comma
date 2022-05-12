@@ -19,7 +19,12 @@
                 $nome=$_POST['nome'];
                 $cognome=$_POST['cognome'];
                 $tipo=$_POST['tipo'];
-                $processo=$_POST['processo'];
+                if($tipo=='Addetto al controllo qualita' || $tipo=='Admin'){
+                    $processo=NULL;
+                }
+                else{
+                    $processo=$_POST['processo'];
+                }
                 $username= strtolower($nome)."_".strtolower($cognome);
                 $password=hash('sha256', htmlspecialchars($username."P"));
                 db_inserisci_impiegato($matricola, $nome, $cognome, $username, $password, $tipo, $processo);

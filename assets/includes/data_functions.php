@@ -460,49 +460,79 @@
         switch($search_t){
             case 'matricola':
                 //cose da fare
-                //$result=db_get_matricola($search_temp);
+                $result=db_get_matricola($search_temp);
                 break;
             case 'nome':
                 //cose da fare
-                //$result=db_get_nome($search_temp);
+                $result=db_get_nome($search_temp);
                 break;
             case 'cognome':
                 //cose da fare
-                //$result=db_get_cognome($search_temp);
+                $result=db_get_cognome($search_temp);
                 break;
             case 'tipo':
                 //cose da fare
-                //$result=db_get_tipo($search_temp);
+                $result=db_get_tipo($search_temp);
                 break;
             case 'processo':
                 //cose da fare
-                //$result=db_get_processo($search_temp);
+                $result=db_get_processo($search_temp);
                 break;
             default:
                 $_SESSION['error']='Input non valido';
                 $result = db_get_impiegati();
         }
-        create_table($result);
+        create_table_user($result);
     }
 
     function db_get_matricola($text){
-        
+        global $conn;
+        $stmt = $conn->prepare(search_users_matricola);
+        $stmt->bind_param("s", $text);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
     }
 
     function db_get_nome($text){
-
+        global $conn;
+        $stmt = $conn->prepare(search_users_nome);
+        $stmt->bind_param("s", $text);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
     }
 
     function db_get_cognome($text){
-
+        global $conn;
+        $stmt = $conn->prepare(search_users_cognome);
+        $stmt->bind_param("s", $text);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
     }
 
     function db_get_tipo($text){
-
+        global $conn;
+        $stmt = $conn->prepare(search_users_tipo);
+        $stmt->bind_param("s", $text);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
     }
 
     function db_get_processo($text){
-
+        global $conn;
+        $stmt = $conn->prepare(search_users_processo);
+        $stmt->bind_param("s", $text);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = db_result_to_array($result);
+        return $result;
     }
 
     function create_table_user($result){

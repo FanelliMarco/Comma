@@ -510,15 +510,15 @@
         switch($search_t){
             case 'matricola':
                 //cose da fare
-                $result=db_get_matricola($search_temp);
+                $result=db_get_matricola($search_temp."%");
                 break;
             case 'nome':
                 //cose da fare
-                $result=db_get_nome($search_temp);
+                $result=db_get_nome($search_temp."%");
                 break;
             case 'cognome':
                 //cose da fare
-                $result=db_get_cognome($search_temp);
+                $result=db_get_cognome($search_temp."%");
                 break;
             case 'tipo':
                 //cose da fare
@@ -526,7 +526,7 @@
                 break;
             case 'processo':
                 //cose da fare
-                $result=db_get_processo($search_temp);
+                $result=db_get_processo($search_temp."%");
                 break;
             default:
                 $_SESSION['error']='Input non valido';

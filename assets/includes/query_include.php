@@ -53,11 +53,11 @@
     if(!defined("update_user_employee")) define("update_user_employee", "UPDATE impiegato SET Nome=?, Cognome=?, Username=?, Tipo=?, Processo=?, updated_at=now() WHERE Matricola=?"); // aggiornamento dati dell'impiegato
 
     //MANAGEMENT
-    if(!defined("search_users_matricola")) define("search_users_matricola", "SELECT * FROM impiegato WHERE Matricola LIKE ?%");
-    if(!defined("search_users_nome")) define("search_users_nome", "SELECT * FROM impiegato WHERE Nome LIKE ?%");
-    if(!defined("search_users_cognome")) define("search_users_cognome", "SELECT * FROM impiegato WHERE Cognome LIKE ?%");
+    if(!defined("search_users_matricola")) define("search_users_matricola", "SELECT * FROM impiegato WHERE Matricola LIKE ?");
+    if(!defined("search_users_nome")) define("search_users_nome", "SELECT * FROM impiegato WHERE Nome LIKE ?");
+    if(!defined("search_users_cognome")) define("search_users_cognome", "SELECT * FROM impiegato WHERE Cognome LIKE ?");
     if(!defined("search_users_tipo")) define("search_users_tipo", "SELECT * FROM impiegato WHERE Tipo=?");
-    if(!defined("search_users_processo")) define("search_users_processo", "SELECT * FROM impiegato WHERE Processo LIKE ?%");
+    if(!defined("search_users_processo")) define("search_users_processo", "SELECT * FROM impiegato WHERE Processo LIKE ?");
     /*
     // ORDINAMENTI NC DASHBOARD
     if(!defined("order_nc_number")) define("order_nc_number", "SELECT * FROM vi_riepilogo WHERE gestore=? ORDER BY numero"); //ordinamento per Numero

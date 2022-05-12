@@ -7,10 +7,90 @@
     // DASHBOARD
     if(!defined("search_nc_all")) define("search_nc_all", "SELECT * FROM vi_riepilogo WHERE gestore=? or segnalatore=? or risolutore=? or verificatore=?"); // non conformità relative ad un utente
     if(!defined("view_nc_all")) define("view_nc_all", "SELECT * FROM vi_riepilogo"); // visione totale delle non conformita per l'admin
-    if(!defined("search_nc_data")) define("search_nc_data", "SELECT * FROM vi_riepilogo WHERE gestore=? and data=?"); //non conformita relativa ad un utente e data
-    if(!defined("search_nc_stato")) define("search_nc_stato", "SELECT * FROM vi_riepilogo WHERE gestore=? and stato=?"); //non conformita relativa ad un utente e stato
-    if(!defined("search_nc_priorita")) define("search_nc_priorita", "SELECT * FROM vi_riepilogo WHERE gestore=? and priorita=?"); //non conformita relativa ad un utente e priorita
-    if(!defined("search_nc_origine")) define("search_nc_origine", "SELECT * FROM vi_riepilogo WHERE gestore=? and origine=?"); //non conformita relativa ad un utente e origine
+    if(!defined("search_nc_data")) define("search_nc_data", "SELECT nci.Numero as numero, nci.Stato as stato, nci.Priorita as priorita, nci.Origine as origine, nci.Descrizione as descrizione, nci.Decisioni as decisioni, nci.Azioni_correttive as az_corr, nci.Addetto_gestione as gestore, 'input' as tipo, rili.Data as data, rili.Materia_prima as oggetto, rili.Impiegato as segnalatore, risi.Fornitore as risolutore, risi.Data_inizio as data_inizio_risoluzione, risi.Data_fine as data_fine_risoluzione, veri.Impiegato as verificatore, veri.Data_inizio as data_inizio_verifica, veri.Data_fine as data_fine_verifica
+    FROM nc_input as nci left join rilevamento_input as rili on nci.Numero = rili.NC
+      left join risoluzione_input as risi on nci.Numero = risi.NC
+      left join verifica_input as veri on nci.Numero = veri.NC
+      WHERE gestore=? and data=?
+      
+    UNION
+    
+    SELECT nco.Numero as numero, nco.Stato as stato, nco.Priorita as priorita, nco.Origine as origine, nco.Descrizione as descrizione, nco.Decisioni as decisioni, nco.Azioni_correttive as az_corr, nco.Addetto_gestione as gestore, 'ouput' as tipo, rilo.Data as data, rilo.Prodotto as oggetto, rilo.Cliente as segnalatore, riso.Impiegato as risolutore, riso.Data_inizio as data_inizio_risoluzione, riso.Data_fine as data_fine_risoluzione, vero.Impiegato as verificatore, vero.Data_inizio as data_inizio_verifica, vero.Data_fine as data_fine_verifica
+    FROM nc_output as nco left join rilevamento_output as rilo on nco.Numero = rilo.NC
+      left join risoluzione_output as riso on nco.Numero = riso.NC
+      left join verifica_output as vero on nco.Numero = vero.NC
+      WHERE gestore=? and data=?
+    
+    UNION
+    
+    SELECT ncin.Numero as numero, ncin.Stato as stato, ncin.Priorita as priorita, ncin.Origine as origine, ncin.Descrizione as descrizione, ncin.Decisioni as decisioni, ncin.Azioni_correttive as az_corr, ncin.Addetto_gestione as gestore, 'interna' as tipo, rilin.Data as data, rilin.Semilavorato as oggetto, rilin.Impiegato as segnalatore, risin.Impiegato as risolutore, risin.Data_inizio as data_inizio_risoluzione, risin.Data_fine as data_fine_risoluzione, verin.Impiegato as verificatore, verin.Data_inizio as data_inizio_verifica, verin.Data_fine as data_fine_verifica
+    FROM nc_interna as ncin left join rilevamento_interno rilin on ncin.Numero = rilin.NC
+      left join risoluzione_interna risin on ncin.Numero = risin.NC
+      left join verifica_interna verin on ncin.Numero = verin.NC
+    WHERE gestore=? and data=?"); //non conformita relativa ad un utente e data
+    if(!defined("search_nc_stato")) define("search_nc_stato", "SELECT nci.Numero as numero, nci.Stato as stato, nci.Priorita as priorita, nci.Origine as origine, nci.Descrizione as descrizione, nci.Decisioni as decisioni, nci.Azioni_correttive as az_corr, nci.Addetto_gestione as gestore, 'input' as tipo, rili.Data as data, rili.Materia_prima as oggetto, rili.Impiegato as segnalatore, risi.Fornitore as risolutore, risi.Data_inizio as data_inizio_risoluzione, risi.Data_fine as data_fine_risoluzione, veri.Impiegato as verificatore, veri.Data_inizio as data_inizio_verifica, veri.Data_fine as data_fine_verifica
+    FROM nc_input as nci left join rilevamento_input as rili on nci.Numero = rili.NC
+      left join risoluzione_input as risi on nci.Numero = risi.NC
+      left join verifica_input as veri on nci.Numero = veri.NC
+      WHERE gestore=? and stato=?
+      
+    UNION
+    
+    SELECT nco.Numero as numero, nco.Stato as stato, nco.Priorita as priorita, nco.Origine as origine, nco.Descrizione as descrizione, nco.Decisioni as decisioni, nco.Azioni_correttive as az_corr, nco.Addetto_gestione as gestore, 'ouput' as tipo, rilo.Data as data, rilo.Prodotto as oggetto, rilo.Cliente as segnalatore, riso.Impiegato as risolutore, riso.Data_inizio as data_inizio_risoluzione, riso.Data_fine as data_fine_risoluzione, vero.Impiegato as verificatore, vero.Data_inizio as data_inizio_verifica, vero.Data_fine as data_fine_verifica
+    FROM nc_output as nco left join rilevamento_output as rilo on nco.Numero = rilo.NC
+      left join risoluzione_output as riso on nco.Numero = riso.NC
+      left join verifica_output as vero on nco.Numero = vero.NC
+      WHERE gestore=? and stato=?
+    
+    UNION
+    
+    SELECT ncin.Numero as numero, ncin.Stato as stato, ncin.Priorita as priorita, ncin.Origine as origine, ncin.Descrizione as descrizione, ncin.Decisioni as decisioni, ncin.Azioni_correttive as az_corr, ncin.Addetto_gestione as gestore, 'interna' as tipo, rilin.Data as data, rilin.Semilavorato as oggetto, rilin.Impiegato as segnalatore, risin.Impiegato as risolutore, risin.Data_inizio as data_inizio_risoluzione, risin.Data_fine as data_fine_risoluzione, verin.Impiegato as verificatore, verin.Data_inizio as data_inizio_verifica, verin.Data_fine as data_fine_verifica
+    FROM nc_interna as ncin left join rilevamento_interno rilin on ncin.Numero = rilin.NC
+      left join risoluzione_interna risin on ncin.Numero = risin.NC
+      left join verifica_interna verin on ncin.Numero = verin.NC
+      WHERE gestore=? and stato=?"); //non conformita relativa ad un utente e stato
+    if(!defined("search_nc_priorita")) define("search_nc_priorita", "SELECT nci.Numero as numero, nci.Stato as stato, nci.Priorita as priorita, nci.Origine as origine, nci.Descrizione as descrizione, nci.Decisioni as decisioni, nci.Azioni_correttive as az_corr, nci.Addetto_gestione as gestore, 'input' as tipo, rili.Data as data, rili.Materia_prima as oggetto, rili.Impiegato as segnalatore, risi.Fornitore as risolutore, risi.Data_inizio as data_inizio_risoluzione, risi.Data_fine as data_fine_risoluzione, veri.Impiegato as verificatore, veri.Data_inizio as data_inizio_verifica, veri.Data_fine as data_fine_verifica
+    FROM nc_input as nci left join rilevamento_input as rili on nci.Numero = rili.NC
+      left join risoluzione_input as risi on nci.Numero = risi.NC
+      left join verifica_input as veri on nci.Numero = veri.NC
+      WHERE gestore=? and priorita=?
+      
+    UNION
+    
+    SELECT nco.Numero as numero, nco.Stato as stato, nco.Priorita as priorita, nco.Origine as origine, nco.Descrizione as descrizione, nco.Decisioni as decisioni, nco.Azioni_correttive as az_corr, nco.Addetto_gestione as gestore, 'ouput' as tipo, rilo.Data as data, rilo.Prodotto as oggetto, rilo.Cliente as segnalatore, riso.Impiegato as risolutore, riso.Data_inizio as data_inizio_risoluzione, riso.Data_fine as data_fine_risoluzione, vero.Impiegato as verificatore, vero.Data_inizio as data_inizio_verifica, vero.Data_fine as data_fine_verifica
+    FROM nc_output as nco left join rilevamento_output as rilo on nco.Numero = rilo.NC
+      left join risoluzione_output as riso on nco.Numero = riso.NC
+      left join verifica_output as vero on nco.Numero = vero.NC
+      WHERE gestore=? and priorita=?
+    
+    UNION
+    
+    SELECT ncin.Numero as numero, ncin.Stato as stato, ncin.Priorita as priorita, ncin.Origine as origine, ncin.Descrizione as descrizione, ncin.Decisioni as decisioni, ncin.Azioni_correttive as az_corr, ncin.Addetto_gestione as gestore, 'interna' as tipo, rilin.Data as data, rilin.Semilavorato as oggetto, rilin.Impiegato as segnalatore, risin.Impiegato as risolutore, risin.Data_inizio as data_inizio_risoluzione, risin.Data_fine as data_fine_risoluzione, verin.Impiegato as verificatore, verin.Data_inizio as data_inizio_verifica, verin.Data_fine as data_fine_verifica
+    FROM nc_interna as ncin left join rilevamento_interno rilin on ncin.Numero = rilin.NC
+      left join risoluzione_interna risin on ncin.Numero = risin.NC
+      left join verifica_interna verin on ncin.Numero = verin.NC
+      WHERE gestore=? and priorita=?"); //non conformita relativa ad un utente e priorita
+    if(!defined("search_nc_origine")) define("search_nc_origine", "SELECT nci.Numero as numero, nci.Stato as stato, nci.Priorita as priorita, nci.Origine as origine, nci.Descrizione as descrizione, nci.Decisioni as decisioni, nci.Azioni_correttive as az_corr, nci.Addetto_gestione as gestore, 'input' as tipo, rili.Data as data, rili.Materia_prima as oggetto, rili.Impiegato as segnalatore, risi.Fornitore as risolutore, risi.Data_inizio as data_inizio_risoluzione, risi.Data_fine as data_fine_risoluzione, veri.Impiegato as verificatore, veri.Data_inizio as data_inizio_verifica, veri.Data_fine as data_fine_verifica
+    FROM nc_input as nci left join rilevamento_input as rili on nci.Numero = rili.NC
+      left join risoluzione_input as risi on nci.Numero = risi.NC
+      left join verifica_input as veri on nci.Numero = veri.NC
+      WHERE gestore=? and origine=?
+      
+    UNION
+    
+    SELECT nco.Numero as numero, nco.Stato as stato, nco.Priorita as priorita, nco.Origine as origine, nco.Descrizione as descrizione, nco.Decisioni as decisioni, nco.Azioni_correttive as az_corr, nco.Addetto_gestione as gestore, 'ouput' as tipo, rilo.Data as data, rilo.Prodotto as oggetto, rilo.Cliente as segnalatore, riso.Impiegato as risolutore, riso.Data_inizio as data_inizio_risoluzione, riso.Data_fine as data_fine_risoluzione, vero.Impiegato as verificatore, vero.Data_inizio as data_inizio_verifica, vero.Data_fine as data_fine_verifica
+    FROM nc_output as nco left join rilevamento_output as rilo on nco.Numero = rilo.NC
+      left join risoluzione_output as riso on nco.Numero = riso.NC
+      left join verifica_output as vero on nco.Numero = vero.NC
+      WHERE gestore=? and origine=?
+    
+    UNION
+    
+    SELECT ncin.Numero as numero, ncin.Stato as stato, ncin.Priorita as priorita, ncin.Origine as origine, ncin.Descrizione as descrizione, ncin.Decisioni as decisioni, ncin.Azioni_correttive as az_corr, ncin.Addetto_gestione as gestore, 'interna' as tipo, rilin.Data as data, rilin.Semilavorato as oggetto, rilin.Impiegato as segnalatore, risin.Impiegato as risolutore, risin.Data_inizio as data_inizio_risoluzione, risin.Data_fine as data_fine_risoluzione, verin.Impiegato as verificatore, verin.Data_inizio as data_inizio_verifica, verin.Data_fine as data_fine_verifica
+    FROM nc_interna as ncin left join rilevamento_interno rilin on ncin.Numero = rilin.NC
+      left join risoluzione_interna risin on ncin.Numero = risin.NC
+      left join verifica_interna verin on ncin.Numero = verin.NC
+      WHERE gestore=? and origine=?"); //non conformita relativa ad un utente e origine
     
     // SEGNALAZIONE
     if(!defined("search_processi_nome")) define("search_processi_nome", "SELECT Nome FROM processi"); // nomi di tutti i processi
